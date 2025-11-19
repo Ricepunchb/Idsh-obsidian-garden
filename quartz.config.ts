@@ -25,7 +25,7 @@ const config: QuartzConfig = {
       typography: {
         header: "IBM Plex Sans KR",
         body: {
-          name: "Noto Sans Korean",
+          name: "Noto Sans KR",
           weights: [400, 700],
           includeItalic: true,
           },
