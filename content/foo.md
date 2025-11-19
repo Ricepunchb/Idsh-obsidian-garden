@@ -1,6 +1,6 @@
 ---
 title: Example Title
-draft: false
+publish: true
 
 tags:
   - example-tag
