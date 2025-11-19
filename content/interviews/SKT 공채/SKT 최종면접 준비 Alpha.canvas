@@ -1,0 +1,42 @@
+{
+	"nodes":[
+		{"id":"088f01b16327773a","x":1615,"y":1253,"width":250,"height":60,"type":"text","text":""},
+		{"id":"a47ac60252b52d37","type":"file","file":"모델 벤치마크.md","x":-1980,"y":-220,"width":1140,"height":1400},
+		{"id":"046c02c3314c3f53","type":"file","file":"Agent 부문.md","x":-800,"y":-220,"width":1140,"height":1380},
+		{"id":"c061bae215a352be","type":"file","file":"Post-train 부문.md","x":380,"y":-220,"width":1080,"height":1400},
+		{"id":"9a1bf8e55dacfdcf","type":"text","text":"## 채용 관련","x":215,"y":-460,"width":250,"height":60,"color":"2"},
+		{"id":"2b4cbb9918850e67","type":"file","file":"정재헌 CEO 키노트.md","x":3140,"y":-220,"width":1014,"height":458},
+		{"id":"89fd318b58e66fbd","type":"text","text":"# 세부 현황 및 트랙\n## 1. Infra\n- 초거대 AI를 가능케 하는 인프라\n- GPU 클러스터\n- 메모리 중심 컴퓨팅\n- 전력 및 열 관리\n- 지속 가능한 데이터센터 운영 / 효율적 인프라 구축\n## 2. Model\n- LLM의 효율화 (efficiency)\n- 모델 경량화\n- 멀티모달 확장\n- 데이터 거버넌스\n- 기술적 진보 / 책임 있는 개발\n## 3. AIX\n- 에이닷, 에이비즈 등 통신 특화 LLM\n- 산업현장 및 일상 속 서비스로 확장\n## 4. Special Session\n- 로보틱스 AI의 상용화\n- AI 헬스케어의 미래\n- AI 기술이 사회와 인간의 삶에 미치는 영향\n","x":4194,"y":-220,"width":826,"height":958},
+		{"id":"1c4440271a37c5ee","type":"text","text":"## SK Summit 2025","x":3995,"y":-460,"width":318,"height":55,"color":"2"},
+		{"id":"bd137c8c210f4435","type":"text","text":"# 구성\n1. 미래 RnD 랩\n2. AI DC 랩\n3. 오픈 AIX\n4. 비전\n5. 미디어\n6. 디지털트윈\n7. AI 모델\n8. AI ","x":5540,"y":-220,"width":690,"height":900},
+		{"id":"a5dc2af0b5fb5954","type":"text","text":"# 에이닷 4.0, 3.1\n## 타임라인\n- 7월초 에이닷 4.0 공개\n\t- 대규모 추가 학습 CPT 방식\n\n- 7월초 에이닷 3.1 모델 2종 공개\n\t- 7B, 34B 크기\n\t- 코드 작성, 수학 문제 해결 등 논리 추론 성능을 개선\n\n- 7월말 에이닷 4.0 VL Light 공개\n\t- 7B 에이닷 4.0을 기반으로 대규모 한국어 멀티모달 데이터셋을 학습한 VLM\n\t- 한국어 텍스트와 이미지를 동시에 이해\n\n## 앞으로의 계획\n- SKT는 투 트랙을 동시에 병행 추진 중\n### 첫 번째 트랙\n- 프롬 스크래치 자력 개발 노선\n- 모덜 설계, 학습까지 온전히 SKT 자체 연구진 주도 LLM\n- 에이닷 3.x 가 여기 해당\n### 두 번째 트랙\n- [[Continual Pre-Training]] 기반 외부 모델 활용 노선\n- 에이닷 4.0 이 해당하는데, 알리바바 Qwen2.5 모델을 활용\n### 이외\n- 멀티모달 AI 확장계획\n- VLM인 에이닷 4.0 VL 버전 공개\n- 대용량 문서 고속으로 처리하는 [[에이닷 Encoder]] 공개\n- 목적은 그림, 표가 포함된 한국어 문서도 AI가 분석 할 수 있게 멀티모달을 완성하는 것","x":6270,"y":-220,"width":830,"height":500},
+		{"id":"36ecfa7e08f577b2","type":"file","file":"Media/Pasted image 20251112153935.png","x":6400,"y":360,"width":619,"height":359},
+		{"id":"15ce3e94c07ff0fc","type":"text","text":"# 현직자 인터뷰\n## 기술적으로 도전적이었던 순간\n- 데이터 정제 작업\n\t- 휴먼 에러가 자주 발생해 자체 툴과 가이드라인 제작하여 파이프라인 구축\n- 개발자와 고객 관점이 달라 전처리 모듈 새로 설계하여 아키텍처 조정\n- GPU 부족하니까 자원 효율 높이는 것\n\t- 내부 알고리즘 개선 및 연산량 최적화\n\t- 라이브러리도 수정하여 2~3배 빠르게 학습\n- LLM 평가 체계 통합\n\t- 하나의 파이프라인으로 평가하게 자동화 시스템 구축\n## 기술적 성능 외에 모델 개발할때 고려하는 기준\n- 모델의 효용 가치\n\t- 실제 서비스 환경에서 도움이 되는가\n\t- 결국 실질적인 가치를 줄 수 있는지 염두\n- 역시 실사용성\n\t- 정확도가 좀 낮더라도 반말보다는 존댓말 쓰는 모델이 더 나은 선택\n## 좋은 R&D AI 개발자가 되기 위해 꼭 필요한 태도나 고민\n- 내가 맡은 영역 외의 흐름도 이해해보려는 태도\n\t- 경력이 쌓이면 컨트롤러로서 전체를 조율하는 역할이 많아짐\n\t- 내가 이걸 왜 알아야 하지? 란 태도 금물\n- 질문하는 자세\n\t- 모르면 바로바로 물어보고 경험해보는 자세가 중요\n\t- 하도 기술 발전이 빨라서 언제 어디서 어떤 기술이 사용될지 알 수 없음\n\t- 다양한 분야에 열린 태도로 배우려는 자세 중요\n## AI R&D란 ㅇㅇㅇ 다\n- 건물을 짓는 일\n\t- 데이터 수집, 정제, 모델 개발, 서비스 제공까지 순차적으로 건축과정과 비슷함\n- 점묘화다\n\t- 내가 찍는점이 그림의 어디 일부인지 잘 모르지만 언젠가 그림이 완성돼있을것\n\t- 하나하나의 점을 찍는데 최선을 다하자\n- 코끼리다\n\t- 내가 만지고 있는게 기둥인지, 뱀인지 모른다\n\t- 여러 분야를 알아가다 보면 내가 커다란 코끼리의 일부를 각각 만지고 있음을 깨닫게 될 것","x":7190,"y":-220,"width":890,"height":1300},
+		{"id":"a03fc5bcc459c8da","type":"file","file":"VLM 부문.md","x":1500,"y":-220,"width":980,"height":1280},
+		{"id":"a1ce5d926b2e056d","type":"text","text":"## SK R&D 센터","x":6526,"y":-460,"width":318,"height":55,"color":"2"},
+		{"id":"297952fab40e38c0","type":"file","file":"SKT 면접 준비.md","x":3534,"y":-1720,"width":1240,"height":520},
+		{"id":"ffe2731a9c5f157b","type":"file","file":"SKT Junior Talent 2025.md","x":5440,"y":-2060,"width":1281,"height":860},
+		{"id":"3e8e131ed23b1ed9","type":"text","text":"# 생각해볼만한 질문들\n## 1. 우리는 AI라는 도구의 유행을 쫒고 있는것인가 아니면 실질적으로 AI를 통해 어떤 가치를 창출하거나 문제를 풀고자 하는가?\n","x":1928,"y":-1768,"width":832,"height":608},
+		{"id":"c97ea59b7120d948","type":"text","text":"# Vertical AI란?","x":1131,"y":-2304,"width":549,"height":384},
+		{"id":"c55816a82d7c090c","type":"text","text":"# Agent의 3대 요소\n정신아 대표는 카카오식 에이전틱 AI의 3대 요소로 ① Proactive(능동성), ② Planning(계획), **③ Action(실행)**을 꼽았다.\n\n첫째, AI가 상황을 살피고 먼저 행동에 나서는 능동성을 갖춰야 하며,\n\n둘째 스스로 목표를 설정하고 달성 경로를 계획할 수 있어야 하고,\n\n셋째 계획을 실제 실행에 옮기는 행동력을 겸비해야 한다는 설명이다.","x":304,"y":-2514,"width":616,"height":454},
+		{"id":"7b3e39968b94efd6","type":"text","text":"# Agent Eval 방법론\n- 단일 QA 평가\n- Trace 평가: 전체 워크플로우와 도구호출, 상태추론, 응답구성 같은 구성 단계를 분석하고 채점\n기본적으로 LLM as Judge 방식을 쓰는 것 같음","x":-800,"y":1280,"width":1140,"height":260},
+		{"id":"7529f5912ea88930","type":"text","text":"아마 이게 EMNLP에 있던 애들인것 같음","x":380,"y":1180,"width":455,"height":60}
+	],
+	"edges":[
+		{"id":"611adc4a3ee684f0","fromNode":"9a1bf8e55dacfdcf","fromSide":"bottom","toNode":"046c02c3314c3f53","toSide":"top"},
+		{"id":"f2ed406550b0dfa8","fromNode":"9a1bf8e55dacfdcf","fromSide":"bottom","toNode":"c061bae215a352be","toSide":"top"},
+		{"id":"bd1846394ae0e75f","fromNode":"9a1bf8e55dacfdcf","fromSide":"bottom","toNode":"a47ac60252b52d37","toSide":"top"},
+		{"id":"ec19dd75313fb8bb","fromNode":"9a1bf8e55dacfdcf","fromSide":"bottom","toNode":"a03fc5bcc459c8da","toSide":"top"},
+		{"id":"80670cadecb238d1","fromNode":"297952fab40e38c0","fromSide":"bottom","toNode":"9a1bf8e55dacfdcf","toSide":"top"},
+		{"id":"880ed95d1087bc87","fromNode":"1c4440271a37c5ee","fromSide":"bottom","toNode":"2b4cbb9918850e67","toSide":"top"},
+		{"id":"a8344ccc97f659d8","fromNode":"1c4440271a37c5ee","fromSide":"bottom","toNode":"89fd318b58e66fbd","toSide":"top"},
+		{"id":"7c8ce588c3f35c81","fromNode":"297952fab40e38c0","fromSide":"bottom","toNode":"1c4440271a37c5ee","toSide":"top"},
+		{"id":"78304c19bad0027e","fromNode":"a5dc2af0b5fb5954","fromSide":"bottom","toNode":"36ecfa7e08f577b2","toSide":"top"},
+		{"id":"5a5a52f77e2994e8","fromNode":"a1ce5d926b2e056d","fromSide":"bottom","toNode":"bd137c8c210f4435","toSide":"top"},
+		{"id":"e13ba2e478ac0ef7","fromNode":"a1ce5d926b2e056d","fromSide":"bottom","toNode":"a5dc2af0b5fb5954","toSide":"top"},
+		{"id":"d25b0d85217b9bae","fromNode":"a1ce5d926b2e056d","fromSide":"bottom","toNode":"15ce3e94c07ff0fc","toSide":"top"},
+		{"id":"a7f521aa47fd9083","fromNode":"297952fab40e38c0","fromSide":"bottom","toNode":"a1ce5d926b2e056d","toSide":"top"},
+		{"id":"efa59099a63a56c3","fromNode":"297952fab40e38c0","fromSide":"right","toNode":"ffe2731a9c5f157b","toSide":"left"},
+		{"id":"a226d258d77091b0","fromNode":"046c02c3314c3f53","fromSide":"bottom","toNode":"7b3e39968b94efd6","toSide":"top"}
+	]
+}
