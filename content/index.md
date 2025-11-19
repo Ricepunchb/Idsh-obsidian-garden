@@ -6,4 +6,6 @@ publish: True
 #   - example-tag
 ---
 
-Hello World!!
+RicePunchb의 Obsidian Garden
+
+Powered by [Quartz 4](https://quartz.jzhao.xyz/)
