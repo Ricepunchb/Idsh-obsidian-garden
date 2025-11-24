@@ -1,11 +1,8 @@
 ---
 title: Docker 사용법
-
-publish: True
-
+publish: false
 tags:
   - Tool-stack
-
 date: 2024-07-05
 ---
 

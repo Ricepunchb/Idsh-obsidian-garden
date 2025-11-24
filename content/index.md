@@ -7,6 +7,7 @@ publish: True
 ---
 
 RicePunchb의 Obsidian Garden
+
 https://ricepunchb.github.io/Idsh-obsidian-garden/
 
 Powered by [Quartz 4](https://quartz.jzhao.xyz/)
