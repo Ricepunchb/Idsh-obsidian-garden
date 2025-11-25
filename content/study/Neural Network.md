@@ -1,13 +1,9 @@
 ---
 title: Neural Network
 alias: 인공신경망
-
 publish: true
-
 tags:
-  - Study
   - AI
-
 date: 2024-07-05
 ---
 

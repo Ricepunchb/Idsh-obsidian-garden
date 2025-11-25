@@ -1,14 +1,10 @@
 ---
 title: Markov Decision Process
 alias: MDP
-
 publish: true
-
 tags:
-  - Study
   - AI
   - RL
-
 date: 2024-07-05
 ---
 

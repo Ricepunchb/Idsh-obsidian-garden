@@ -1,14 +1,10 @@
 ---
 title: Transformer
 alias: 트랜스포머
-
 publish: true
-
 tags:
-  - Study
   - AI
   - Model
-
 date: 2024-07-05
 ---
 

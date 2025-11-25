@@ -1,13 +1,9 @@
 ---
 title: VAE
 alias: Variational Auto Encoder
-
 publish: true
-
 tags:
-  - Study
   - AI
-
 date: 2024-07-05
 ---
 

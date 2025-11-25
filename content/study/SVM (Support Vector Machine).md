@@ -1,13 +1,9 @@
 ---
 title: SVM
 alias: Support Vector Machine
-
 publish: true
-
 tags:
-  - Study
   - ML
-
 date: 2024-07-05
 ---
 

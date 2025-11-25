@@ -1,13 +1,9 @@
 ---
 title: Regularization
 alias: 규제화
-
 publish: true
-
 tags:
-  - Study
   - ML
-
 date: 2024-07-05
 ---
 

@@ -1,13 +1,8 @@
 ---
 title: PCA
 alias: 주성분 분석
-
 publish: true
-
 tags:
-  - Study
-  - Data Science
-
 date: 2024-07-05
 ---
 
