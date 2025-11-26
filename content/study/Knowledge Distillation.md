@@ -81,24 +81,24 @@ graph TD
 ```
 ## 3. 핵심 수식
 
-### 1. Temperature Softmax
-$$ q_i = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)} $$
-- T > 1 → 분포가 부드러워짐 → Dark Knowledge 더 잘 드러남
-- 실무: T = 3~20 (보통 5)
+\[ 
+\begin{align} 
+&\text{1. Temperature Softmax} \\ 
+&\quad q_i = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)} \\ 
+&\quad T > 1 \rightarrow \text{분포가 부드러워짐} \quad \text{(실무: } T=3\sim20\text{)} \\[1em]
 
-### 2. Distillation Loss (KL Divergence)
-$$ \mathcal{L}_{KD} = T^2 \cdot \text{KL}(p^T \| p^S) 
-   = T^2 \sum_i p_i^T \log \frac{p_i^T}{p_i^S} $$
-- `T²` 곱하는 이유: T 커질수록 gradient magnitude가 1/T²로 작아지니까 보상
+&\text{2. Distillation Loss (KL Divergence)} \\ 
+&\quad \mathcal{L}_{KD} = T^2 \cdot \text{KL}(p^T \| p^S) 
+= T^2 \sum_i p_i^T \log \frac{p_i^T}{p_i^S} \\ 
+&\quad T² \text{ 곱하는 이유: T 커질수록 gradient magnitude가 1/T²로 작아지니까 보상} \\[1em]
 
-### 3. Hard Label Loss (일반 CE)
-$$ \mathcal{L}_{CE} = -\sum_i y_i \log p_i^S(T=1) $$
+&\text{3. Hard Label Loss (일반 CE)} \\ 
+&\quad \mathcal{L}_{CE} = -\sum_i y_i \log p_i^S(T=1) \\[1em]
 
-### 4. 최종 Loss
-$$ \mathcal{L} = \alpha \cdot \mathcal{L}_{KD} + (1-\alpha) \cdot \mathcal{L}_{CE} $$
-- α = 0.7~0.9 많이 씀
-- 최근 논문은 α도 학습시키거나 cosine schedule 씀
-
+&\text{4. 최종 Loss} \\ 
+&\quad \mathcal{L} = \alpha \cdot \mathcal{L}_{KD} + (1-\alpha) \cdot \mathcal{L}_{CE} \\ &\quad \alpha = 0.7\sim0.9 \text{ 많이 씀} 
+\end{align} 
+\]
 ## 4. KD 종류 한눈에 비교
 
 | 종류               | 무엇을 따라하냐?                | 장점                              | 대표 논문/실무 예시                  |

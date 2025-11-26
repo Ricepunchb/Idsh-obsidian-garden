@@ -18,7 +18,7 @@ date: 2025-11-25
 | 전문화              | 모든 토큰에 동일한 뉴런 사용    | 토큰별로 적합한 전문가만 선택                     |
 | 추론 속도           | 느림                            | 활성 파라미터 감소로 2~4× 빠름                    |
 
-대표 모델 (2025년 11월 기준)
+**대표 모델**
 - DeepSeek-V3 671B MoE (활성 ~37B)
 - Grok-2 314B MoE (활성 ~70B)
 - Qwen2.5-72B-MoE (활성 ~16B)
@@ -27,48 +27,46 @@ date: 2025-11-25
 
 
 ```mermaid
-graph TD
-    %% 노드 정의
-    Input[입력 토큰 x]
-    Router[Gating Network<br/>Router]
-    
-    %% 라우팅 흐름
-    Input --> Router
-    Router -- Top-k 선택 --> Choice{분배}
-    
-    %% 전문가 영역 (Subgraph 제거하고 단순 연결로 호환성 확보)
-    Choice -->|w1| E1[Expert 1<br/>활성]
-    Choice -->|w2| E2[Expert 2<br/>활성]
-    Choice -.-> E3[Expert 3<br/>비활성]
-    Choice -.-> En[Expert N<br/>비활성]
+%%{init: {'theme':'default'}}%% 
+graph TD 
+	Input[Input x] 
+	Router[Gating Net]
+	
+	Input --> Router 
+	Router -- Top-k k=2 --> Choice{Select}
 
-    %% 결과 합산
-    Sum((가중합<br/>Σ))
-    Output[최종 출력 y]
+	Choice -->|G1| E1[Expert 1 Active] 
+	Choice -->|G2| E2[Expert 2 Active] 
+	Choice -.-> E3[Expert 3 Inactive] 
+	Choice -.-> En[Expert N Inactive]
 
-    E1 --> Sum
-    E2 --> Sum
-    %% 비활성 전문가는 연결하지 않음
+	Sum((Weighted Sum)) 
+	Output[Out y]
 
-    Sum --> Output
+	E1 --> Sum 
+	E2 --> Sum 
+	Sum --> Output
 
-    %% 스타일 정의 (구버전 호환용 직접 지정 방식)
-    style Input fill:#fff,stroke:#333,stroke-width:2px,color:#000
-    style Output fill:#fff,stroke:#333,stroke-width:2px,color:#000
-    
-    style Router fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
-    style Choice fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
-    
-    style E1 fill:#e3f2fd,stroke:#2196f3,stroke-width:2px,color:#000
-    style E2 fill:#e3f2fd,stroke:#2196f3,stroke-width:2px,color:#000
-    
-    style E3 fill:#f5f5f5,stroke:#bdbdbd,stroke-width:1px,stroke-dasharray: 5 5,color:#9e9e9e
-    style En fill:#f5f5f5,stroke:#bdbdbd,stroke-width:1px,stroke-dasharray: 5 5,color:#9e9e9e
-    
-    style Sum fill:#e8f5e9,stroke:#4caf50,stroke-width:2px,color:#000
+	style Input fill:#fff,stroke:#333,stroke-width:2px 
+	style Router fill:#fff9c4,stroke:#fbc02d,stroke-width:2px 
+	style Choice fill:#fff9c4,stroke:#fbc02d,stroke-width:2px 
+	style E1 fill:#e3f2fd,stroke:#2196f3,stroke-width:2px 
+	style E2 fill:#e3f2fd,stroke:#2196f3,stroke-width:2px 
+	style E3 fill:#f5f5f5,stroke:#bdbdbd,stroke-dasharray: 5 5,color:#999 
+	style En fill:#f5f5f5,stroke:#bdbdbd,stroke-dasharray: 5 5,color:#999 
+	style Sum fill:#e8f5e9,stroke:#4caf50,stroke-width:2px 
+	style Output fill:#fff,stroke:#333,stroke-width:2px
 ```
 
 ## 3. 핵심 수식
+[ \begin{align} &\text{1. Gate logits 및 Softmax} \ &\quad G(x)_i &= \text{Softmax}(x W_g + \text{noise})_i \[1em]
+
+&\text{2. Top-k Routing} \ &\quad \text{selected} &= \text{TopK}(G(x), k) \[1em]
+
+&\text{3. MoE 레이어 출력} \ &\quad y &= \sum_{i \in \text{selected}} G(x)_i \cdot E_i(x) \[1em]
+
+&\text{4. Load-Balancing Auxiliary Loss (필수)} \ &\quad \mathcal{L}_{\text{aux}} &= \alpha \sum_{i=1}^{E} f_i P_i \quad (\alpha \approx 0.01) \ &\quad f_i&: \text{ i번째 전문가가 선택된 비율} \ &\quad P_i&: \text{ i번째 전문가가 처리한 토큰 비율} \end{align} ]
+
 
 ### 1. Gate logits 및 Softmax
 $$ G(x)_i = \text{Softmax}(x W_g + \text{noise})_i $$
