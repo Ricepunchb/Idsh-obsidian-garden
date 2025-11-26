@@ -6,104 +6,106 @@ tags:
   - AI
   - LLM
 ---
-# LoRA: Low-Rank Adaptation (2021)
+# LoRA (Low-Rank Adaptation)
 
-- 대형 언어 모델(LLM)을 내 데이터에 맞춰 학습시키고 싶지만  
-- 파라미터 전부를 건드리면 메모리 터지고 시간 너무 오래 걸림  
-- LoRA는 **기존 가중치를 그대로 두고, 아주 작은 행렬만 추가**해서 빠르고 효능 좋게 미세조정하는 기법
+## 1. 개요
+2021년 Microsoft에서 제안한 효율적인 미세조정(Fine-tuning) 기법이다. 대형 언어 모델(LLM) 전체를 다시 학습시키는 대신, **기존 가중치는 고정(Freeze)하고, 아주 작은 파라미터(Rank Decomposition Matrices)만 추가하여 학습**한다.
 
-## 1. 기본 구조
-기존 가중치 W₀는 고정하고, 저랭크(low-rank) 업데이트 ΔW만 학습한다. 
-→ 추가 파라미터가 전체의 0.1% 미만
+> [!abstract] 핵심 비유
+> **"전공 서적(Pre-trained Model)의 내용을 고치려고 책 전체를 다시 인쇄하는 대신, 옆에 포스트잇(Adapter)을 붙여서 내용을 수정하는 것과 같다."**
+
+## 2. 등장 배경
+-   **문제점**: GPT-3(175B) 같은 모델을 Full Fine-tuning 하려면 수백 GB의 VRAM이 필요하여 개인이나 중소기업은 접근조차 불가능했다.
+-   **해결책**: 가중치 업데이트 행렬($\Delta W$)이 사실은 "Low-Rank(저랭크)" 특성을 가진다는 점에 착안, 이를 두 개의 작은 행렬곱($B \times A$)으로 분해하여 파라미터 수를 획기적으로(1/10,000 수준) 줄였다.
+
+## 3. 구조적 특징
+기존의 학습 파이프라인 옆에 **Bypass 경로**를 하나 더 뚫는 형태이다.
 
 ```mermaid
-%% 도표 1: LoRA의 기본 구조
 %%{init: {'theme':'default'}}%%
 graph TD
-    X[입력 X] --> W0[사전학습 W₀ Freeze]
-    X --> A[A ← 학습]
-    A --> BA[BA 계산]
-    W0 --> Plus[＋]
-    BA --> Plus
-    Plus --> Out[W = W₀ + BA]
-    style W0 fill:#FFF8F0,stroke:#D97706,stroke-width:3px
-    style BA fill:#E8F5E9,stroke:#388E3C
-    style Out fill:#E3F2FD,stroke:#1976D2
+    X["입력 X"] --> W0["Pre-trained Weight W₀<br/>(Freeze / 학습 X)"]
+    X --> A["Matrix A<br/>(학습 O / r×d)"]
+    
+    W0 --> MainOut["기존 출력<br/>h = XW₀"]
+    
+    A --> B["Matrix B<br/>(학습 O / d×r)"]
+    B --> AdapterOut["어댑터 출력<br/>h' = XAB"]
+    
+    MainOut --> Sum((Plus))
+    AdapterOut --> Sum
+    Sum --> Final["최종 출력<br/>Y = h + h'"]
+
+    style W0 fill:#FFF3E0,stroke:#EF6C00,stroke-width:2px
+    style A fill:#E8F5E9,stroke:#2E7D32
+    style B fill:#E8F5E9,stroke:#2E7D32
+    style Sum fill:#E1F5FE,stroke:#0277BD
 ```
+## 4. 핵심 수식 (Mathematical Formulation) 
+기존 가중치 행렬 $W_0$에 변화량 $\Delta W$를 더하는 과정이다. 
+### 4.1. Matrix Decomposition 
+$$ W_{\text{new}} = W_0 + \Delta W = W_0 + \frac{\alpha}{r} (B A) $$
 
-- W₀ : 원래 70B 파라미터 → **학습 안 함**
-- B ∈ ℝ^{d × r}, A ∈ ℝ^{r × d} → **이것만 학습** (r은 보통 4~64)
-- 추가 파라미터 수 = 2 × d × r → 전체 파라미터의 0.01~0.1% 수준
+- $W_0 \in \mathbb{R}^{d \times k}$: 사전학습된 가중치 (고정). 
+- $B \in \mathbb{R}^{d \times r}$: 0으로 초기화된 학습 행렬. 
+- $A \in \mathbb{R}^{r \times k}$: 정규분포로 초기화된 학습 행렬. 
+- $r \ll \min(d, k)$: **Rank**. 보통 4~64 사이의 매우 작은 값을 사용한다. 
+- $\alpha$ (Alpha): 스케일링 상수. 학습 안정성을 위해 $\Delta W$의 반영 비율을 조절한다. 
+### 4.2. Inference Optimization (추론 최적화) 
+학습이 끝난 후, 배포할 때는 굳이 두 갈래 길을 유지할 필요가 없다. 행렬 덧셈의 성질을 이용해 하나로 합친다. 
+$$ W_{\text{merged}} = W_0 + B A $$
+이렇게 병합(Merge)하면, **추론 속도는 원본 모델과 100% 동일**하다. (Latency 증가 0ms) 
+### 4.3. 파라미터 효율성 
+만약 $d=4096$, $r=4$라면: 
+- 기존 $\Delta W$: $4096 \times 4096 \approx 16,000,000$개 파라미터 
+- LoRA $(A, B)$: $2 \times 4096 \times 4 \approx 32,000$개 파라미터 
+- $\rightarrow$ **약 500배 효율적**
 
-## 2. 핵심 수식
-
-$$ W = W_0 + \Delta W = W_0 + B A $$
-
-- $W_0 \in \mathbb{R}^{d \times d}$ : 사전학습 가중치 (학습 안 함) 
-- $B \in \mathbb{R}^{d \times r}$, $A \in \mathbb{R}^{r \times d}$ : 학습 대상 (r ≪ d) 
-- r (rank) : 보통 4~64
-
-전방 전달 시 계산 최적화:
-
-$$ h = X W_0 + X (B A) = X W_0 + (X A) B $$
-
-→ 메모리 절약을 위해 (XA)를 먼저 계산
-## 3. 어디에 적용?
-
-실제로 성능이 좋은 곳만 선택 (보통 Attention만)
+## 5. 적용 위치 (Target Modules)
+Transformer의 모든 레이어에 적용할 수도 있지만, 효율을 위해 선택적으로 적용한다.
 
 ```mermaid
-%% 도표 2: LoRA 적용 위치 (실무 표준) — Mermaid 11.4.0 완벽 호환
 %%{init: {'theme':'default'}}%%
 graph LR
-    subgraph Attention
-        Q[W_q] --> qL[LoRA 적용]
-        K[W_k] --> kL[LoRA 적용]
-        V[W_v] --> vL[(선택)]
-        O[W_o] --> oL[(선택)]
+    subgraph "Attention Block"
+        Q["W_q<br/>(LoRA 권장)"] 
+        K["W_k<br/>(선택)"]
+        V["W_v<br/>(LoRA 권장)"]
+        O["W_o<br/>(선택)"]
     end
-    subgraph FFN
-        F1[W₁] --> f1[(드물게)]
-        F2[W₂] --> f2[(드물게)]
+    
+    subgraph "Feed-Forward Block"
+        Gate["W_gate<br/>(선택)"]
+        Up["W_up<br/>(선택)"]
+        Down["W_down<br/>(선택)"]
     end
 
-    style qL fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
-    style kL fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
-    style vL fill:#FFF8F0,stroke:#999999
-    style oL fill:#FFF8F0,stroke:#999999
-    style f1 fill:#FFF8F0,stroke:#999999
-    style f2 fill:#FFF8F0,stroke:#999999
+    style Q fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px
+    style V fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px
+    style K fill:#FFF9C4,stroke:#FBC02d
+    style O fill:#FFF9C4,stroke:#FBC02d
 ```
 
-일반적인 선택: 
-- Query와 Key projection ($W_q$, $W_k$)에 주로 적용 
-- 때로는 Value, Output projection도 포함 
-- FFN 레이어에도 가능하지만 효과는 덜함
+### 실무 권장 사항 (Best Practices)
+-   **필수 적용**: $W_q$ (Query), $W_v$ (Value). 이 둘에 적용하는 것이 가성비가 가장 좋다.
+-   **전체 적용**: 최근에는 $W_q, W_k, W_v, W_o$ 및 FFN의 $W_{gate}, W_{up}, W_{down}$ 모두에 적용하는 것이 성능상 이점이 크다고 보고된다 (QLoRA 논문 등).
 
-## 4. LoRA vs Full Fine-tuning 비교
-| 항목       | Full Fine-tuning | LoRA                |
-| -------- | ---------------- | ------------------- |
-| 학습 파라미터  | 70B (100%)       | 수십만~수백만 (0.03~0.3%) |
-| 저장 크기    | 280GB (fp16)     | 수 MB (adapter만 저장)  |
-| 여러 작업 가능 | 불가능              | 여러 adapter 저장 가능    |
-| 모델 병합    | 불가능              | W₀ + BA로 간단 병합 가능   |
-| 성능       | 최고               | 거의 동일 (99% 이상)      |
-## 5. [[QLoRA]] (2023) — 더 극단적으로 줄인 버전
+## 6. 하이퍼파라미터 팁
+-   **Rank ($r$)**: 보통 8, 16, 32, 64 중 선택. (일반적으론 8~32면 충분)
+-   **Alpha ($\alpha$)**: 보통 $r$과 같거나 2배로 설정 ($1 \times r$ or $2 \times r$).
+-   **Dropout**: 0.05 ~ 0.1 (과적합 방지).
+## 7. LoRA vs Full Fine-tuning 
+| 비교 항목        | Full Fine-tuning    | LoRA (PEFT)              |
+| :----------- | :------------------ | :----------------------- |
+| **학습 파라미터**  | 전체 (100%)           | 극소수 (0.01% ~ 1%)         |
+| **VRAM 요구량** | 매우 높음 (모델 크기의 3~4배) | 낮음 (모델 크기와 비슷하거나 약간 상회)  |
+| **저장 용량**    | 모델 전체 복사본 (수십 GB)   | 어댑터 파일 (수 MB ~ 수백 MB)    |
+| **모델 관리**    | 태스크마다 거대 모델 필요      | Base 모델 1개 + 태스크별 어댑터 N개 |
+| **성능**       | 기준점 (Upper Bound)   | Full FT의 99% 수준 달성 가능    |
+## 8. 발전된 형태: [[QLoRA]] 
+2023년 등장한 기법으로, Base 모델을 **4-bit로 양자화(Quantization)**한 상태에서 LoRA를 수행한다. 
+- **장점**: 48GB GPU 1장으로 65B 모델 미세조정 가능. 
+- **현황**: 2025년 기준, 오픈소스 LLM 미세조정의 **사실상 표준(De Facto Standard)이다.** 
+## 9. 한 줄 요약 
 
-- 4-bit 양자화 + LoRA + paged optimizer
-- 70B 모델을 48GB GPU 하나로 미세조정 가능
-- 성능 손실 거의 없음 → 현재 개인·기업 미세조정 표준
-
-## 6. 한 줄 요약
-
-> “거대한 모델은 그대로 두고, 아주 얇은 저랭크 어댑터만 학습시켜서  
-> 빠르고 저렴하게 모델을 훈련하는 기법”
-
-→ 2025년 기준 모든 개인·기업 미세조정의 기본 선택
-
-**실무 팁**
-- r = 8~64
-- alpha = 16~32 (스케일링 파라미터)
-- dropout = 0.05
-- $W_q, W_k$만 적용해도 충분
-- 작업별로 adapter 파일만 저장하면 여러 모델 동시에 관리 가능
+>**"LoRA는 거대 모델의 지식은 그대로 둔 채(Freeze), 얇은 어댑터만 끼워 넣어 가성비와 성능을 모두 잡은 미세조정 혁명이다."**
