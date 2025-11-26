@@ -59,29 +59,29 @@ graph TD
 ```
 
 ## 3. 핵심 수식
-[ \begin{align} &\text{1. Gate logits 및 Softmax} \ &\quad G(x)_i &= \text{Softmax}(x W_g + \text{noise})_i \[1em]
+$$ 
+\begin{align} 
+&\text{1. Gating Network (Router) – 토큰별 점수 계산} \\[0.5em] 
+&\quad g_i(x) = x W_g + b_g \qquad (\text{logits, 보통 Linear + Softmax}) \\[1.2em]
 
-&\text{2. Top-k Routing} \ &\quad \text{selected} &= \text{TopK}(G(x), k) \[1em]
+&\text{2. Top-k Routing + Noisy (실무 표준)} \\[0.5em] 
+&\quad G_i(x) = \frac{\exp(g_i(x) + \text{noise}_i)}{\sum_j \exp(g_j(x) + \text{noise}_j)} \\[0.3em] 
+&\quad \text{selected experts} = \text{TopK}(G(x), k) \quad (k=2가 대세) \\[1.2em]
 
-&\text{3. MoE 레이어 출력} \ &\quad y &= \sum_{i \in \text{selected}} G(x)_i \cdot E_i(x) \[1em]
+&\text{3. MoE 레이어 출력 (Sparse Weighted Sum)} \\[0.5em] 
+&\quad \text{MoE}(x) = \sum_{i \in \text{selected}} G_i(x) \cdot E_i(x) \\[0.5em] 
+&\quad \text{(나머지 N-k개 전문가는 완전 0 → 연산량 폭감)} \\[1.2em]
 
-&\text{4. Load-Balancing Auxiliary Loss (필수)} \ &\quad \mathcal{L}_{\text{aux}} &= \alpha \sum_{i=1}^{E} f_i P_i \quad (\alpha \approx 0.01) \ &\quad f_i&: \text{ i번째 전문가가 선택된 비율} \ &\quad P_i&: \text{ i번째 전문가가 처리한 토큰 비율} \end{align} ]
+&\text{4. Load-Balancing Auxiliary Loss (학습 안정성 핵심!)} \\[0.5em] 
+&\quad \mathcal{L}_{\text{aux}} = \alpha \cdot \sum_{i=1}^N f_i \cdot P_i \qquad (\alpha \approx 0.01) \\[0.5em] 
+&\quad f_i = \text{비율 of tokens routed to expert } i \\ 
+&\quad P_i = \text{평균 gating score of expert } i \\[0.5em] 
+&\quad \rightarrow \text{모든 전문가가 골고루 쓰이게 강제} \\[1.2em]
 
-
-### 1. Gate logits 및 Softmax
-$$ G(x)_i = \text{Softmax}(x W_g + \text{noise})_i $$
-
-### 2. Top-k Sparse Routing
-$$ \text{selected} = \text{TopK}(G(x), k) $$
-
-### 3. MoE 레이어 출력
-$$ y = \sum_{i \in \text{selected}} G(x)_i \cdot E_i(x) $$
-
-### 4. Load-Balancing Auxiliary Loss (필수)
-$$ \mathcal{L}_{\text{aux}} = \alpha \sum_{i=1}^{E} f_i P_i \quad (\alpha \approx 0.01) $$
-- $f_i$: i번째 전문가가 선택된 비율  
-- $P_i$: i번째 전문가가 처리한 토큰 비율
-
+&\text{5. 최종 Loss (실무에서 쓰는 형태)} \\[0.5em] 
+&\quad \mathcal{L} = \mathcal{L}_{\text{CE}} + \mathcal{L}_{\text{aux}} + \lambda \cdot \underbrace{\|z\|^2}_{\text{Router z-loss}} 
+\end{align}
+$$
 ## 4. 주요 MoE 변종 비교
 
 | 변종                  | Router 위치          | Top-k | 전문가 수   | 대표 모델                     | 특징                              |
@@ -92,15 +92,13 @@ $$ \mathcal{L}_{\text{aux}} = \alpha \sum_{i=1}^{E} f_i P_i \quad (\alpha \appro
 | DeepSeek-V3 Style     | 모든 FFN → MoE       | 2     | 256~1024    | DeepSeek-V3 671B              | 전문가 수 극대화                  |
 | Shared + Sparse       | 일부 Expert 공유     | 2     | 16 + shared | GLaM, Snowflake Arctic        | 메모리 추가 절감                  |
 
-## 5. 실무에서 반드시 적용하는 안정화 기법
-
-- Noisy Top-k Gating (uniform/Gumbel noise)
-- Router z-loss: $\lambda \cdot \text{mean}(\text{logits}^2)$
-- Capacity Factor 1.25~2.0
-- Auxiliary balancing loss 0.01
-- Expert Parallelism + Tensor Parallelism
-
+## 5. 안정화 기법
+| 기법                    | 수식 추가 항목                          | 대표 모델                |
+| --------------------- | --------------------------------- | -------------------- |
+| Noisy Top-k Gating    | noise ~ Uniform(-∞,0) or Gumbel   | Switch, GShard       |
+| Router z-loss         | λ·mean(logits²)                   | Mixtral, DeepSeek-V3 |
+| Capacity Factor       | drop tokens if > CF × batch/token | 초기 Google MoE        |
+| Expert Choice Routing | expert가 토큰 선택 (reverse)           | V-MoE v2             |
 ## 6. 한 줄 요약
 
-> 토큰마다 적합한 소수의 전문가만 활성화함으로써  
-> 파라미터는 대폭 늘리면서 실제 연산량은 기존 Dense 모델 수준으로 유지
+> “토큰마다 Top-2 전문가만 골라서 weighted sum하고, 나머지는 버림 → 파라미터는 671B지만 실제 활성 파라미터는 37B 수준”

@@ -25,4 +25,4 @@ Decoder는 Context Vector 를 활용해 출력 seq 를 만든다. Encoder와 비
 # 단점
 seq 길이가 길수록 시작 지점의 정보는 gradient decay 때문에 참조가 안될 수 있음
 LSTM을 써도 long-term dependency 문제를 완벽하게 극복은 못 함
-[[Attention 메커니즘]] 이 나온 이유!
+[[Attention]] 이 나온 이유!

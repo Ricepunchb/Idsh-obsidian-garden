@@ -35,53 +35,54 @@ Teacher는 정답뿐만 아니라 **오답들 사이의 미묘한 관계**까지
 Student는 이 **미묘한 차이**까지 배우기 때문에 일반 학습보다 훨씬 일반화 잘 됨!
 
 
-## Knowledge Distillation – Obsidian 100 % 호환 도식 + 핵심 수식
+## 3.1. Knowledge Distillation 도식
 
 ```mermaid
+%%{init: {'theme':'default'}}%%
 graph TD
-    %% 입력
-    Input[입력 x] 
-    Teacher[Teacher Model<br/>큰 모델 (70B~)]
-    Student[Student Model<br/>작은 모델 (7B~)]
+    A[입력 x]
+    T[Teacher Model\n큰 모델 70B+]
+    S[Student Model\n작은 모델 7B]
 
-    %% Teacher forward
-    Input --> Teacher
-    Teacher --> LogitT[zᵀ (Teacher logits)]
+    LT[z^T Teacher logits]
+    LS[z^S Student logits]
+    PT[Soft Label p^T\nSoftmax T>1]
+    PS[Soft Label p^S\nSoftmax T>1]
+    GT[Ground Truth y\nOne-hot]
 
-    %% Student forward (동일 입력)
-    Input --> Student
-    Student --> LogitS[zˢ (Student logits)]
+    KD[KD Loss\nT&#178; &times; KL(p^T &parallel; p^S)]
+    CE[CE Loss\nCrossEntropy T=1]
+    Total[Total Loss\n&alpha; &times; KD + (1-&alpha;) &times; CE]
 
-    %% Temperature 적용
-    LogitT --> TempT[Softmax with T>1<br/>Soft Label pᵀ]
-    LogitS --> TempS[Softmax with T>1<br/>Soft Label pˢ]
+    A --> T --> LT
+    A --> S --> LS
 
-    %% Hard Label (정답)
-    GT[Ground Truth y<br/>One-hot]
+    LT --> PT
+    LS --> PS
 
-    %% Loss 계산
-    TempT & TempS --> KDLoss[Distillation Loss<br/>ℒ_KD = T²·KL(pᵀ‖pˢ)]
-    LogitS & GT --> CELoss[Student Loss<br/>ℒ_CE (T=1)]
+    PT --> KD
+    PS --> KD
+    LS --> CE
+    GT --> CE
 
-    %% 최종 Loss
-    KDLoss & CELoss --> Total[Total Loss<br/>ℒ = α·ℒ_KD + (1-α)·ℒ_CE]
+    KD --> Total
+    CE --> Total
 
-    %% 스타일 (구버전 완벽 호환)
-    style Input fill:#fff,stroke:#333,stroke-width:2px
-    style Teacher fill:#ffccbc,stroke:#e64a19,stroke-width:3px
-    style Student fill:#c8e6c9,stroke:#388e3c,stroke-width:3px
-    style LogitT fill:#fff9c4,stroke:#fbc02d
-    style LogitS fill:#fff9c4,stroke:#fbc02d
-    style TempT fill:#e1f5fe,stroke:#039be5
-    style TempS fill:#e1f5fe,stroke:#039be5
-    style GT fill:#f8bbd0,stroke:#c2185b
-    style KDLoss fill:#ffe0b2,stroke:#f57c00
-    style CELoss fill:#e8f5e9,stroke:#4caf50
-    style Total fill:#e8eaf6,stroke:#3949ab,stroke-width:3px
+    style A fill:#FFF8F0,stroke:#333,stroke-width:2px
+    style T fill:#FFE5D4,stroke:#E67E22,stroke-width:3px
+    style S fill:#E8F5E9,stroke:#388E3C,stroke-width:3px
+    style LT fill:#FFF9C4,stroke:#F57C00
+    style LS fill:#FFF9C4,stroke:#F57C00
+    style PT fill:#E3F2FD,stroke:#1976D2
+    style PS fill:#E3F2FD,stroke:#1976D2
+    style GT fill:#FCE4EC,stroke:#AD1457
+    style KD fill:#FFE0B2,stroke:#F4511E
+    style CE fill:#E8F5E9,stroke:#43A047
+    style Total fill:#E8EAF6,stroke:#3949AB,stroke-width:4px,font-weight:bold
 ```
-## 3. 핵심 수식
+## 3.2. 핵심 수식
 
-\[ 
+$$
 \begin{align} 
 &\text{1. Temperature Softmax} \\ 
 &\quad q_i = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)} \\ 
@@ -98,16 +99,16 @@ graph TD
 &\text{4. 최종 Loss} \\ 
 &\quad \mathcal{L} = \alpha \cdot \mathcal{L}_{KD} + (1-\alpha) \cdot \mathcal{L}_{CE} \\ &\quad \alpha = 0.7\sim0.9 \text{ 많이 씀} 
 \end{align} 
-\]
+$$
 ## 4. KD 종류 한눈에 비교
 
-| 종류               | 무엇을 따라하냐?                | 장점                              | 대표 논문/실무 예시                  |
-|-------------------|----------------------------------|-----------------------------------|--------------------------------------|
-| Response-based    | 최종 softmax 출력                | 가장 간단, 효과 좋음               | 원조 Hinton (2015), 대부분 실무      |
-| Feature-based     | 중간 레이어 feature map          | 더 많은 정보 전달                   | FitNet, AT, RKD                     |
-| Relation-based    | 샘플 간 관계 (Gram matrix 등)     | 구조적 지식 전달                    | CRD, VID                            |
-| Logits-based      | Temperature 없이 raw logits 맞춤 | T 없이도 잘 됨                      | MiniLLM, TextKD                     |
-| Self-Distillation | Teacher = Student (같은 모델)    | 추가 Teacher 없이도 성능 ↑         | Llama-3-8B 자체 KD, Gemma-2        |
+| 종류                | 무엇을 따라하냐?                    | 장점                  | 대표 논문/실무 예시               |
+| ----------------- | ---------------------------- | ------------------- | ------------------------- |
+| Response-based    | 최종 softmax 출력                | 가장 간단, 효과 좋음        | 원조 Hinton (2015), 대부분 실무  |
+| Feature-based     | 중간 레이어 feature map           | 더 많은 정보 전달          | FitNet, AT, RKD           |
+| Relation-based    | 샘플 간 관계 (Gram matrix 등)      | 구조적 지식 전달           | CRD, VID                  |
+| Logits-based      | Temperature 없이 raw logits 맞춤 | T 없이도 잘 됨           | MiniLLM, TextKD           |
+| Self-Distillation | Teacher = Student (같은 모델)    | 추가 Teacher 없이도 성능 ↑ | Llama-3-8B 자체 KD, Gemma-2 |
 
 ## 5. 2025년 실무 팁 & 트렌드
 
