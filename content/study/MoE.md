@@ -6,7 +6,7 @@ tags:
 publish: true
 date: 2025-11-25
 ---
-# 03. Mixture of Experts (MoE)
+# Mixture of Experts (MoE)
 
 ## 1. 개요
 대규모 파라미터를 보유하면서도, 실제 추론 시에는 **일부분만 활성화(Sparse Activation)**하여 비용과 속도를 획기적으로 개선한 스케일링 기법이다.

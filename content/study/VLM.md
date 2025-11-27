@@ -5,6 +5,7 @@ date: 2025-11-26
 tags:
   - AI
   - Model
+  - VLM
 ---
 # VLM Architecture (Vision-Language Model)
 
@@ -95,7 +96,7 @@ $$
 
 ### 4.2. Q-Former (BLIP-2 방식)
 단순 투영은 이미지 정보 손실이 크거나 토큰 수가 너무 많을 수 있다. **Learnable Query**를 이용해 핵심 정보만 추출한다.
--   **구조**: 별도의 작은 Transformer(Q-Former)를 두고, 고정된 개수(예: 32개)의 Query 벡터가 이미지 인코더의 출력과 **Cross-Attention**을 수행한다.
+-   **구조**: 별도의 작은 Transformer(Q-Former)를 두고, 고정된 개수(예: 32개)의 Query 벡터가 이미지 인코더의 출력과 **[[Cross Attention]]** 을 수행한다.
 -   **장점**: 긴 이미지 토큰 시퀀스를 짧고 압축된 형태로 요약하여 LLM에 전달한다.
 
 ### 4.3. Cross-Attention (Flamingo 방식)
