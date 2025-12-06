@@ -7,9 +7,6 @@ tags:
 date: 2024-07-05
 ---
 
-
-
-
 # 개요
 ## Determinative Model
 판별모델
