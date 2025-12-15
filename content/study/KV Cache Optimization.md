@@ -50,6 +50,9 @@ graph LR
 ```
 
 ## 3. PagedAttention의 수학적 원리
+
+^5d3d51
+
 KV Cache를 연속적인 공간에 두지 않고, 고정된 크기의 **블록(Block)** 단위로 쪼개서 비연속적(Non-contiguous)으로 저장한다.
 
 ### 3.1. 블록(Block)과 페이지 테이블

@@ -53,7 +53,7 @@ graph LR
 ### 2.1. 모델 압축 (Model Compression)
 모델의 크기 자체를 줄여 연산량과 메모리 접근을 최소화한다.
 -   **Quantization (양자화)**: FP16(16bit) 가중치를 INT8, INT4로 줄임. (AWQ, GPTQ)
-    -   *관련 노트*: [[QLoRA]] (학습 관점의 양자화지만 원리는 동일)
+    -   *관련 노트*: [[LoRA#^53fa32|QLoRA]] (학습 관점의 양자화지만 원리는 동일)
 -   **Pruning (가지치기)**: 중요하지 않은 가중치를 0으로 만들거나 삭제.
 -   **Distillation (지식 증류)**: 큰 모델의 지식을 작은 모델로 옮김.
     -   *관련 노트*: [[Knowledge Distillation]]
@@ -61,7 +61,7 @@ graph LR
 ### 2.2. 메모리 & I/O 최적화 (System Level)
 LLM 추론의 병목인 **Memory Bandwidth**를 해결하는 기술이다.
 -   **PagedAttention**: OS 페이징 기법으로 KV Cache 단편화 해결.
-    -   *관련 노트*: [[PagedAttention|Paged Attention & KV Cache]]
+    -   *관련 노트*: [[KV Cache Optimization#^5d3d51|Paged Attention & KV Cache]]
 -   **FlashAttention**: GPU SRAM을 활용해 $O(N^2)$ 메모리 접근을 줄임.
     -   *관련 노트*: [[Long-seq|FlashAttention]] (Long Context 노트 참조)
 

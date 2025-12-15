@@ -6,7 +6,7 @@ tags:
   - AI
   - LLM
 ---
-# 05. Knowledge Distillation (KD)
+# Knowledge Distillation (KD)
 
 ## 1. 개요
 거대한 모델(Teacher)이 학습한 지식을 작은 모델(Student)에게 압축하여 전달하는 기술이다. 주로 추론 속도 향상과 메모리 경량화를 위해 사용된다.
