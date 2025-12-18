@@ -7,7 +7,7 @@ tags:
   - AI
 date: 2024-07-05
 ---
-# 19. Regularization (정규화)
+# Regularization (정규화)
 
 ## 1. 개요
 모델이 학습 데이터에만 너무 과하게 맞춰져(Overfitting), 새로운 데이터에 대한 예측 성능(Generalization)이 떨어지는 것을 막기 위해 **모델의 복잡도를 의도적으로 줄이는 기법**이다.

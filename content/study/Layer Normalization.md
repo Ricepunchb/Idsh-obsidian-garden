@@ -6,7 +6,7 @@ date: 2025-11-27
 tags:
   - AI
 ---
-# 18. Layer Normalization (LN) & Pre-Norm
+# Layer Normalization (LN) & Pre-Norm
 
 ## 1. 개요
 데이터의 분포를 정규화(Normalize)하여 학습 속도를 높이고 안정화하는 기법이다.
