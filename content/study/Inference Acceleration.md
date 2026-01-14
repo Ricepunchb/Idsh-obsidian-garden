@@ -63,7 +63,7 @@ LLM 추론의 병목인 **Memory Bandwidth**를 해결하는 기술이다.
 -   **PagedAttention**: OS 페이징 기법으로 KV Cache 단편화 해결.
     -   *관련 노트*: [[KV Cache Optimization#^5d3d51|Paged Attention & KV Cache]]
 -   **FlashAttention**: GPU SRAM을 활용해 $O(N^2)$ 메모리 접근을 줄임.
-    -   *관련 노트*: [[Long-seq|FlashAttention]] (Long Context 노트 참조)
+    -   *관련 노트*: [[Long-sequence Handling|FlashAttention]] (Long Context 노트 참조)
 
 ### 2.3. 알고리즘 가속 (Algorithmic Level)
 생성 방식(Decoding) 자체를 바꿔 속도를 높인다.

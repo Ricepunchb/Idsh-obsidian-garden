@@ -28,7 +28,7 @@ publish: True
     - [[study/Inference Acceleration|🚀 Inference Acceleration Index]] : 추론 가속화 기술 총정리.
     - [[study/KV Cache Optimization|KV Cache & PagedAttention]] : vLLM의 핵심 메모리 기술.
     - [[study/Speculative Decoding|Speculative Decoding]] : 인턴과 부장님 모델의 협업.
-    - [[study/Long-seq|Long Context Handling]] : RoPE Scaling과 긴 문맥 처리.
+    - [[Long-sequence Handling|Long Context Handling]] : RoPE Scaling과 긴 문맥 처리.
     - [[study/분산 GPU 훈련|Distributed GPU Training]] : 3D Parallelism과 ZeRO 전략.
 
 - **Architecture & Strategies**
