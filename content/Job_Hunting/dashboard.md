@@ -13,3 +13,4 @@ TABLE
 FROM "Job_Hunting/logs" 
 SORT 상태 DESC
 ```
+
