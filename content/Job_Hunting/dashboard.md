@@ -7,7 +7,9 @@ tags:
 ---
 
 ```dataview
-TABLE 
+TABLE
+  title AS "title",
+  회사명 AS "회사", 
   지원직무 AS "직무", 
   상태 AS "현재 상태" 
 FROM "Job_Hunting/logs" 

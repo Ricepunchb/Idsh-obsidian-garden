@@ -72,6 +72,7 @@ const config: QuartzConfig = {
       }),
       Plugin.DataviewTable({
         contentDir: "content",
+        baseUrl: "/Idsh-obsidian-garden",
         }),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),

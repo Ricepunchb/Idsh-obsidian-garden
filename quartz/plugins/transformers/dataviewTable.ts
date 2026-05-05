@@ -5,14 +5,25 @@ import { QuartzTransformerPlugin } from "../types"
 
 interface Options {
   contentDir: string
+  baseUrl?: string
 }
 
 const defaultOptions: Options = {
   contentDir: "content",
+  baseUrl: "/Idsh-obsidian-garden",
 }
 
 function escapeMd(text: unknown): string {
   return String(text ?? "").replace(/\|/g, "\\|").trim()
+}
+
+function escapeHtml(text: unknown): string {
+  return String(text ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .trim()
 }
 
 function parseDataviewBlock(block: string) {
@@ -62,11 +73,14 @@ function walkMarkdownFiles(dir: string): string[] {
   return files
 }
 
-function buildMarkdownTable(rows: Record<string, unknown>[], columns: { field: string; label: string }[]) {
+function buildMarkdownTable(
+  rows: Record<string, unknown>[],
+  columns: { field: string; label: string }[],
+) {
   const header = `| ${columns.map((c) => escapeMd(c.label)).join(" | ")} |`
   const divider = `| ${columns.map(() => "---").join(" | ")} |`
   const body = rows.map((row) => {
-    return `| ${columns.map((c) => escapeMd(row[c.field])).join(" | ")} |`
+    return `| ${columns.map((c) => String(row[c.field] ?? "")).join(" | ")} |`
   })
 
   return [header, divider, ...body].join("\n")
@@ -80,19 +94,35 @@ export const DataviewTable: QuartzTransformerPlugin<Partial<Options>> = (userOpt
     textTransform(_ctx, src) {
       const text = src.toString()
 
-      return text.replace(/```dataview\s*([\s\S]*?)```/g, (_match, block) => {
+      return text.replace(/```dataview\s*([\s\S]*?)```/g, (match, block) => {
         const parsed = parseDataviewBlock(block)
         if (!parsed || parsed.columns.length === 0) {
-          return _match
+          return match
         }
 
         const targetDir = path.join(process.cwd(), opts.contentDir, parsed.from)
         const files = walkMarkdownFiles(targetDir)
 
-        let rows = files.map((file) => {
+        let rows: Record<string, unknown>[] = files.map((file) => {
           const raw = fs.readFileSync(file, "utf8")
           const { data } = matter(raw)
-          return data as Record<string, unknown>
+
+          const relative = path.relative(path.join(process.cwd(), opts.contentDir), file)
+          const slug = relative
+            .replace(/\\/g, "/")
+            .replace(/\.md$/, "")
+            .replace(/\/index$/, "")
+
+          const title = String(data["title"] ?? path.basename(file, ".md"))
+          const href = `${opts.baseUrl}/${slug}`.replace(/\/+/g, "/")
+          const titleLink = `<a href="${escapeHtml(href)}">${escapeHtml(title)}</a>`
+
+          return {
+            ...data,
+            title: titleLink,
+            file: titleLink,
+            slug,
+          }
         })
 
         if (parsed.sortField) {
