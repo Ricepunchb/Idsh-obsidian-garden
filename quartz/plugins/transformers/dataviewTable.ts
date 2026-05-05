@@ -16,39 +16,29 @@ function escapeMd(text: unknown): string {
 }
 
 function parseDataviewBlock(block: string) {
-  const fromMatch = block.match(/FROM\s+"([^"]+)"/i)
-  const sortMatch = block.match(/SORT\s+([^\s]+)\s+(ASC|DESC)/i)
+  const normalized = block.replace(/\r\n/g, "\n").trim()
 
-  const lines = block
-    .split("\n")
-    .map((l) => l.trim())
-    .filter(Boolean)
+  const fromMatch = normalized.match(/FROM\s+"([^"]+)"/i)
+  const sortMatch = normalized.match(/SORT\s+([^\s]+)\s+(ASC|DESC)/i)
+  const tableMatch = normalized.match(/TABLE\s+([\s\S]*?)\s+FROM\s+"[^"]+"/i)
 
-  const tableStart = lines.findIndex((l) => /^TABLE\b/i.test(l))
-  if (tableStart === -1 || !fromMatch) return null
+  if (!fromMatch || !tableMatch) return null
 
-  const fieldLines: string[] = []
-  for (let i = tableStart + 1; i < lines.length; i++) {
-    const line = lines[i]
-    if (/^(FROM|SORT|WHERE|LIMIT)\b/i.test(line)) break
-    fieldLines.push(line.replace(/,$/, ""))
-  }
-
-  const columns = fieldLines
-    .join("\n")
+  const rawColumns = tableMatch[1]
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean)
-    .map((expr) => {
-      const m = expr.match(/^(.+?)\s+AS\s+"(.+?)"$/i)
-      if (m) {
-        return { field: m[1].trim(), label: m[2].trim() }
-      }
-      return { field: expr, label: expr }
-    })
+
+  const columns = rawColumns.map((expr) => {
+    const m = expr.match(/^(.+?)\s+AS\s+"(.+?)"$/i)
+    if (m) {
+      return { field: m[1].trim(), label: m[2].trim() }
+    }
+    return { field: expr.trim(), label: expr.trim() }
+  })
 
   return {
-    from: fromMatch[1],
+    from: fromMatch[1].trim(),
     sortField: sortMatch?.[1]?.trim(),
     sortOrder: (sortMatch?.[2]?.toUpperCase() ?? "ASC") as "ASC" | "DESC",
     columns,
