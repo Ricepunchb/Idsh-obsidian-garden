@@ -114,8 +114,7 @@ export const DataviewTable: QuartzTransformerPlugin<Partial<Options>> = (userOpt
             .replace(/\/index$/, "")
 
           const title = String(data["title"] ?? path.basename(file, ".md"))
-          const href = `${opts.baseUrl}/${slug}`.replace(/\/+/g, "/")
-          const titleLink = `<a href="${escapeHtml(href)}">${escapeHtml(title)}</a>`
+          const titleLink = `<a href="/${escapeHtml(slug)}">${escapeHtml(title)}</a>`
 
           return {
             ...data,
