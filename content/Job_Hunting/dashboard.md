@@ -1,6 +1,6 @@
 ---
-title: 2026 상반기 취준 현황
-date: 2026-09-02
+title: 2026 하반기 취준 현황
+date: 2026-09-10
 publish: true
 tags:
   - Career
