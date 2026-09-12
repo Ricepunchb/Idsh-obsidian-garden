@@ -1,5 +1,5 @@
 ---
-publish: true
+publish: false
 title: LG cns 2026 하반기
 회사명: LG cns
 지원직무: AI (AX)

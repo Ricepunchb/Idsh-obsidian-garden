@@ -1,11 +1,13 @@
 ---
-publish: true
+publish: false
 title: SKT Junior Talent 2025
 회사명: SKT
 지원직무: Tech R&D ㅣ AI Model
-상태: 서류제출
+상태: 코테합격, 자소서 진행중
 서류마감: 2026-08-30
 코테응시: 2026-09-06
+코테발표: 2026-09-11
+자소서마감: 2026-09-17
 ---
 
 # JD

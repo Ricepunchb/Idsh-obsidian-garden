@@ -1,5 +1,5 @@
 ---
-publish: true
+publish: false
 title: LIG D&A 2026 하반기
 회사명: LIG D&A
 지원직무: C4I-응용SW

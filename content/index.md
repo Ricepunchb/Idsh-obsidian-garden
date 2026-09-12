@@ -16,7 +16,7 @@ publish: True
 > - **Email:** [baeshstar@gmail.com](mailto:baeshstar@gmail.com) 
 > - **GitHub:** [Ricepunchb (SuHyun Bae)](https://github.com/Ricepunchb)
 > - **LinkedIn:** www.linkedin.com/in/suhyun-bae-869043286
-> - **Resume:** [CV](https://aiml-k.github.io/cv/CV_SuhyunBae_20251224.pdf)
+> - **Resume:** [CV](Job_Hunting/2026하반기/자소서들/삼전_인재풀용_포트폴리오.htm)
 
 ---
 <center> <small> Powered by <a href="https://quartz.jzhao.xyz/">Quartz 4</a> © 2025 RicePunchb </small> </center>
