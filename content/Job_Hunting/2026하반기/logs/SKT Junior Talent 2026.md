@@ -1,6 +1,6 @@
 ---
 publish: false
-title: SKT Junior Talent 2025
+title: SKT Junior Talent 2026
 회사명: SKT
 지원직무: Tech R&D ㅣ AI Model
 상태: 코테합격, 자소서 진행중
