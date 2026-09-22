@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" width="680" height="380" font-family="'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif">
+  <title>월별 지원 건수와 서류 통과율</title>
+  <rect x="0" y="0" width="680" height="380" fill="#fcfcfb"/>
+
+  <!-- Title -->
+  <text x="24" y="32" font-size="17" font-weight="700" fill="#0b0b0b">월별 지원 건수와 서류 통과율</text>
+  <text x="24" y="52" font-size="12" fill="#52514e">2026년 상반기 · 서류마감월 기준 (10월은 2025년 하반기에서 이월된 건)</text>
+
+  <!-- Legend -->
+  <g transform="translate(430,20)">
+    <rect x="0" y="4" width="12" height="12" rx="3" fill="#2a78d6"/>
+    <text x="18" y="14" font-size="12" fill="#52514e">서류 통과(진행)</text>
+    <rect x="140" y="4" width="12" height="12" rx="3" fill="#e34948"/>
+    <text x="158" y="14" font-size="12" fill="#52514e">서류 탈락/무응답</text>
+  </g>
+
+  <!-- Gridlines + y labels -->
+  <g>
+    <line x1="70" y1="300" x2="630" y2="300" stroke="#c3c2b7" stroke-width="1"/>
+    <line x1="70" y1="228" x2="630" y2="228" stroke="#e1e0d9" stroke-width="1"/>
+    <line x1="70" y1="156" x2="630" y2="156" stroke="#e1e0d9" stroke-width="1"/>
+    <line x1="70" y1="84" x2="630" y2="84" stroke="#e1e0d9" stroke-width="1"/>
+    <text x="58" y="304" font-size="11" fill="#898781" text-anchor="end">0</text>
+    <text x="58" y="232" font-size="11" fill="#898781" text-anchor="end">2</text>
+    <text x="58" y="160" font-size="11" fill="#898781" text-anchor="end">4</text>
+    <text x="58" y="88" font-size="11" fill="#898781" text-anchor="end">6건</text>
+  </g>
+
+  <!-- Bar 0: 2025-10, total 1, pass 1, fail 0 -->
+  <g>
+    <rect x="108" y="264" width="64" height="36" rx="3" fill="#2a78d6"/>
+    <text x="140" y="253" font-size="12" fill="#0b0b0b" text-anchor="middle" font-weight="600">100%</text>
+    <text x="140" y="320" font-size="12" fill="#0b0b0b" text-anchor="middle">25년 10월*</text>
+    <text x="140" y="336" font-size="11" fill="#898781" text-anchor="middle">1건 지원</text>
+  </g>
+
+  <!-- Bar 1: 2026-03, total 6, pass 3, fail 3 -->
+  <g>
+    <rect x="248" y="192" width="64" height="108" rx="3" fill="#2a78d6"/>
+    <rect x="248" y="84" width="64" height="106" rx="3" fill="#e34948"/>
+    <text x="280" y="73" font-size="12" fill="#0b0b0b" text-anchor="middle" font-weight="600">50%</text>
+    <text x="280" y="320" font-size="12" fill="#0b0b0b" text-anchor="middle">26년 3월</text>
+    <text x="280" y="336" font-size="11" fill="#898781" text-anchor="middle">6건 지원</text>
+  </g>
+
+  <!-- Bar 2: 2026-04, total 4, pass 1, fail 3 -->
+  <g>
+    <rect x="388" y="264" width="64" height="36" rx="3" fill="#2a78d6"/>
+    <rect x="388" y="156" width="64" height="106" rx="3" fill="#e34948"/>
+    <text x="420" y="145" font-size="12" fill="#0b0b0b" text-anchor="middle" font-weight="600">25%</text>
+    <text x="420" y="320" font-size="12" fill="#0b0b0b" text-anchor="middle">26년 4월</text>
+    <text x="420" y="336" font-size="11" fill="#898781" text-anchor="middle">4건 지원</text>
+  </g>
+
+  <!-- Bar 3: 2026-05, total 1, pass 0, fail 1 -->
+  <g>
+    <rect x="528" y="264" width="64" height="36" rx="3" fill="#e34948"/>
+    <text x="560" y="253" font-size="12" fill="#0b0b0b" text-anchor="middle" font-weight="600">0%</text>
+    <text x="560" y="320" font-size="12" fill="#0b0b0b" text-anchor="middle">26년 5월</text>
+    <text x="560" y="336" font-size="11" fill="#898781" text-anchor="middle">1건 지원</text>
+  </g>
+
+  <text x="24" y="368" font-size="11" fill="#898781">* 25년 10월 지원한 SKT 건으로, 최종 결과는 25년 12월에 나왔다 (최종면접 탈락).</text>
+</svg>
