@@ -3,11 +3,11 @@ title: Chapter 5
 
 publish: true
 
-tags:
-  - Study
-  - Statistics
 
 date: 2024-07-05
+tags:
+  - Math
+  - Probability
 ---
 
 
@@ -46,6 +46,11 @@ $X_1, X_2$가 포아송 분포이고 각각 $\lambda_1, \lambda_2$를 가지면,
 
 $X\sim Y \leftrightarrow \phi_X(t)=\phi_Y(t)$.
 포아송 분포의 distribution이 같으면 m.g.f도 같다.
+
+### 이항분포의 극한으로서의 포아송 분포
+포아송 분포는 $n$이 아주 크고 $p$가 아주 작은 이항분포의 극한으로도 유도된다. 고정된 구간을 $n$개의 아주 짧은 구간으로 쪼개서(구간마다 사건이 최대 1번만 일어난다고 가정) $np=\lambda$로 고정한 채 $n\to\infty$를 보내면,
+$$\begin{align} P\{X=i\}&=\binom{n}{i}p^i(1-p)^{n-i} \\ &= \dfrac{n!}{i!(n-i)!}\left(\dfrac{\lambda}{n}\right)^i\left(1-\dfrac{\lambda}{n}\right)^{n-i} \\ &= \dfrac{\lambda^i}{i!}\cdot\underbrace{\dfrac{n!}{(n-i)!n^i}}_{\to 1}\cdot\underbrace{\left(1-\dfrac{\lambda}{n}\right)^{n}}_{\to e^{-\lambda}}\cdot\underbrace{\left(1-\dfrac\lambda n\right)^{-i}}_{\to 1} \\ &\longrightarrow e^{-\lambda}\dfrac{\lambda^i}{i!}\end{align}$$
+그래서 포아송 분포는 "시행 횟수는 많지만 성공 확률은 낮은" 사건(하루 동안 걸려오는 전화 수, 특정 페이지의 오타 개수 등)을 모델링할 때 자연스럽게 등장한다.
 
 # 3. Hypergeometric r.v.
 멀쩡한 $N$개와 불량품 $M$개 중 $n$개를 뽑을때 멀쩡한거 $i$개를 뽑을 확률
@@ -149,6 +154,39 @@ $$P\{X>(s+t)|X>t\}=P\{X>s\} \text{ for }s,t\ge0$$
 $$\text{LHS}={P\{X>s+t\}\over P\{X>t\}}={e^{-\lambda(s+t)}\over e^{-\lambda t}}=e^{-\lambda s}=\text{RHS}$$
 
 형광등은 몇 년 쓴거랑 새거랑 기대수명이 똑같다
+
+### 독립인 지수분포의 최솟값
+$X_1\sim\text{Exp}(\lambda_1),\,X_2\sim\text{Exp}(\lambda_2)$ 이고 $X_1\perp X_2$ 이면,
+$$\min(X_1,X_2)\sim\text{Exp}(\lambda_1+\lambda_2)$$
+>[!note] proof.
+>$$P\{\min(X_1,X_2)>t\}=P\{X_1>t\}P\{X_2>t\}=e^{-\lambda_1t}e^{-\lambda_2t}=e^{-(\lambda_1+\lambda_2)t}$$
+
+예를 들어 이메일이 $\lambda_1$의 rate로, 문자가 $\lambda_2$의 rate로 온다면, "이메일이든 문자든 뭐든 먼저 오는 것"을 기다리는 시간은 $\text{Exp}(\lambda_1+\lambda_2)$를 따른다.
+
+# 7. Geometric r.v.
+
+>[!attention] Definition
+$X$가 성공확률 $p$인 독립적인 베르누이 시행을 반복할 때, **첫 성공까지 필요한 시행 횟수**이면 $X$는 *geometric* r.v.이다.
+$$P\{X=k\}=(1-p)^{k-1}p,\quad k=1,2,3,\dots$$
+
+1. Tail probability는 실패만 $k$번 반복될 확률이므로 깔끔한 형태를 가진다.
+   $$P\{X>k\}=(1-p)^k$$
+
+2. $E[X]=\dfrac{1}{p}$, $V[X]=\dfrac{1-p}{p^2}$
+
+>[!note] proof. (first-step analysis로 $E[X]$ 유도)
+>첫 시행에서 확률 $p$로 성공하면 $X=1$, 확률 $1-p$로 실패하면 시행 1번을 소모하고 처음부터 다시 시작하는 것과 같으므로 실패 시 $X=1+E[X]$.
+>$$E[X]=p\cdot1+(1-p)(1+E[X])=1+(1-p)E[X]$$
+>정리하면 $pE[X]=1 \Rightarrow E[X]=1/p$.
+
+### Memoryless 성질
+Exponential r.v.와 마찬가지로, Geometric r.v.도 memoryless 하다.
+$$P\{X>m+n \mid X>m\}=P\{X>n\}$$
+이미 $m$번 실패했다는 사실이 앞으로 몇 번 더 실패할지에 아무 영향을 주지 않는다는 뜻이다. 실제로 **양의 정수 위에서 memoryless한 이산분포는 geometric 분포가 유일**하다 (반대로 $[0,\infty)$ 위에서는 exponential 분포가 유일).
+
+### PMF의 합이 1임을 확인
+등비급수(geometric series) $\displaystyle\sum^{\infty}_{k=0}r^k=\dfrac{1}{1-r}\;(|r|<1)$ 를 이용하면,
+$$\sum^{\infty}_{k=1}(1-p)^{k-1}p = p\sum^{\infty}_{i=0}(1-p)^i = p\cdot\dfrac{1}{1-(1-p)}=p\cdot\dfrac{1}{p}=1$$
 
 # 8. Distributions arising from the Normal
 ## A. Chi-Square Distribution

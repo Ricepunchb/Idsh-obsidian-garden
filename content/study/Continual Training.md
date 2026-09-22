@@ -3,7 +3,7 @@ title: Continual Training
 publish: true
 date: 2025-11-25
 tags:
-  - AI
+  - Fine-Tuning
   - LLM
 ---
 # Continual Learning Pipeline

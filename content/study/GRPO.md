@@ -3,8 +3,8 @@ title: GRPO
 publish: true
 date: 2025-12-18
 tags:
+  - RLHF
   - RL
-  - AI
 ---
 # GRPO (Group Relative Policy Optimization)
 
@@ -68,6 +68,32 @@ $$
 J_{GRPO}(\theta) = \mathbb{E} \left[ \frac{1}{G} \sum_{i=1}^{G} \left( \min \dots \right) - \beta D_{KL}(\pi_{\theta} || \pi_{ref}) \right]
 $$
 -   **KL Term**: 학습된 정책 $\pi_{\theta}$가 참조 모델 $\pi_{ref}$(초기 모델 복사본)에서 너무 멀어지지 않도록 규제한다
+
+### 3.4. 생략된 clip 항 풀어쓰기
+위 식의 $\min(\dots)$ 부분을 [[PPO]]와 동일한 표기로 정확히 쓰면 다음과 같다. $o_t^{(i)}$는 $i$번째 응답의 $t$번째 토큰, $r_t$는 [[Policy Gradient]]에서 정의한 것과 같은 시점별 importance ratio다.
+$$
+\mathcal J^\text{GRPO-CLIP}(\theta)=\frac 1G\sum_{i=1}^G\frac 1T\sum_{t=1}^T\min\left(r_tA^{(i)},\operatorname{clip}(r_t,1-\epsilon,1+\epsilon)A^{(i)}\right),\quad r_t=\frac{\pi_\theta(o_t\mid s_t)}{\pi_{\theta_\text{old}}(o_t\mid s_t)}
+$$
+- 어드밴티지 $A^{(i)}$는 응답 내 모든 토큰에 대해 동일한 값이다 (토큰별이 아니라 응답별로 하나씩 계산됨).
+
+### 3.5. GRPO가 결합하는 세 가지 아이디어
+1. **off-policy policy gradient** ([[Policy Gradient]]): $\pi_{\theta_\text{old}}$로 샘플링한 rollout을 importance ratio $r_t$로 재사용
+2. **클리핑 메커니즘** ([[PPO]]): $r_t$를 $[1-\epsilon,1+\epsilon]$로 잘라 안정성 확보
+3. **그룹 정규화로 계산한 advantage** (DeepSeek R1): critic 없이 그룹 내 상대 보상 $A^{(i)}$로 advantage를 대체
+
+### 3.6. 알고리즘 개요
+- 정책 모델 $\pi_\theta\leftarrow\pi_{\theta_\text{init}}$으로 초기화
+- 각 스텝(`n_grpo_steps`)마다
+  1. 배치 $\mathcal D_b\subset\mathcal D$ 샘플링
+  2. old 정책 갱신: $\pi_{\theta_\text{old}}\leftarrow\pi_\theta$
+  3. 각 질문 $q\in\mathcal D_b$마다 $\pi_{\theta_\text{old}}(\cdot\mid q)$에서 $G$개의 응답 $\{o^{(i)}\}_{i=1}^G$ 샘플링
+  4. 각 응답의 보상 $\{r^{(i)}\}_{i=1}^G$ 계산, 그룹 정규화로 $A^{(i)}$ 계산
+  5. 각 학습 스텝(`n_train_steps_per_rollout_batch`)마다 GRPO 목적함수를 최대화하도록 $\pi_\theta$ 업데이트
+
+### 3.7. Dr. GRPO가 지적한 두 가지 편향
+1. **그룹 표준편차 정규화의 편향**: $\text{std}(\mathbf r)$이 작은(너무 쉽거나 너무 어려운) 그룹일수록 $A^{(i)}=\frac{r^{(i)}-\text{mean}(\mathbf r)}{\text{std}(\mathbf r)}$이 증폭되어, 그 그룹을 과도하게 중요하게 취급하게 된다.
+2. **응답 길이로 나누는 정규화의 편향**: 목적함수가 $\frac{1}{|o_i|}$로 정규화되면서, 정답 중에서는 짧은 응답일수록 gradient가 커져 더 강하게 강화되고, 오답 중에서는 긴 응답일수록 gradient가 작아져 덜 벌점을 받는다. 그 결과 모델이 "답을 못 맞출 바엔 길게 써서 벌점을 줄이자"는 방향으로 학습될 위험이 있다.
+
 ## 4. GRPO Implementation Code
 최근 Hugging Face의 `trl` 라이브러리에 `GRPOTrainer`가 정식 추가되었다. 이를 사용하면 복잡한 수식을 직접 구현하지 않아도 된다.
 

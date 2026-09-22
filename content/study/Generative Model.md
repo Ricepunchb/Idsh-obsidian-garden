@@ -2,9 +2,10 @@
 title: 생성형 모델
 alias: Generative Model
 publish: true
-tags:
-  - AI
 date: 2024-07-05
+tags:
+  - Generative-Model
+  - ML
 ---
 
 # 개요

@@ -4,8 +4,8 @@ alias: 불확실성 탐지
 publish: true
 date: 2025-11-26
 tags:
-  - AI
-  - LLM
+  - Uncertainty
+  - ML
 ---
 # Uncertainty Estimation (불확실성 탐지) 
 ## 1. 개요

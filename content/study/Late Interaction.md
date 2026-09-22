@@ -3,7 +3,7 @@ title: Late Interaction
 publish: true
 date: 2026-01-14
 tags:
-  - AI
+  - RAG
 ---
 # 차세대 검색 아키텍처: Late Interaction (ColBERT)
 

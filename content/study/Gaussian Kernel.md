@@ -3,6 +3,9 @@ title: Gaussian Kernel
 alias: RBF Kernel
 publish: true
 date: 2025-12-15
+tags:
+  - Kernel-Methods
+  - ML
 ---
 # Gaussian Kernel (RBF Kernel)
 

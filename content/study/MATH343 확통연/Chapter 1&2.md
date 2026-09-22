@@ -3,11 +3,11 @@ title: Chapter 1 & 2
 
 publish: true
 
-tags:
-  - Study
-  - Statistics
 
 date: 2024-07-05
+tags:
+  - Math
+  - Probability
 ---
 
 

@@ -3,6 +3,10 @@ title: GPT
 publish: true
 date: 2025-12-13
 alias: Decoder-only
+tags:
+  - Architecture
+  - Transformer
+  - LLM
 ---
 # GPT Architecture (Decoder-only)
 

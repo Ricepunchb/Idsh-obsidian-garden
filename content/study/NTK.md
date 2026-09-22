@@ -3,7 +3,8 @@ title: Neural Tangent Kernel
 publish: true
 date: 2025-12-15
 tags:
-  - AI
+  - Kernel-Methods
+  - Optimization
 ---
 
 # Neural Tangent Kernel (NTK)

@@ -4,7 +4,8 @@ alias: 가중치 초기화
 publish: true
 date: 2025-12-07
 tags:
-  - AI
+  - Optimization
+  - Neural-Network
 ---
 
 # Weight Initialization (가중치 초기화)

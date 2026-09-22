@@ -2,10 +2,10 @@
 title: Regularization
 alias: 정규화
 publish: true
-tags:
-  - ML
-  - AI
 date: 2024-07-05
+tags:
+  - Optimization
+  - ML
 ---
 # Regularization (정규화)
 

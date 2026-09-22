@@ -2,9 +2,10 @@
 title: VAE
 alias: Variational Auto Encoder
 publish: true
-tags:
-  - AI
 date: 2024-07-05
+tags:
+  - Generative-Model
+  - ML
 ---
 
 

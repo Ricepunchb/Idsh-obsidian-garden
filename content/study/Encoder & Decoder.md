@@ -2,9 +2,10 @@
 title: Encoder Decoder
 alias: 인코더 디코더
 publish: true
-tags:
-  - AI
 date: 2024-07-05
+tags:
+  - Transformer
+  - Architecture
 ---
 
 

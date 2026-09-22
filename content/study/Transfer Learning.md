@@ -4,8 +4,8 @@ alias: 전이학습
 publish: true
 date: 2025-11-26
 tags:
-  - AI
-  - LLM
+  - Fine-Tuning
+  - ML
 ---
 # Transfer Learning (전이 학습)
 

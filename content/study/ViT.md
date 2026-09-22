@@ -4,9 +4,8 @@ alias: Vision Transformer
 publish: true
 date: 2025-11-27
 tags:
-  - Model
-  - AI
-  - VLM
+  - Vision
+  - Transformer
 ---
 
 # Vision Transformer (ViT)

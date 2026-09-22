@@ -4,6 +4,8 @@ publish: true
 date: 2025-12-07
 tags:
   - LLM
+  - Distributed-Training
+  - Fine-Tuning
 ---
 
 # Hands-on LLM Training (SFT + QLoRA)

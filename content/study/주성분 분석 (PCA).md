@@ -2,8 +2,10 @@
 title: PCA
 alias: 주성분 분석
 publish: true
-tags:
 date: 2024-07-05
+tags:
+  - ML
+  - Classical-ML
 ---
 
 - 되도록 적은 변수로 데이터의 변화를 설명하고 싶음

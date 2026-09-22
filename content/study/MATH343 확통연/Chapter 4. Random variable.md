@@ -3,11 +3,11 @@ title: Chapter 4
 
 publish: true
 
-tags:
-  - Study
-  - Statistics
 
 date: 2024-07-05
+tags:
+  - Math
+  - Probability
 ---
 
 
@@ -144,6 +144,11 @@ If continuous,
 $\displaystyle\begin{align} E[aX+b]&=\int^{\infty}_{-\infty}(ax+b)f(x) = a\int^{\infty}_{-\infty}xf(x)+b\int^{\infty}_{-\infty}f(x) \\&=aE[X]+b \end{align}$
 
 By this, $g(x)=x^n \quad\Longrightarrow\quad E[g(X)]=E[X^n]:\text{nth moment of }X$
+
+### Tail-sum formula
+$X$가 nonnegative random variable일 때, $E[X]$를 CDF 없이 tail probability만으로 구할 수 있다.
+$$E[X]=\int^{\infty}_0P\{X>x\}dx=\int^{\infty}_0(1-F(x))dx$$
+직접 적분보다 "몇 넘었을 확률"을 더하는 게 쉬운 문제(예: 여러 확률변수의 최솟값·최댓값의 기댓값)에서 특히 유용하다.
 
 
 ## A. Expected Value of sums of random variables

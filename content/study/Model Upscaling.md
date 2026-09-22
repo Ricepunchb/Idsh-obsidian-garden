@@ -4,7 +4,7 @@ alias: 모델 확장
 publish: true
 date: 2025-11-27
 tags:
-  - AI
+  - Compression
   - LLM
 ---
 

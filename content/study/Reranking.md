@@ -3,7 +3,7 @@ title: Reranking
 publish: true
 date: 2026-01-14
 tags:
-  - AI
+  - RAG
 ---
 # 1. Bi-encoder의 한계
 > "압축하면 디테일이 사라진다"

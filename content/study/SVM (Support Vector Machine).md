@@ -2,9 +2,10 @@
 title: SVM
 alias: Support Vector Machine
 publish: true
-tags:
-  - ML
 date: 2024-07-05
+tags:
+  - Kernel-Methods
+  - Classical-ML
 ---
 # Support Vector Machine (SVM)
 

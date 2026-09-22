@@ -2,10 +2,10 @@
 title: GAN
 alias: Generative Adversarial Network
 publish: true
-tags:
-  - AI
-  - Model
 date: 2024-07-05
+tags:
+  - Generative-Model
+  - ML
 ---
 
 

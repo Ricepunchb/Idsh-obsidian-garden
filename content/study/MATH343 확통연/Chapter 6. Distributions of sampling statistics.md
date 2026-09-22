@@ -3,11 +3,12 @@ title: Chapter 6
 
 publish: true
 
-tags:
-  - Study
-  - Statistics
 
 date: 2024-07-05
+tags:
+  - Math
+  - Statistics
+  - Probability
 ---
 
 
@@ -26,6 +27,9 @@ Let $X_1,X_2, ... ,X_n$ are samples with $\mu, \sigma^2$.
 
 $E[\bar{X}]=E\left[\dfrac{X1+\cdots+X_n}{n}\right]=\mu$
 $V[\bar{X}]=V\left[\dfrac{X1+\cdots+X_n}{n}\right]=\dfrac{\sigma^2}{n}$
+
+>[!tip] Standard error
+>$\bar X$의 표준편차 $\sigma/\sqrt n$를 **standard error**라고 부른다. 오차가 $\sqrt n$에 반비례해서 줄어들기 때문에, 오차를 10배 줄이려면 표본을 100배 늘려야 한다 — 정밀도를 조금씩 더 얻으려 할수록 필요한 데이터가 기하급수적으로 늘어난다는 뜻.
 
 # Central Limit Theorem
 >[!note] Central Limit Theorem

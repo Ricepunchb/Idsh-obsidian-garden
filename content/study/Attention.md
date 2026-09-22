@@ -1,10 +1,10 @@
 ---
 title: Attention
-tags:
-  - AI
-  - LLM
 publish: true
 date: 2025-11-26
+tags:
+  - Transformer
+  - Attention
 ---
 # 1. 개요
 초기 [[RNN]] 계열 모델은 긴 문장을 번역할 때 앞부분의 정보를 까먹는 "장기 의존성 문제(Long-term dependency)"가 있었다. 이를 해결하기 위해 **"모든 단어를 다 기억하되, 현재 시점에 중요한 단어에 더 집중(Attention)하자"**는 아이디어가 등장했다.
@@ -114,6 +114,25 @@ $$ \begin{align} \text{head}_i &= \text{Attention}(XW_i^Q, XW_i^K, XW_i^V) \\ \t
 | **Bahdanau**       | Q:Decoder, K/V:Encoder     | RNN 내부 가중치 사용 (별도 W 없음)               | 초기 Seq2Seq 번역               |
 | **Self-Attention** | 모두 같은 입력 $X$에서 유래          | $X$를 Q, K, V 역할로 변환 (Projection)      | Transformer Encoder/Decoder |
 | **Multi-Head**     | Self-Attention $\times h$개 | 서로 다른 관점($W_i$)으로 다양하게 분석 후 $W^O$로 통합 | 최신 LLM 표준 (GPT, Llama)      |
+# 6. Causal (Masked) Self-Attention
+Decoder는 다음 단어를 "예측"해야 하므로, $i$번째 토큰이 미래 토큰($j>i$)을 미리 훔쳐보면 안 된다. 그래서 점수 행렬 $A=QK^\top/\sqrt{d_k}$를 softmax에 넣기 전에 미래 위치를 $-\infty$로 마스킹한다.
+$$ A_{ij}\leftarrow \begin{cases} A_{ij}&\text{if }j\le i\\ -\infty&\text{if }j>i \end{cases} $$
+$-\infty$는 softmax를 거치면 정확히 0이 되므로, 미래 토큰에는 attention weight가 전혀 배분되지 않는다.
+
+# 7. GQA & MQA (헤드 수를 줄이는 변형)
+Multi-Head Attention은 Query, Key, Value 각각 $N$개의 헤드를 독립적으로 갖는다. 하지만 추론 시 Key/Value는 [[KV Cache Optimization|KV 캐시]]에 저장해둬야 하므로, 헤드 수가 많을수록 캐시 메모리가 커진다. **Query 헤드 수는 유지하되 Key/Value 헤드 수만 줄이자**는 것이 GQA/MQA의 아이디어다.
+
+| 구분 | Key/Value 헤드 수 | 특징 |
+| :--- | :--- | :--- |
+| **MHA** (표준) | $N$ (Query와 동일) | 표현력 최대, KV 캐시 최대 |
+| **GQA** | $K$ ($1<K<N$) | $G=N/K$개의 Query 헤드가 KV 헤드 1개를 공유 |
+| **MQA** | $1$ | 모든 Query 헤드가 KV 헤드 1개를 공유, 캐시 최소 |
+
+- $Q$ projection은 그대로 $W_Q\in\mathbb R^{D\times D}$지만, $K,V$ projection은 $W_K, W_V\in\mathbb R^{D\times KH}$로 줄어든다 ($H$ = head dimension).
+- 계산 시에는 $K,V$를 그룹 크기 $G$만큼 반복(repeat)해서 $N$개 헤드에 맞춰 확장한 뒤 동일하게 attention을 계산한다.
+- 대가: 여러 Query 헤드가 같은 K/V를 보게 되므로 헤드별 표현력은 다소 손실된다. GQA는 MHA와 MQA의 중간 지점으로, 성능 손실을 거의 없이 KV 캐시만 줄이는 실무 표준이 되었다 (Llama-2 70B, Mistral 등).
+
 ## 한 줄 요약
 > Attention = “어디를 봐야 할지 스스로 결정해서 중요한 정보만 모으는 메커니즘”
 > Self-Attention = “문장 속 단어끼리 서로를 직접 바라보게 한 것” → 이게 2017년 이후 모든 LLM의 기본 뼈대가 됨
+> GQA/MQA = “Query는 그대로 두고 Key/Value 헤드만 줄여서 KV 캐시를 아끼는 것”

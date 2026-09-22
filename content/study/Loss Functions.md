@@ -2,9 +2,10 @@
 title: Loss Functions
 alias: 손실함수
 publish: true
-tags:
-  - AI
 date: 2025-11-26
+tags:
+  - Optimization
+  - ML
 ---
 # Loss Functions (손실 함수)
 
@@ -89,6 +90,7 @@ $$ D_{KL}(P || Q) = \sum P(x) \log \frac{P(x)}{Q(x)} $$
 	- **VAE (Variational Autoencoder)**: 잠재 벡터 분포를 정규분포로 근사시킬 때. 
 	- **[[Knowledge Distillation]]**: Teacher 모델의 분포를 Student가 모방할 때. 
 	- **RL(PPO)**: 정책이 너무 급격하게 변하지 않도록 제약할 때. 
+- KL divergence, entropy, cross entropy 사이의 관계(증명 포함)와 LLM의 next-token CE loss 구현은 [[Information Theory]] 참고.
 ### 5.2. Focal Loss 
 데이터 불균형(Class Imbalance)이 심할 때 사용한다. (RetinaNet 논문) 
 $$ \text{FL}(p_t) = - (1 - p_t)^\gamma \log(p_t) $$

@@ -3,9 +3,8 @@ title: VLM
 publish: true
 date: 2025-11-26
 tags:
-  - AI
-  - Model
-  - VLM
+  - Vision
+  - LLM
 ---
 # VLM Architecture (Vision-Language Model)
 
@@ -46,6 +45,28 @@ graph LR
 1.  **Vision Encoder**: 이미지를 처리하여 특징(Feature)을 추출한다. (예: [[ViT]], CLIP-ViT, SigLIP)
 2.  **Connector (Adapter)**: 이미지 특징 벡터의 차원을 LLM의 텍스트 임베딩 차원과 맞추고, 언어적 공간으로 변환한다.
 3.  **LLM Backbone**: 변환된 이미지 토큰을 텍스트 프롬프트와 함께 입력받아 답변을 생성한다. (예: Vicuna, Llama-3, Qwen)
+
+### 구체적 차원 추적 (LLaVA 예시)
+실제 텐서 shape가 어떻게 변해가는지 따라가 보면 파이프라인이 명확해진다 (LLM 차원 $D=4096$, CLIP 차원 1024 가정).
+
+```text
+Image [224, 224, 3]
+    ↓ patchify (14x14 패치)
+Patches [256, 588]                     # 256 = (224/14)^2, 588 = 14*14*3
+    ↓ linear projection (패치별 독립 적용)
+Patch embeddings [256, 1024]
+    ↓ CLS 토큰 추가 + position embedding
+Sequence [257, 1024]
+    ↓ CLIP (24-layer transformer encoder)
+CLIP output [256, 1024]                # CLS 제외
+    ↓ projection W (토큰별 독립 적용)
+Visual embeddings [256, 4096]
+    ↓ 텍스트 임베딩 [N, 4096]과 concat
+Full sequence [256+N, 4096]
+    ↓ LLM transformer
+```
+
+여기서 "Connector"가 하는 일은 정확히 **CLIP output [256,1024] → Visual embeddings [256,4096]** 구간의 projection이다 (§4.1 Linear Projection과 동일한 $H_v = W \cdot Z_v + b$).
 
 ## 3. Vision Encoder: CLIP의 역할 
 단순히 이미지를 분류하는 모델(ResNet 등)보다는, **이미지와 텍스트의 관계를 이미 알고 있는 모델**을 인코더로 쓰는 것이 유리하다. 그래서 **CLIP**을 주로 사용한다. 
@@ -118,13 +139,33 @@ $$
 - **목적**: "이미지를 보고 사용자의 복잡한 지시사항(Instruction)을 따르는 능력 배양." 
 - **Loss Function**: 텍스트 생성과 동일한 Auto-regressive Loss를 사용하되, 이미지 $X_v$가 조건부로 들어간다. 
 $$ P(Y|X_v, X_{\text{instruct}}) = \prod_{i=1}^{L} P(y_i | X_v, X_{\text{instruct}}, y_{<i}) $$
-## 6. 요약 비교
+## 6. 해상도 문제: 고정 해상도의 한계와 최신 해법
+초기 VLM들은 입력 이미지 크기가 고정(예: 224×224)되어 있었다. §2의 파이프라인에서 보듯 패치 수가 항상 256개로 고정되므로, position embedding도 $[256, D]$ shape로 학습되어 다른 해상도나 종횡비의 이미지는 처리할 수 없었다 — 단지 "학습된 position embedding 개수가 고정"되어 있었기 때문에 생긴 제약이다.
+
+### 6.1. LLaVA-NeXT: Dynamic Resolution
+고해상도 이미지를 여러 개의 crop으로 쪼갠 뒤, 각 crop을 Vision Encoder로 독립적으로 인코딩하고 그 결과를 이어붙인다(concatenate). 인코더나 Connector 구조를 바꾸지 않고 해상도 문제를 우회하는 방식이다.
+
+### 6.2. Qwen2-VL: 2D-RoPE
+패치 크기 자체는 고정하되, 학습된 절대 position embedding 대신 **2D-RoPE**를 쓴다.
+- 각 패치의 위치를 (row, column) 좌표로 인코딩
+- RoPE가 실시간으로(on-the-fly) 위치 인코딩을 생성하므로, 학습된 고정 개수의 position embedding 테이블이 필요 없음
+- 결과적으로 임의의 해상도와 종횡비로 일반화 가능
+
+>[!tip] 이해(Understanding) vs 생성(Generation)의 아키텍처 분리
+> 현재 주류 패러다임은 방향에 따라 서로 다른 구조를 쓴다.
+> - **이해(understanding)**: ViT 인코더 → feature 추출 (본 노트가 다루는 LLaVA류 구조)
+> - **생성(generation)**: 픽셀 공간에서 동작하는 diffusion 모델
+> 즉 "이미지를 보는" 모델과 "이미지를 그리는" 모델이 현재는 서로 다른 접근을 취하는 경우가 많다.
+
+## 7. 요약 비교
 | 모델           | Vision Encoder         | Connector         | LLM            | 특징                     |
 | :----------- | :--------------------- | :---------------- | :------------- | :--------------------- |
 | **LLaVA**    | CLIP ViT-L             | Linear Projection | Vicuna / Llama | 단순함의 승리, 현재 오픈소스 표준    |
 | **BLIP-2**   | ViT                    | Q-Former          | OPT / Flan-T5  | 쿼리 기반 압축, 가벼운 연산       |
 | **Flamingo** | Normalizer-Free ResNet | Gated Cross-Attn  | Chinchilla     | In-context Learning 강점 |
 | **GPT-4V**   | (추정) CLIP-like         | (추정) Advanced MLP | GPT-4          | 압도적 성능, 세부 사항 비공개      |
+| **LLaVA-NeXT** | CLIP ViT-L (multi-crop) | Linear Projection | Vicuna / Llama | 고해상도 이미지를 crop으로 분할 처리 |
+| **Qwen2-VL** | ViT + 2D-RoPE           | MLP                | Qwen2          | 임의 해상도/종횡비 지원          |
 
-## 7. 한 줄 요약 
+## 8. 한 줄 요약 
 > **"VLM은 잘 훈련된 눈(CLIP)과 뇌(LLM)를 준비하고, 그 사이를 통역기(Connector)로 연결해 '이미지 토큰'을 '단어'처럼 읽게 만든 모델이다."**

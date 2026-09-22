@@ -3,7 +3,7 @@ title: LoRA
 publish: true
 date: 2025-11-26
 tags:
-  - AI
+  - Fine-Tuning
   - LLM
 ---
 # LoRA (Low-Rank Adaptation)

@@ -3,7 +3,7 @@ title: Knowledge Distillation
 publish: true
 date: 2025-11-25
 tags:
-  - AI
+  - Compression
   - LLM
 ---
 # Knowledge Distillation (KD)

@@ -2,6 +2,9 @@
 title: Mamba
 publish: true
 date: 2025-12-15
+tags:
+  - Architecture
+  - LLM
 ---
 # Mamba Architecture (Selective SSM)
 

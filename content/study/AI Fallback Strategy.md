@@ -4,8 +4,8 @@ alias: 오작동 대응 전략
 publish: true
 date: 2025-11-26
 tags:
-  - AI
-  - LLM
+  - Agent
+  - Uncertainty
 ---
 # AI Fallback Strategies (오작동 대응 전략)
 

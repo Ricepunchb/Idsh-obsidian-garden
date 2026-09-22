@@ -1,3 +1,11 @@
+---
+title: Instruction Tuning
+publish: true
+tags:
+  - Fine-Tuning
+  - LLM
+---
+
 # Instruction Tuning (SFT)
 
 ## 1. 개요
@@ -29,7 +37,7 @@ graph LR
 일반적으로 **LLM 학습의 2단계**에 해당한다.
 1.  **Pre-training**: 대규모 텍스트로 언어 능력 습득.
 2.  **Instruction Tuning (SFT)**: (지시, 답변) 쌍으로 행동 양식 교정.
-3.  **Alignment (RLHF/DPO)**: 사람의 선호도에 맞춰 안전성 및 품질 강화.
+3.  **Alignment ([[RLHF]]/[[DPO]])**: 사람의 선호도에 맞춰 안전성 및 품질 강화.
 
 # Instruction Data & Loss
 

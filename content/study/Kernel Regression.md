@@ -3,7 +3,8 @@ title: Kernel Regression
 publish: true
 date: 2025-12-15
 tags:
-  - AI
+  - Kernel-Methods
+  - ML
 ---
 # Kernel Regression (커널 회귀)
 

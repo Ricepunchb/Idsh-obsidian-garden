@@ -4,8 +4,8 @@ alias: AI Agent 4부
 publish: true
 date: 2026-05-11
 tags:
-  - AI
   - Agent
+  - LLM
 ---
 연관 노트: [[AI Agent의 탄생]], [[Agent는 어떻게 생각하는가]], [[Agent는 어떻게 행동하는가]]
 # 혼자서 안 되면 같이 한다 (Multi-Agent)

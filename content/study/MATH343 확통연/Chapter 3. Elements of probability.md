@@ -3,11 +3,11 @@ title: Chapter 3
 
 publish: true
 
-tags:
-  - Study
-  - Statistics
 
 date: 2024-07-05
+tags:
+  - Math
+  - Probability
 ---
 
 
@@ -79,3 +79,13 @@ $$ A\cap B = \emptyset \not\Rightarrow A\perp B$$
 By definition of independent, $P(A\cap B) = P(A)P(B)$ holds.
 By assumption, $P(A\cap B)=P(\emptyset)=0.$ So $P(A)=0 \bigvee P(B)=0$.
 However, there are many cases that $P(A)\ne0 \bigwedge P(B)\ne0 \bigwedge P(A\cap B)=0$.
+
+# 9. Law of total expectation (Tower property)
+
+7번의 Bayes' formula에서 이미 $\displaystyle P(E)=\sum^n_{i=1}P(E|F_i)P(F_i)$ (law of total probability)를 다뤘는데, 같은 아이디어를 기댓값에 적용한 것이 **law of total expectation**이다.
+
+>[!attention] Law of total expectation
+>$$E[X]=\sum_yE[X|Y=y]\cdot P(Y=y) \quad\text{또는}\quad \int^{\infty}_{-\infty}E[X|Y=y]f(y)dy$$
+>$$\Leftrightarrow E[X]=E_Y[E[X|Y]]$$
+
+여기서 $E[X|Y]$는 숫자가 아니라 $Y$에 대한 함수, 즉 그 자체로 하나의 random variable임에 주의. "tower property"라고도 부르는 이유는 $E[X]$를 구하기 위해 먼저 $Y$로 조건화한 기댓값을 구하고, 그 결과를 다시 $Y$에 대해 평균 내는 이중 구조이기 때문이다.

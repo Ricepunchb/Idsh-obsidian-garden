@@ -2,9 +2,10 @@
 title: Retrieval을 위한 embedding
 alias: Dense Sparse embeddings
 publish: true
-tags:
-  - AI
 date: 2026-01-14
+tags:
+  - RAG
+  - ML
 ---
 RAG(Retrieval-Augmented Generation) 시스템을 구축할 때 가장 먼저 마주치는 고민은 **"데이터를 어떻게 찾을 것인가?"** 입니다. LLM이 아무리 똑똑해도, 엉뚱한 참고 자료를 가져다주면 엉뚱한 대답을 할 수밖에 없기 때문입니다.
 

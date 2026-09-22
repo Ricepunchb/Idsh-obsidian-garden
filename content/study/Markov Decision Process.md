@@ -2,12 +2,15 @@
 title: Markov Decision Process
 alias: MDP
 publish: true
-tags:
-  - AI
-  - RL
 date: 2024-07-05
+tags:
+  - RL
+  - Probability
 ---
 # Markov Decision Process (MDP)
+
+> [!info] [[Markov Chains|Markov chain]]과는 다른 개념
+> 여기서의 마르코프 성질은 행동(action)·보상(reward)이 있는 의사결정 문제로 확장된 버전이다. 행동 없이 상태가 그냥 확률적으로 흘러가는 순수한 전이 과정 자체는 [[Markov Chains]] 노트 참고.
 
 ## 1. 개요
 순차적인 의사결정 문제(Sequential Decision Making)를 수학적으로 모델링한 프레임워크다.

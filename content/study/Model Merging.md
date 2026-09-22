@@ -3,7 +3,8 @@ title: Model Merging
 publish: true
 date: 2025-12-15
 tags:
-  - AI
+  - Compression
+  - LLM
 ---
 # Model Merging (Weight Merging)
 

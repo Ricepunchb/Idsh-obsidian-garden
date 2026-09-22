@@ -4,8 +4,8 @@ alias: AI Agent 1부
 publish: true
 date: 2026-05-11
 tags:
-  - AI
   - Agent
+  - LLM
 ---
 연관 노트: [[Agent는 어떻게 생각하는가]], [[Agent는 어떻게 행동하는가]], [[Multi-Agent 시스템]]
 # 대화형 AI에서 행동하는 AI로: 에이전트의 탄생

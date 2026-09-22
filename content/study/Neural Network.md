@@ -2,9 +2,10 @@
 title: Neural Network
 alias: 인공신경망
 publish: true
-tags:
-  - AI
 date: 2024-07-05
+tags:
+  - Neural-Network
+  - ML
 ---
 
 
@@ -47,3 +48,6 @@ Mini-batch에서는 전체 훈련집합을 여러 집합으로 분할, 파라미
 Hessian 의 크기가 학습률의 최대치
 - 큰$\alpha$ : 빠르지만 불안정한 학습, 수렴 안할수도 있음
 - 작은 $\alpha$ : 느리지만 안정적인 학습
+- **Warmup**: 학습 초반 몇 스텝 동안 학습률을 0에서 목표값까지 서서히 올리는 기법. 초기 몇 개의 배치가 파라미터에 과도한 영향을 주는 primacy effect를 줄여준다.
+
+실전에서 SGD를 그대로 쓰는 경우는 드물고, momentum과 파라미터별 학습률을 적응적으로 조절하는 Adam/AdamW를 주로 쓴다 — 자세한 내용은 [[Optimizer]] 참고.

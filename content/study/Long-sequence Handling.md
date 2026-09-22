@@ -4,8 +4,8 @@ alias: 긴 문맥
 publish: true
 date: 2025-11-27
 tags:
-  - LLM
-  - AI
+  - Inference
+  - Transformer
 ---
 
 # Long Context & Efficient Attention
@@ -71,6 +71,27 @@ Llama 계열 모델이 4k에서 128k로 늘어난 비결이다.
 -   **핵심**: $N \times N$ 행렬을 다 만들지 않고, 블록(Block) 단위로 쪼개서 SRAM 안에서만 계산한다 (Tiling).
 -   **효과**: 메모리 사용량을 $O(N^2)$에서 **선형 $O(N)$** 으로 줄이고, 속도는 2~4배 빨라진다.
 -   **현황**: 사실상 모든 LLM 학습/추론의 기본 옵션이다.
+
+#### 왜 표준 Attention이 느린가: Memory-bound 문제
+표준 구현은 연산량이 부족해서가 아니라, **$N\times N$ attention 행렬을 HBM(GPU 메인 메모리)에 썼다 읽었다를 반복**해서 느리다.
+1. $QK^\top$ 결과를 HBM에 씀
+2. Softmax를 계산하려고 다시 HBM에서 읽음
+3. Softmax 결과를 다시 HBM에 씀
+4. $V$와 곱하려고 또 HBM에서 읽음
+
+예를 들어 `seq_len=8192`, 32개 헤드, FP16이면 attention 행렬 하나만 $8192^2\times 32\times 2\text{byte}\approx 4\text{GB}$ — 이걸 여러 번 왕복하니 GPU 연산 유닛은 놀고 메모리 대역폭만 병목이 된다(Memory Bandwidth Bound).
+
+#### 동작 방식: Online Softmax + Tiling
+FlashAttention은 $Q,K,V$를 SRAM에 들어갈 만큼 작은 블록(타일)으로 쪼개서, **$N\times N$ 행렬을 아예 HBM에 만들지 않고** 블록 단위로 계산한다.
+1. $Q$의 한 블록(예: 64행)을 로드
+2. $K,V$의 한 블록(예: 64열)을 로드
+3. 해당 타일의 attention score, softmax, $\times V$까지 전부 SRAM 안에서 계산 (이때 아직 전체 행에 대한 softmax 정규화 상수를 모르므로, 블록을 지나갈 때마다 정규화 상수를 점진적으로 업데이트하는 **online softmax** 기법을 사용)
+4. 최종 출력만 HBM에 씀
+5. 모든 타일에 대해 반복
+
+`batch × num_heads`개의 조합이 서로 완전히 독립적이므로, 이 단위로 병렬화된다.
+- **정확한(exact) 방법이다** — 근사가 아니라 표준 attention과 수학적으로 동일한 값을 산출하면서 메모리 접근만 최적화한 것.
+- **Causal masking도 커널에 융합(fuse)**되어, 마스크 행렬을 따로 만들지 않고 필요한 타일만 계산한다 (`F.scaled_dot_product_attention(q, k, v, is_causal=True)`).
 
 ### 4.2. Ring Attention
 FlashAttention을 여러 GPU로 확장한 것이다.

@@ -3,7 +3,8 @@ title: Pruning
 publish: true
 date: 2026-02-26
 tags:
-  - AI
+  - Compression
+  - ML
 ---
 
 # Pruning

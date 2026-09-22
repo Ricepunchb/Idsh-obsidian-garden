@@ -2,6 +2,9 @@
 title: Neural Architecture Search
 publish: true
 date: 2025-12-15
+tags:
+  - Architecture
+  - ML
 ---
 # Neural Architecture Search (NAS)
 

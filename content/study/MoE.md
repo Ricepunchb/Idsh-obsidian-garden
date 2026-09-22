@@ -1,10 +1,11 @@
 ---
 title: MoE
-tags:
-  - LLM
-  - AI
 publish: true
 date: 2025-11-25
+tags:
+  - Architecture
+  - LLM
+  - Distributed-Training
 ---
 # Mixture of Experts (MoE)
 

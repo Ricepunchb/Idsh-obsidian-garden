@@ -3,7 +3,8 @@ title: KV Cache Optimization
 publish: true
 date: 2025-12-13
 tags:
-  - LLM
+  - Inference
+  - Transformer
 ---
 
 ## 1. 개요
@@ -142,7 +143,32 @@ graph TD
 -   **메모리 절감**: 공통된 접두사(Prefix)의 메모리 사용량 $\approx 50\%$ 감소.
 -   **속도 향상**: 메모리 복사 연산 제거로 인한 처리량 증대.
 
-## 6. 요약
+## 6. 아키텍처 레벨에서 캐시 자체를 줄이기
+
+지금까지의 PagedAttention은 "이미 정해진 크기의 KV 캐시를 어떻게 낭비 없이 저장할까"의 문제였다. 이와 별개로, **캐시 자체의 크기를 애초에 줄이는** 아키텍처적 접근도 있다.
+
+레이어 하나의 KV 캐시 크기는 다음과 같다.
+$$ \text{Size} = B \cdot S \cdot (K\cdot H) \cdot L \cdot 2 $$
+($B$=배치 크기, $S$=시퀀스 길이, $K$=KV 헤드 수, $H$=head dimension, $L$=레이어 수, $2$는 K와 V)
+
+### 6.1. 헤드 수 줄이기: MQA / GQA
+Query 헤드 수 $N$은 유지하고 Key/Value 헤드 수 $K$만 줄이는 방법. 자세한 원리와 수식은 [[Attention#7. GQA & MQA (헤드 수를 줄이는 변형)|Attention 노트의 GQA/MQA 섹션]] 참고.
+- **MQA**: $K=1$ → 캐시가 $N$배 작아짐, 표현력 손실 有
+- **GQA**: $1<K<N$ → MHA와 MQA의 중간 (Llama-2 70B, Mistral 등 실무 표준)
+
+### 6.2. 저차원 잠재 공간으로 압축: MLA (Multi-head Latent Attention)
+DeepSeek-V2에서 제안. 헤드별로 KV를 그대로 캐싱하는 대신, 모든 헤드가 공유하는 **훨씬 작은 잠재 벡터**(latent vector, `(seq_len, latent_dim)`)만 캐싱한다.
+- 디코딩 시점마다 이 잠재 벡터를 다시 KV 원래 크기로 up-projection해서 사용 → 추가 연산 비용은 있지만 캐시 메모리는 크게 절감.
+- MHA처럼 헤드별로 구분된 표현력은 유지하면서, 압축은 GQA/MQA보다 훨씬 공격적으로 한다는 점이 핵심 차별점.
+- **주의**: MLA는 RoPE와 그대로 호환되지 않는다 (RoPE는 헤드별 회전을 가정하는데, 압축된 잠재 공간에서는 위치 정보 처리를 별도로 설계해야 함).
+
+### 6.3. 레이어 간 공유: Cross-Layer Attention
+인접한 여러 레이어가 KV를 공유해서, 레이어 수만큼 캐시를 중복 저장하지 않도록 하는 방법.
+
+### 6.4. 윈도우 밖은 버리기: Local (Sliding Window) Attention
+각 토큰이 최근 $W$개 토큰만 attend하도록 제한하면($O(nW)$ 연산), 윈도우 밖으로 밀려난 토큰의 KV는 그냥 버릴 수 있어 **캐시 크기가 시퀀스 길이와 무관**해진다. 자세한 내용은 [[Long-sequence Handling]] 참고.
+
+## 7. 요약
 
 | 구분 | 기존 방식 (Contiguous) | PagedAttention (vLLM) |
 | :--- | :--- | :--- |

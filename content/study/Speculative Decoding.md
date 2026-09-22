@@ -3,6 +3,7 @@ title: Speculative Decoding
 publish: true
 date: 2025-12-13
 tags:
+  - Inference
   - LLM
 ---
 # Speculative Decoding
@@ -64,6 +65,29 @@ $$ \text{Accept Probability } r = \min\left(1, \frac{p(x)}{q(x)}\right) $$
 $$ \text{Speedup} \approx \frac{1}{1 - \alpha + \frac{1}{\gamma}} $$
 - $\gamma$: 모델 간 속도 비율 (작은 모델이 얼마나 빠른가). 
 - 보통 코딩이나 요약 같은 뻔한 작업에서는 2~3배 빨라진다. 
+
+### 4.3. 왜 결과 분포가 Target 모델 단독 생성과 정확히 같은가 (증명)
+거부됐을 때 그냥 다시 샘플링하는 게 아니라, **보정된 분포** $\dfrac{\max(0,p(x)-q(x))}{\sum_{x'}\max(0,p(x')-q(x'))}$에서 다시 뽑는다. 이 설계 덕분에 최종적으로 토큰 $x$가 나올 확률이 정확히 $p(x)$가 됨을 증명할 수 있다.
+
+토큰 $x$가 채택되는 경로는 두 가지뿐이다.
+$$ P(x\text{ 채택}) = \underbrace{P(\text{draft가 }x\text{를 제안하고 수락됨})}_{\text{경로 1}} + \underbrace{P(\text{어떤 draft가 거부된 뒤, 보정 분포에서 } x\text{를 뽑음})}_{\text{경로 2}} $$
+
+**경로 1**: draft가 $x$를 제안할 확률은 $q(x)$, 그걸 수락할 확률은 $\min(1, p(x)/q(x))$이므로
+$$ q(x)\cdot\min\left(1,\frac{p(x)}{q(x)}\right)=\min(q(x),p(x)) $$
+
+**경로 2**: 먼저 draft 토큰 $x'$을 뽑고서 거부할 확률은 $q(x')-p(x')$ (단, $p(x')>q(x')$이면 거부 확률은 0이므로 $\max(0,\cdot)$로 표현), 이를 모든 $x'$에 대해 합하면 총 거부 확률이 된다.
+$$ P(\text{거부}) = \sum_{x'}\max(0,q(x')-p(x')) = \sum_{x'}\max(0,p(x')-q(x')) $$
+(두 식이 같은 이유: $p,q$ 모두 합이 1이므로 $\sum(q-p)=0$, 즉 $\sum\max(0,q-p)=\sum\max(0,p-q)$.)
+
+거부된 뒤 보정 분포에서 $x$가 뽑힐 확률은 (거부 확률) × (보정 분포에서 $x$일 확률) 이고, 분모가 그대로 약분되어
+$$ \sum_{x'}\max(0,p(x')-q(x'))\cdot\frac{\max(0,p(x)-q(x))}{\sum_{x'}\max(0,p(x')-q(x'))}=\max(0,p(x)-q(x)) $$
+
+**두 경로를 더하면**
+$$ \min(q(x),p(x)) + \max(0,p(x)-q(x)) = p(x) $$
+($p(x)\ge q(x)$이면 $q(x)+(p(x)-q(x))=p(x)$, $p(x)<q(x)$이면 $p(x)+0=p(x)$ — 어느 경우든 성립.)
+
+즉 speculative decoding은 근사가 아니라, **draft 모델이 무엇이든 상관없이 최종 출력 분포가 target 모델 단독 생성과 수학적으로 완전히 동일함을 보장하는** 정확한(exact) 샘플링 기법이다.
+
 ## 5. 최신 변종 (Trend) 
 별도의 Draft 모델을 로드하는 것이 메모리 낭비라는 지적에 따라 새로운 기법들이 등장했다. 
 

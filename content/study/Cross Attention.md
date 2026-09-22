@@ -4,8 +4,8 @@ alias: 크로스 어텐션
 publish: true
 date: 2025-11-27
 tags:
-  - AI
-  - VLM
+  - Attention
+  - Vision
 ---
 
 # Cross-Attention (Encoder-Decoder Attention)

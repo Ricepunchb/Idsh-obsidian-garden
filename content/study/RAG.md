@@ -4,7 +4,8 @@ alias: Retrieval-Augmented Generation
 publish: true
 date: 2026-01-14
 tags:
-  - AI
+  - RAG
+  - LLM
 ---
 # Retrieval-Augmented Generation (RAG)
 
