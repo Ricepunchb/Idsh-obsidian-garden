@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AI Model Portfolio — SK하이닉스</title>
+<style>
+:root{
+  --navy:#0B2545;
+  --blue:#0072CE;
+  --blue-mid:#00B4D8;
+  --blue-light:#CFE8FA;
+  --blue-pale:#EAF4FC;
+  --ai:#7C5CFF;
+  --ai-pale:#F1EDFF;
+  --gray:#2B2E33;
+  --gray-sub:#5B6472;
+  --line:#D7E8F5;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ width:210mm; }
+body{
+  font-family:'Noto Sans CJK KR','Noto Sans KR',sans-serif;
+  color:var(--gray);
+  font-size:10pt;
+  line-height:1.56;
+  -webkit-font-smoothing:antialiased;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+}
+@page{ size:210mm 297mm; margin:0; }
+
+.page{
+  width:210mm;
+  height:297mm;
+  position:relative;
+  padding:12.5mm 16mm 10mm 16mm;
+  page-break-after:always;
+  overflow:hidden;
+}
+.page:last-child{ page-break-after:auto; }
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:7.6pt;
+  color:var(--blue);
+  letter-spacing:.02em;
+  border-bottom:1px solid var(--line);
+  padding-bottom:5mm;
+  margin-bottom:6mm;
+}
+.topbar .tag{
+  font-weight:700;
+  color:#fff;
+  background:var(--blue);
+  padding:1.6mm 3.2mm;
+  border-radius:2mm;
+  font-size:7.4pt;
+}
+.topbar .doc-label{ color:var(--gray-sub); }
+
+.page-num{
+  position:absolute;
+  bottom:8mm; left:0; right:0;
+  text-align:center;
+  font-size:7.6pt;
+  color:var(--gray-sub);
+}
+
+h1,h2,h3{ color:var(--navy); font-weight:700; }
+
+.section-title{
+  font-size:12.8pt;
+  color:var(--navy);
+  font-weight:700;
+  margin-bottom:2.2mm;
+  margin-top:0.9mm;
+  display:flex;
+  align-items:baseline;
+  gap:2.6mm;
+}
+.section-title .en{
+  font-size:9pt; font-weight:500; color:var(--blue); letter-spacing:.04em;
+}
+.section-title::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--line);
+  margin-left:2mm;
+}
+
+.subhead{
+  font-size:10.2pt; font-weight:700; color:var(--navy);
+  margin:3mm 0 1.6mm 0;
+}
+
+.muted{ color:var(--gray-sub); }
+.small{ font-size:8.8pt; }
+.tiny{ font-size:7.9pt; }
+
+ul.bullets{ list-style:none; padding-left:0; }
+ul.bullets li{
+  position:relative;
+  padding-left:3.4mm;
+  margin-bottom:1mm;
+}
+ul.bullets li::before{
+  content:"";
+  position:absolute; left:0; top:0.62em;
+  width:1.3mm; height:1.3mm;
+  background:var(--blue-mid);
+  border-radius:50%;
+}
+
+.tagrow{ display:flex; flex-wrap:wrap; gap:1.6mm; margin-top:1.5mm; }
+.tag{
+  font-size:7.8pt;
+  color:var(--navy);
+  background:var(--blue-pale);
+  border:0.4pt solid var(--line);
+  padding:0.9mm 2.4mm;
+  border-radius:3mm;
+  white-space:nowrap;
+}
+
+table{ width:100%; border-collapse:collapse; font-size:8.7pt; }
+th{
+  background:var(--navy);
+  color:#fff;
+  font-weight:600;
+  text-align:left;
+  padding:2mm 3mm;
+}
+td{
+  padding:1.8mm 3mm;
+  border-bottom:0.4pt solid var(--line);
+}
+tr:nth-child(even) td{ background:var(--blue-pale); }
+
+.entry{ margin-bottom:2mm; }
+.entry-head{ display:flex; justify-content:space-between; align-items:baseline; }
+.entry-title{ font-weight:700; font-size:10.4pt; color:var(--gray); }
+.entry-meta{ font-size:8.3pt; color:var(--gray-sub); white-space:nowrap; }
+
+.figure-box{
+  border:0.5pt solid var(--line);
+  border-radius:2mm;
+  background:#fff;
+  padding:3mm;
+  break-inside:avoid;
+}
+.figure-cap{
+  font-size:7.9pt;
+  color:var(--gray-sub);
+  margin-top:1.5mm;
+  text-align:center;
+}
+
+.callout{
+  margin-top:3mm;
+  background:var(--blue-pale);
+  border-left:2.5pt solid var(--blue);
+  padding:2.6mm 3.5mm;
+  font-size:9pt;
+  color:var(--navy);
+  font-weight:600;
+  line-height:1.5;
+}
+.callout.amber{ background:#EFF6FC; border-left-color:var(--blue-mid); color:#04323B; font-weight:400; }
+
+.project-header{
+  break-inside:avoid;
+  margin-bottom:4mm;
+}
+.project-kicker{
+  display:inline-block;
+  font-size:7.6pt;
+  font-weight:700;
+  color:#fff;
+  background:var(--blue);
+  padding:1mm 2.6mm;
+  border-radius:1.5mm;
+  margin-bottom:2mm;
+}
+.project-kicker.progress{ background:var(--blue-mid); color:#04323B; }
+.project-title{
+  font-size:19pt;
+  color:var(--navy);
+  font-weight:700;
+  line-height:1.2;
+}
+.project-sub{
+  font-size:9.8pt;
+  color:var(--gray-sub);
+  margin-top:1.5mm;
+  max-width:172mm;
+}
+.venue-line{
+  margin-top:2mm;
+  font-size:8.6pt;
+  color:var(--blue);
+  font-weight:600;
+}
+
+.cols2{ display:flex; gap:7mm; }
+.col{ flex:1; min-width:0; }
+
+.badge-circle{
+  width:9mm; height:9mm;
+  border-radius:50%;
+  border:1.1pt solid var(--blue-mid);
+  display:flex; align-items:center; justify-content:center;
+  font-size:9pt; font-weight:700; color:var(--navy);
+  flex-shrink:0;
+}
+</style>
+</head>
+<body>
+<!-- ============ PAGE 1 : COVER / PROFILE ============ -->
+<div class="page">
+
+  <div style="position:relative; margin:-12.5mm -16mm 3.5mm -16mm; height:26mm; overflow:hidden;
+              background:linear-gradient(115deg,#0B2545 0%,#0072CE 45%,#00B4D8 78%,#BFEAF5 100%);">
+    <svg width="100%" height="100%" viewBox="0 0 793 98" preserveAspectRatio="none" style="position:absolute; top:0; left:0;">
+      <circle cx="760" cy="11" r="65" fill="#ffffff" opacity="0.10"/>
+      <circle cx="740" cy="16" r="45" fill="#ffffff" opacity="0.14"/>
+      <circle cx="700" cy="2" r="26" fill="#ffffff" opacity="0.16"/>
+    </svg>
+    <div style="position:absolute; left:16mm; top:7.5mm; color:#fff;">
+      <div style="font-size:8.6pt; letter-spacing:.18em; opacity:.85; font-weight:500;">AI &nbsp;RESEARCH &amp; ENGINEERING &nbsp;PORTFOLIO</div>
+      <div style="font-size:17.5pt; font-weight:700; margin-top:2.6mm; letter-spacing:.01em;">SK하이닉스 AI해커톤 &nbsp;지원 포트폴리오</div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:0; font-size:13.4pt;">Profile&nbsp;<span class="en">연구자 소개</span></div>
+  <div style="font-size:10.8pt; color:var(--navy); font-weight:500; margin-bottom:1.6mm;">
+    LLM이 숫자와 논리를 신뢰할 수 있게 다루도록, 표현 구조부터 다시 설계하는 AI 리서치 엔지니어
+  </div>
+  <div class="muted" style="font-size:9.9pt; line-height:1.55; margin-bottom:3mm;">
+    LLM이 숫자를 BPE로 쪼개 인식하는 순간 대수적 의미를 잃고 환각으로 이어진다는 문제의식에서, 저는 임베딩 구조 자체를 다시 설계하는 방식으로 신뢰할 수 있는 AI를 만들어왔습니다. 수치 표현을 재설계한 임베딩 연구부터 스스로 오류를 검증·수정하는 Agentic 파이프라인까지, 판단의 근거를 확인할 수 있는 AI를 만드는 것이 연구를 관통하는 원칙입니다. 최근에는 제 불로소득을 위해 Claude Code와 협업해 나흘 만에 실거래 대응 자동매매 시스템을 설계하고 실제 계좌로 시험해보고 있습니다.
+  </div>
+  <div style="margin-bottom:1.6mm;">
+    <div class="subhead" style="margin-top:0; font-size:10.8pt;">연구 관심분야</div>
+    <div class="tagrow" style="gap:2.2mm;">
+      <span class="tag" style="font-size:8.6pt; padding:1.2mm 3.4mm;">Algebraic Representation Learning</span>
+      <span class="tag" style="font-size:8.6pt; padding:1.2mm 3.4mm;">Hallucination Mitigation &amp; Detection</span>
+      <span class="tag" style="font-size:8.6pt; padding:1.2mm 3.4mm;">Trustworthy &amp; Reliable AI</span>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:2.5mm; font-size:13.4pt;">Experience&nbsp;<span class="en">경력</span></div>
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title" style="font-size:10.8pt;">고려대학교 수리인공지능 연구실 &nbsp;·&nbsp; 연구원(계약직)</div>
+      <div class="entry-meta" style="font-size:8.6pt;">2026.04 – 현재</div>
+    </div>
+    <ul class="bullets" style="font-size:9.2pt;">
+      <li>대수적 구조·조화해석학 기법을 융합해 LLM의 수치·논리 추론 성능을 개선하는 수치 임베딩 방법론 연구를 주도하고, nanoGPT·Llama 등 실제 아키텍처에 이식하는 연구 진행중</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="entry-head">
+      <div class="entry-title" style="font-size:10.8pt;">SK매직(현 SK인텔릭스) &nbsp;·&nbsp; Data Scientist, 매니저(인턴)</div>
+      <div class="entry-meta" style="font-size:8.6pt;">2024.07 – 2025.02</div>
+    </div>
+    <ul class="bullets" style="font-size:9.2pt;">
+      <li>자율주행 공기청정기 보조 공기질 센서의 위치 최적화 파이프라인 설계, 제한된 센서 데이터로 실내 전체 공기질을 예측하는 공간 보간 알고리즘 개발</li>
+    </ul>
+  </div>
+
+  <div class="section-title" style="margin-top:3mm; font-size:13.4pt;">Highlights&nbsp;<span class="en">핵심 성과</span></div>
+  <div style="display:flex; gap:5mm; margin-bottom:3mm;">
+    <div style="flex:1; background:var(--blue-pale); border:0.5pt solid var(--line); border-radius:2mm; padding:2.8mm; text-align:center;">
+      <div style="font-size:17pt; font-weight:700; color:var(--navy);">3</div>
+      <div class="muted" style="font-size:8.3pt; margin-top:0.5mm;">국제 학회 워크숍 논문<br/>(NeurIPS·ICML·ICCV)</div>
+    </div>
+    <div style="flex:1; background:var(--blue-pale); border:0.5pt solid var(--line); border-radius:2mm; padding:2.8mm; text-align:center;">
+      <div style="font-size:17pt; font-weight:700; color:var(--navy);">3</div>
+      <div class="muted" style="font-size:8.3pt; margin-top:0.5mm;">특허 출원<br/>(산학협력·언러닝)</div>
+    </div>
+    <div style="flex:1; background:var(--blue-pale); border:0.5pt solid var(--line); border-radius:2mm; padding:2.8mm; text-align:center;">
+      <div style="font-size:17pt; font-weight:700; color:var(--navy);">Top 9%</div>
+      <div class="muted" style="font-size:8.3pt; margin-top:0.5mm;">2025 SCPC AI 챌린지<br/>본선 진출 (23위)</div>
+    </div>
+    <div style="flex:1; background:var(--blue-pale); border:0.5pt solid var(--line); border-radius:2mm; padding:2.8mm; text-align:center;">
+      <div style="font-size:17pt; font-weight:700; color:var(--navy);">7위</div>
+      <div class="muted" style="font-size:8.3pt; margin-top:0.5mm;">2023 AI Grand Challenge<br/>단체 수상 (과기정통부)</div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:1mm; font-size:13.4pt;">Core Projects&nbsp;<span class="en">주요 프로젝트</span></div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.8mm 4mm;">
+    <div style="display:flex; align-items:flex-start; gap:2.2mm;">
+      <span class="badge-circle" style="width:6.6mm;height:6.6mm;font-size:7.6pt; flex-shrink:0;">1</span>
+      <div style="font-size:8.8pt; line-height:1.35;">
+        <b>&lt;NUM&gt; Token 기반 LLM 수치 임베딩</b><br/>
+        <span class="muted" style="font-size:8pt;">Foundation 모델 아키텍처 개선 · 진행중</span>
+      </div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:2.2mm;">
+      <span class="badge-circle" style="width:6.6mm;height:6.6mm;font-size:7.6pt; flex-shrink:0;">2</span>
+      <div style="font-size:8.8pt; line-height:1.35;">
+        <b>Adelic Operation-preserved Embeddings (AOE)</b><br/>
+        <span class="muted" style="font-size:8pt;">대수구조 보존 수치 임베딩 · NeurIPS 2025 Workshop</span>
+      </div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:2.2mm;">
+      <span class="badge-circle" style="width:6.6mm;height:6.6mm;font-size:7.6pt; flex-shrink:0;">3</span>
+      <div style="font-size:8.8pt; line-height:1.35;">
+        <b>PFVL</b><br/>
+        <span class="muted" style="font-size:8pt;">Lean4 기반 Agentic 자기수정 Reasoning 파이프라인</span>
+      </div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:2.2mm;">
+      <span class="badge-circle" style="width:6.6mm;height:6.6mm;font-size:7.6pt; flex-shrink:0;">4</span>
+      <div style="font-size:8.8pt; line-height:1.35;">
+        <b>SCPC AI 챌린지</b><br/>
+        <span class="muted" style="font-size:8pt;">온디바이스 멀티모달 VLM · 모델 경량화</span>
+      </div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:2.2mm;">
+      <span class="badge-circle" style="width:6.6mm;height:6.6mm;font-size:7.6pt; flex-shrink:0;">5</span>
+      <div style="font-size:8.8pt; line-height:1.35;">
+        <b>Hallucination Type 연구</b><br/>
+        <span class="muted" style="font-size:8pt;">환각 유형 분류 · 텍스트 평가척도 한계 · 2024 KCC</span>
+      </div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:2.2mm;">
+      <span class="badge-circle" style="width:6.6mm;height:6.6mm;font-size:7.6pt; flex-shrink:0;">6</span>
+      <div style="font-size:8.8pt; line-height:1.35;">
+        <b>Finance Jarvis</b><br/>
+        <span class="muted" style="font-size:8pt;">Claude Code 협업 기반 KIS API 자동매매 엔진 · 개인 프로젝트</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-num">1</div>
+</div>
+<!-- ============ PAGE 2 : SKILLS & LANGUAGES ============ -->
+<div class="page" id="skills-patents-page">
+  <style>
+    #skills-patents-page table td, #skills-patents-page table th{ padding:1.2mm 2.4mm; }
+  </style>
+  <div class="topbar">
+    <span class="tag">SK하이닉스 AI해커톤 Portfolio</span>
+    <span class="doc-label">Skills & Languages · Patents & Publications</span>
+  </div>
+
+  <div class="section-title" style="margin-top:0.5mm; margin-bottom:1.8mm;">Patents&nbsp;<span class="en">특허</span></div>
+  <table style="margin-bottom:3mm;">
+    <tr><th style="width:18%;">출원일</th><th>발명의 명칭</th><th style="width:24%;">출원번호</th></tr>
+    <tr>
+      <td>2025.12</td>
+      <td>변수 조합 탐색 시스템 및 방법</td>
+      <td class="tiny">10-2025-0195253</td>
+    </tr>
+    <tr>
+      <td>2026.04</td>
+      <td>학습 무효화된 인공신경망의 특징 복원 기반 성능평가를 수행하는 전자장치 및 그 동작 방법</td>
+      <td class="tiny">10-2026-0074883</td>
+    </tr>
+    <tr>
+      <td>2025.07</td>
+      <td>학습 무효화된 인공신경망의 평가를 위한 복구 장치 및 방법</td>
+      <td class="tiny">10-2025-0092136</td>
+    </tr>
+  </table>
+
+  <div class="section-title" style="margin-top:0.5mm; margin-bottom:1.8mm;">Publications&nbsp;<span class="en">논문실적</span></div>
+
+  <div class="subhead" style="margin-top:0;">승인 (Accepted)</div>
+  <table style="margin-bottom:2.5mm;">
+    <tr><th style="width:14%;">시기</th><th>제목</th><th style="width:30%;">학회</th></tr>
+    <tr>
+      <td>2026.06</td>
+      <td>Prime Fourier Embeddings: A Principled Basis for Modular Arithmetic</td>
+      <td class="tiny">ICML 2026 Workshop AI4MATH</td>
+    </tr>
+    <tr>
+      <td>2025.10</td>
+      <td>Numbers Already Carry Their Own Embeddings</td>
+      <td class="tiny">NeurIPS 2025 Workshop MATH-AI</td>
+    </tr>
+    <tr>
+      <td>2025.07</td>
+      <td>OPC: One-Point-Contraction Unlearning Toward Deep Feature Forgetting</td>
+      <td class="tiny">ICCV 2025 Workshop U&amp;ME</td>
+    </tr>
+  </table>
+
+  <div class="subhead">게재 (Published)</div>
+  <table>
+    <tr><th style="width:14%;">시기</th><th>제목</th><th style="width:30%;">학회</th></tr>
+    <tr>
+      <td>2024.06</td>
+      <td>Exploring Hallucination Types in Question-Answering Generation and Limitation of Text Evaluation Metrics</td>
+      <td class="tiny">한국정보과학회 학술발표논문집, pp.450–452</td>
+    </tr>
+  </table>
+
+
+  <div class="section-title" style="margin-top:2.5mm; margin-bottom:1.8mm;">Technical Skills&nbsp;<span class="en">기술역량</span></div>
+  <div class="cols2" style="margin-bottom:3mm;">
+    <div class="col">
+      <div class="figure-box" style="height:100%;">
+        <div class="subhead" style="margin-top:0;">Languages</div>
+        <div class="tagrow"><span class="tag">Python</span><span class="tag">LaTeX</span></div>
+        <div class="subhead">Frameworks &amp; Libraries</div>
+        <div class="tagrow">
+          <span class="tag">PyTorch</span><span class="tag">Huggingface</span><span class="tag">vLLM</span><span class="tag">Pandas</span><span class="tag">Numpy</span><span class="tag">FastAPI</span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="figure-box" style="height:100%;">
+        <div class="subhead" style="margin-top:0;">Domain Toolset</div>
+        <div class="tagrow">
+          <span class="tag">QLoRA</span><span class="tag">Flash Attention</span><span class="tag">Lean4</span><span class="tag">OpenAI API</span><span class="tag">Anthropic API</span><span class="tag">MCP</span><span class="tag">KIS OpenAPI</span>
+        </div>
+        <div class="subhead">Tools</div>
+        <div class="tagrow"><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Git</span><span class="tag">Claude Code</span><span class="tag">SQLite</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:0.5mm; margin-bottom:1.8mm;">Languages&nbsp;<span class="en">언어</span></div>
+  <div class="cols2" style="margin-bottom:3mm;">
+    <div class="col">
+      <div class="entry-title">English</div>
+      <div class="small muted">OPIc &nbsp;IH (Intermediate High)</div>
+    </div>
+    <div class="col">
+      <div class="entry-title">Korean</div>
+      <div class="small muted">Native</div>
+    </div>
+  </div>
+
+  <div class="page-num">2</div>
+</div>
+<!-- ============ PAGE 3 : PROJECT 01 - <NUM> TOKEN LLM EMBEDDING (IN PROGRESS) ============ -->
+<div class="page">
+  <div class="topbar">
+    <span class="tag">SK하이닉스 AI해커톤 Portfolio</span>
+    <span class="doc-label">Core Project 01 — &lt;NUM&gt; Token 기반 LLM 수치 임베딩 (진행중)</span>
+  </div>
+
+  <div class="project-header">
+    <span class="project-kicker progress">PROJECT 01 · IN PROGRESS</span>
+    <div class="project-title" style="font-size:17pt;">&lt;NUM&gt; Token 기반 LLM 수치 임베딩</div>
+    <div class="project-sub">FoNE·BitTokens류의 &lt;NUM&gt; 토큰 아키텍처에서, 수치 인코딩 모듈을 training-free AOE로 교체해 파라미터 증가 없이 LLM의 수치 추론 정확도·효율을 높이는 후속 연구</div>
+    <div class="venue-line">2026.04 – 현재 &nbsp;·&nbsp; GPT-2·LLaMA2 대상 파이프라인 설계 및 사전학습 실험 진행중</div>
+  </div>
+
+  <div class="cols2">
+    <div class="col" style="flex:0.9;">
+      <div class="subhead">배경 — &lt;NUM&gt; 토큰 기반 수치 표현</div>
+      <div class="figure-box small" style="line-height:1.75;">
+        기존 LLM은 숫자를 BPE로 분할해 표현하기 때문에, 자릿수·연산 정보가 토큰 경계에서 깨지는 문제가 있음
+        <br/><br/>
+        FoNE, BitTokens 등 최근 연구는 숫자를 하나의 <b>&lt;NUM&gt;</b> 토큰으로 치환하고, 그 임베딩을 규칙 기반 함수로 직접 계산해 주입·복원하는 구조를 제안
+        <div style="margin-top:2mm; padding-top:2mm; border-top:0.4pt dashed var(--line);">
+          <b style="color:var(--navy);">&lt;NUM&gt; 임베딩 방식 비교</b>
+          <table style="margin-top:1.5mm; font-size:7.6pt;">
+            <tr><th>구조</th><th>수치 인코딩 방식</th></tr>
+            <tr><td>FoNE</td><td>Fourier 주기 특징</td></tr>
+            <tr><td>BitTokens</td><td>이진수 비트열</td></tr>
+            <tr><td><b>Ours</b></td><td><b>AOE (대수구조 보존 임베딩)</b></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col" style="flex:1.1;">
+      <div class="subhead">핵심 아이디어</div>
+      <div class="figure-box small" style="line-height:1.75;">
+        <ul class="bullets">
+          <li>&lt;NUM&gt; 토큰 위치에서만, 일반 임베딩 테이블 대신 AOE 인코더가 계산한 벡터를 사용</li>
+          <li>그 외 모든 텍스트 토큰은 기존 임베딩 테이블을 그대로 사용 — 모델 구조 변경 지점을 &lt;NUM&gt; 하나로 최소화</li>
+          <li>출력 시엔 별도 Number Decode Head로 예측값 복원 (FoNE·BitTokens와 동일한 인터페이스, 인코더만 AOE로 교체)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="subhead" style="margin-top:4mm;">&lt;NUM&gt; 토큰 결합 구조도</div>
+  <div class="figure-box">
+    <svg viewBox="0 0 720 220" width="100%" height="195">
+      <defs><marker id="a11" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#9AA6B8"/></marker></defs>
+
+      <rect x="10" y="15" width="145" height="50" rx="5" fill="#EAF4FC" stroke="#D7E8F5" stroke-width="0.8"/>
+      <text x="82" y="35" font-size="9.5" fill="var(--navy)" text-anchor="middle" font-weight="700">텍스트 토큰</text>
+      <text x="82" y="50" font-size="7.6" fill="#5B6472" text-anchor="middle">is, dollars</text>
+
+      <rect x="10" y="150" width="145" height="50" rx="5" fill="#DCF2FA" stroke="#00B4D8" stroke-width="0.8"/>
+      <text x="82" y="170" font-size="9.5" fill="#04323B" text-anchor="middle" font-weight="700">숫자 값</text>
+      <text x="82" y="185" font-size="7.6" fill="#04323B" text-anchor="middle">37.5</text>
+
+      <line x1="155" y1="40" x2="172" y2="40" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a11)"/>
+      <line x1="155" y1="175" x2="172" y2="150" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a11)"/>
+
+      <rect x="174" y="15" width="150" height="50" rx="5" fill="#EAF4FC" stroke="#D7E8F5" stroke-width="0.8"/>
+      <text x="249" y="35" font-size="9.5" fill="var(--navy)" text-anchor="middle" font-weight="700">Embedding Table</text>
+      <text x="249" y="50" font-size="7.6" fill="#5B6472" text-anchor="middle">기존 그대로</text>
+
+      <rect x="174" y="95" width="150" height="115" rx="5" fill="#00B4D8"/>
+      <text x="249" y="116" font-size="9.5" fill="#04323B" text-anchor="middle" font-weight="700">숫자 인코더</text>
+      <text x="249" y="130" font-size="7.4" fill="#04323B" text-anchor="middle">학습 파라미터 없음</text>
+      <text x="194" y="152" font-size="7.6" fill="#04323B" text-anchor="start">① 밑과 깊이</text>
+      <text x="194" y="169" font-size="7.6" fill="#04323B" text-anchor="start">② 값 또는 각도</text>
+      <text x="194" y="186" font-size="7.6" fill="#04323B" text-anchor="start">③ 크기 채널</text>
+
+      <line x1="324" y1="40" x2="353" y2="88" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a11)"/>
+      <line x1="324" y1="152" x2="353" y2="102" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a11)"/>
+
+      <circle cx="366" cy="95" r="14" fill="#fff" stroke="#9AA6B8" stroke-width="1.2"/>
+      <text x="366" y="100" font-size="13" fill="#5B6472" text-anchor="middle">⊕</text>
+
+      <line x1="380" y1="95" x2="408" y2="95" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a11)"/>
+
+      <rect x="410" y="15" width="130" height="190" rx="5" fill="#EAF4FC" stroke="#D7E8F5" stroke-width="0.9"/>
+      <text x="475" y="105" font-size="10" fill="var(--navy)" text-anchor="middle" font-weight="700">Transformer</text>
+      <text x="475" y="120" font-size="7.8" fill="#5B6472" text-anchor="middle">GPT-2, LLaMA2</text>
+
+      <line x1="540" y1="60" x2="578" y2="40" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a11)"/>
+      <line x1="540" y1="160" x2="578" y2="180" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a11)"/>
+
+      <rect x="580" y="15" width="130" height="50" rx="5" fill="#EAF4FC" stroke="#D7E8F5" stroke-width="0.8"/>
+      <text x="645" y="35" font-size="9.5" fill="var(--navy)" text-anchor="middle" font-weight="700">LM Head</text>
+      <text x="645" y="50" font-size="7.6" fill="#5B6472" text-anchor="middle">다음 토큰</text>
+
+      <rect x="580" y="155" width="130" height="50" rx="5" fill="#DCF2FA" stroke="#00B4D8" stroke-width="0.8"/>
+      <text x="645" y="175" font-size="9.5" fill="#04323B" text-anchor="middle" font-weight="700">숫자 헤드</text>
+      <text x="645" y="190" font-size="7.6" fill="#04323B" text-anchor="middle">단일 토큰 또는 자릿수</text>
+    </svg>
+    <div class="figure-cap">텍스트는 기존 임베딩 테이블을, 숫자는 학습 파라미터 없는 AOE 인코더를 거쳐 합쳐진 뒤 Transformer에 입력되고, 출력에서도 다음 토큰 예측과 숫자 예측이 갈라지는 구조</div>
+  </div>
+
+  <div class="callout amber">
+    <b>연구 목표 및 기대 효과</b> — AOE는 추가 학습 파라미터가 없는 training-free 인코더이므로, <b>모델 크기를 늘리지 않고도</b> ① 수치 인식의 근본적 개선, ② 수치 추론 정확도·학습 효율 증가, ③ 다자릿수 숫자를 단일 토큰으로 압축한 토큰 효율 증가를 함께 달성하는 것이 목표 <br/> 현재 파이프라인 구축 및 사전학습 실험 설계 단계
+  </div>
+  <div class="tagrow" style="margin-top:3mm;">
+    <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Huggingface</span><span class="tag">GPT-2</span><span class="tag">LLaMA2</span>
+  </div>
+
+  <div class="page-num">3</div>
+</div>
+<!-- ============ PAGE 4 : PROJECT 02 - AOE (+ PFE note) ============ -->
+<div class="page">
+  <div class="topbar">
+    <span class="tag">SK하이닉스 AI해커톤 Portfolio</span>
+    <span class="doc-label">Core Project 02 — Adelic Operation-preserved Embeddings</span>
+  </div>
+
+  <div class="project-header">
+    <span class="project-kicker">PROJECT 02 · RESEARCH</span>
+    <div class="project-title">Adelic Operation-preserved Embeddings <span style="font-size:13pt; color:var(--gray-sub); font-weight:400;">(AOE)</span></div>
+    <div class="project-sub">대수학적 구조를 유지하는 공간으로 숫자를 임베딩하여, 모델의 수치 이해 및 연산 성능을 최적화</div>
+    <div class="venue-line">NeurIPS 2025 Workshop MATH-AI &nbsp;·&nbsp; Poster 2025.12.06 &nbsp;·&nbsp; "Numbers Already Carry Their Own Embeddings"</div>
+    <div style="margin-top:2mm; font-size:8pt; color:var(--gray-sub); line-height:1.5;">
+      <b style="color:var(--navy);">Motivation</b> — 최신 LLM도 "5.9 = x + 5.11"처럼 간단한 산수를 종종 틀림. 숫자를 임의의 벡터로 다루는 기존 표현 방식 자체의 구조적 한계에서 기인한다고 보고 출발
+    </div>
+  </div>
+
+  <div class="cols2">
+    <div class="col" style="flex:0.95;">
+      <div class="subhead">Adele Ring 이란?</div>
+      <div class="figure-box" style="font-size:8.2pt; line-height:1.75;">
+        어떤 소수 <i>p</i>에 대한 <i>p</i>진수(ℚₚ)와 <i>p</i>진 정수(ℤₚ)가 있을 때, Adele ring 𝔸<sub>ℚ</sub>는 다음과 같이 정의됨:
+        <div style="text-align:center; margin:2mm 0; font-size:9.4pt; color:var(--navy);">
+          𝔸<sub>ℚ</sub> &nbsp;:=&nbsp; ℝ &nbsp;×&nbsp; ∏<sub style="font-size:7pt;">p</sub> (ℚₚ, ℤₚ)
+        </div>
+        <b style="color:var(--navy);">핵심 성질</b><br/>
+        Element-wise Additive&nbsp;: &nbsp;A(q₁+q₂) = A(q₁) ⊕ A(q₂)<br/>
+        Element-wise Multiplicative&nbsp;: &nbsp;A(q₁×q₂) = A(q₁) ⊗ A(q₂)
+        <div style="margin-top:2mm; padding-top:2mm; border-top:0.4pt dashed var(--line);">
+          <b style="color:var(--navy);">예시</b><br/>
+          7/5 &nbsp;→&nbsp; (1.4,&nbsp; …11011₂,&nbsp; …01212₃,&nbsp; 1.2₅,&nbsp; …54130₇,&nbsp; …)
+        </div>
+      </div>
+    </div>
+
+    <div class="col" style="flex:1.05;">
+      <div class="subhead">성능 검증 모델 구조</div>
+      <div class="figure-box">
+        <svg viewBox="0 0 220 210" width="100%" height="175">
+          <rect x="55" y="6" width="110" height="24" rx="4" fill="#EAF4FC" stroke="#D7E8F5" stroke-width="0.8"/>
+          <text x="110" y="21" font-size="9" fill="#333" text-anchor="middle">[1, 3, 4, …]</text>
+          <line x1="110" y1="30" x2="110" y2="44" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a2)"/>
+
+          <rect x="45" y="46" width="130" height="26" rx="4" fill="#0072CE"/>
+          <text x="110" y="63" font-size="9.5" fill="#fff" text-anchor="middle" font-weight="700">Adele Embedding</text>
+          <line x1="110" y1="72" x2="110" y2="86" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a2)"/>
+
+          <rect x="15" y="88" width="42" height="24" rx="3" fill="#DCEBDD" stroke="#9CC7A0" stroke-width="0.7"/>
+          <text x="36" y="104" font-size="8" fill="#2C5D34" text-anchor="middle">A(1)</text>
+          <rect x="63" y="88" width="42" height="24" rx="3" fill="#DCEBDD" stroke="#9CC7A0" stroke-width="0.7"/>
+          <text x="84" y="104" font-size="8" fill="#2C5D34" text-anchor="middle">A(3)</text>
+          <rect x="111" y="88" width="42" height="24" rx="3" fill="#DCEBDD" stroke="#9CC7A0" stroke-width="0.7"/>
+          <text x="132" y="104" font-size="8" fill="#2C5D34" text-anchor="middle">A(4)</text>
+          <text x="163" y="104" font-size="10" fill="#9AA6B8">…</text>
+
+          <line x1="110" y1="112" x2="110" y2="126" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a2)"/>
+          <circle cx="110" cy="132" r="7" fill="#fff" stroke="#9AA6B8" stroke-width="1"/>
+          <text x="110" y="135" font-size="9" fill="#5B6472" text-anchor="middle">⊕</text>
+          <rect x="118" y="119" width="76" height="26" rx="3" fill="#00B4D8"/>
+          <text x="156" y="130" font-size="6.8" fill="#04323B" text-anchor="middle" font-weight="700">2D Positional</text>
+          <text x="156" y="140" font-size="6.8" fill="#04323B" text-anchor="middle" font-weight="700">Encoding</text>
+
+          <line x1="110" y1="139" x2="110" y2="152" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a2)"/>
+          <rect x="45" y="154" width="130" height="24" rx="4" fill="#CFE8FA" stroke="#D7E8F5" stroke-width="0.8"/>
+          <text x="110" y="165" font-size="7.6" fill="var(--navy)" text-anchor="middle" font-weight="700">6-layer</text>
+          <text x="110" y="174" font-size="7.6" fill="var(--navy)" text-anchor="middle" font-weight="700">Transformer Encoder</text>
+
+          <line x1="110" y1="178" x2="110" y2="190" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a2)"/>
+          <rect x="55" y="192" width="110" height="22" rx="4" fill="#CFE8FA" stroke="#D7E8F5" stroke-width="0.8"/>
+          <text x="110" y="207" font-size="8.6" fill="var(--navy)" text-anchor="middle" font-weight="700">Classifier Head</text>
+          <defs><marker id="a2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#9AA6B8"/></marker></defs>
+        </svg>
+        <div class="figure-cap">Baseline: Trainable nn.Embedding + 1D PE <br/>Ours: AOE + 2D PE</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cols2" style="margin-top:5mm;">
+    <div class="col" style="flex:1.15;">
+      <div class="subhead">핵심 결과 — ACD, 분류 정확도 ↑ (%)</div>
+      <div class="tiny muted" style="margin-bottom:1.5mm;">ACD(Algebraic Combinatorics Dataset) &nbsp;·&nbsp; 예: mHeight — x=[2,1,5,0,7,3,6,4], y=0</div>
+      <table>
+        <tr><th>Task</th><th>n</th><th>Baseline</th><th>AOE (Ours)</th></tr>
+        <tr><td>Lattice paths</td><td>12</td><td>66.50</td><td><b>78.44</b></td></tr>
+        <tr><td>Weaving patterns</td><td>7</td><td>51.53</td><td><b>100.00</b></td></tr>
+        <tr><td>Quiver mutation classes</td><td>–</td><td>45.13</td><td><b>91.11</b></td></tr>
+        <tr><td>Schubert polynomials</td><td>6</td><td>50.00</td><td><b>99.96</b></td></tr>
+        <tr><td>mHeight</td><td>10</td><td>94.15</td><td><b>99.66</b></td></tr>
+      </table>
+      <div class="callout">
+        고난도 대수학 데이터셋 6종 평균, 기존 대비 약 39% 성능 향상
+      </div>
+      <div class="tagrow" style="margin-top:3mm;">
+        <span class="tag">Python</span><span class="tag">PyTorch</span>
+      </div>
+    </div>
+    <div class="col" style="flex:0.85;">
+      <div class="subhead">확장 연구 — PFE (조화해석학 기반)</div>
+      <div class="figure-box small" style="line-height:1.7;">
+        AOE가 수치 크기·패턴 보존에 집중했다면, PFE(Prime Fourier Embeddings)는 Pontryagin 쌍대성에 기반해 정수를 소수-인덱스 (cos, sin) 쌍으로 인코딩합니다. 각 소수 채널을 하나씩 가려보는 ablation 실험으로, 모델이 실제로 연관 소수 채널을 사용해 답을 낸다는 것을 확인했습니다.
+        <div class="callout" style="margin-top:2mm;">
+          정답 소수 채널을 가리면 정확도 최대 88%p 하락 → 관련 없는 채널을 가릴 때(&lt;2%p)와 뚜렷이 대비
+        </div>
+      </div>
+      <div class="venue-line" style="margin-top:2mm;">ICML 2026 Workshop AI4MATH &nbsp;·&nbsp; Poster 2026.07.11</div>
+    </div>
+  </div>
+
+  <div class="page-num">4</div>
+</div>
+<!-- ============ PAGE 5 : PROJECT 03 - PFVL ============ -->
+<div class="page">
+  <div class="topbar">
+    <span class="tag">SK하이닉스 AI해커톤 Portfolio</span>
+    <span class="doc-label">Core Project 03 — PFVL</span>
+  </div>
+
+  <div class="project-header">
+    <span class="project-kicker">PROJECT 03 · RESEARCH</span>
+    <div class="project-title">PFVL</div>
+    <div class="project-sub">수학 문제의 풀이 과정을 형식 언어(Lean4)로 자동 작성 및 검증하는 Agentic Reasoning 파이프라인 구축</div>
+    <div class="venue-line">Pre-print 완성 2025.06.25 &nbsp;·&nbsp; "Code to Reason in Math is Still Hard for Well-known LLMs"</div>
+  </div>
+
+  <div class="cols2">
+    <div class="col" style="flex:1.35;">
+      <div class="subhead">상세 프로세스 — Self-Correction Agentic Loop</div>
+      <div class="figure-box" style="padding:5mm 4mm;">
+        <svg viewBox="0 0 440 300" width="100%" height="290">
+          <defs><marker id="a5" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#0072CE"/></marker></defs>
+
+          <circle cx="30" cy="30" r="18" fill="#fff" stroke="#0072CE" stroke-width="2"/>
+          <text x="30" y="35" font-size="14.5" fill="#0072CE" text-anchor="middle" font-weight="700">1</text>
+          <rect x="58" y="12" width="352" height="36" rx="5" fill="#EAF4FC"/>
+          <text x="234" y="27" font-size="9.4" fill="var(--navy)" text-anchor="middle" font-weight="600">수학 문제를 읽고 풀이를 생성해</text>
+          <text x="234" y="40" font-size="9.4" fill="var(--navy)" text-anchor="middle" font-weight="600">스텝 단위로 쪼개고 파싱</text>
+
+          <line x1="30" y1="48" x2="30" y2="82" stroke="#0072CE" stroke-width="1.6" marker-end="url(#a5)"/>
+
+          <circle cx="30" cy="100" r="18" fill="#fff" stroke="#0072CE" stroke-width="2"/>
+          <text x="30" y="105" font-size="14.5" fill="#0072CE" text-anchor="middle" font-weight="700">2</text>
+          <rect x="58" y="82" width="352" height="36" rx="5" fill="#EAF4FC"/>
+          <text x="234" y="97" font-size="9.4" fill="var(--navy)" text-anchor="middle" font-weight="600">스텝을 하나씩 Lean4로 변환해가며</text>
+          <text x="234" y="110" font-size="9.4" fill="var(--navy)" text-anchor="middle" font-weight="600">증명 초안 완성</text>
+
+          <line x1="30" y1="118" x2="30" y2="152" stroke="#0072CE" stroke-width="1.6" marker-end="url(#a5)"/>
+
+          <circle cx="30" cy="170" r="18" fill="#fff" stroke="#0072CE" stroke-width="2"/>
+          <text x="30" y="175" font-size="14.5" fill="#0072CE" text-anchor="middle" font-weight="700">3</text>
+          <rect x="58" y="152" width="352" height="36" rx="5" fill="#EAF4FC"/>
+          <text x="234" y="167" font-size="9.4" fill="var(--navy)" text-anchor="middle" font-weight="600">초안을 Lean4 컴파일러에 넣어</text>
+          <text x="234" y="180" font-size="9.4" fill="var(--navy)" text-anchor="middle" font-weight="600">에러 여부 및 내용 확인</text>
+
+          <line x1="30" y1="188" x2="30" y2="222" stroke="#0072CE" stroke-width="1.6" marker-end="url(#a5)"/>
+
+          <circle cx="30" cy="240" r="18" fill="#0072CE" stroke="#0072CE" stroke-width="2"/>
+          <text x="30" y="245" font-size="14.5" fill="#fff" text-anchor="middle" font-weight="700">4</text>
+          <rect x="58" y="222" width="352" height="36" rx="5" fill="#0072CE"/>
+          <text x="234" y="237" font-size="9.4" fill="#fff" text-anchor="middle" font-weight="700">컴파일러 에러 피드백 기반</text>
+          <text x="234" y="250" font-size="9.4" fill="#fff" text-anchor="middle" font-weight="700">최대 3회 Self-Correction 으로 증명 최종본 작성</text>
+
+          <path d="M 415 240 C 440 240, 440 170, 412 170" fill="none" stroke="#00B4D8" stroke-width="1.6" marker-end="url(#a6)"/>
+          <defs><marker id="a6" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#00B4D8"/></marker></defs>
+          <text x="428" y="207" font-size="7.8" fill="#04323B" text-anchor="middle" transform="rotate(90 428 207)">error feedback</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="col" style="flex:0.85;">
+      <div class="subhead">설계 노트</div>
+      <div class="figure-box small" style="line-height:1.6;">
+        <ul class="bullets">
+          <li>자연어 수학 문제를 형식 증명 언어(Lean4) 코드로 변환·검증하는 자율 Agentic 시스템</li>
+          <li>LangGraph 등 고수준 프레임워크 없이, 상태 관리·컴파일러 피드백 루프를 Python으로 직접 구현</li>
+          <li>o4-mini·Gemini·Sonar·Claude Opus 4 등 4개 상용 LLM 대상 벤치마크(MiniF2F·ProofNet)로 검증</li>
+        </ul>
+      </div>
+
+      <div class="subhead" style="margin-top:3mm;">핵심 결과 (Claude Opus 4 기준)</div>
+      <table style="font-size:7.6pt;">
+        <tr><th>Task</th><th>Baseline</th><th>PFVL (Ours)</th></tr>
+        <tr><td>ProofNet 종합 Acc</td><td>4.58%</td><td><b>8.63%</b></td></tr>
+        <tr><td>MiniF2F-Algebra Acc (n=70)</td><td>74.3%</td><td><b>88.6%</b></td></tr>
+      </table>
+
+      <div class="tagrow" style="margin-top:2.5mm;">
+        <span class="tag">Python</span><span class="tag">Lean4</span><span class="tag">OpenAI API</span><span class="tag">Anthropic API</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-num">5</div>
+</div>
+<!-- ============ PAGE 6 : PROJECT 04 - SCPC ============ -->
+<div class="page">
+  <div class="topbar">
+    <span class="tag">SK하이닉스 AI해커톤 Portfolio</span>
+    <span class="doc-label">Core Project 04 — 2025 SCPC AI 챌린지</span>
+  </div>
+
+  <div class="project-header">
+    <span class="project-kicker">PROJECT 04 · COMPETITION</span>
+    <div class="project-title" style="font-size:17pt;">2025 SCPC AI 챌린지</div>
+    <div class="project-sub">사용자의 일상 사진을 이해하는 온디바이스 멀티모달 AI 모델 개발 &nbsp;·&nbsp; Samsung Collegiate Programming Challenge</div>
+    <div class="venue-line">상위 9% (246명중 23위) 달성, 본선 진출</div>
+  </div>
+
+  <div class="cols2">
+    <div class="col" style="flex:1.15;">
+      <div class="subhead">Two-Stage 파이프라인</div>
+      <div class="figure-box">
+        <svg viewBox="0 0 380 90" width="100%" height="85">
+          <circle cx="24" cy="20" r="14" fill="#fff" stroke="#0072CE" stroke-width="2"/>
+          <text x="24" y="25" font-size="12.5" fill="#0072CE" text-anchor="middle" font-weight="700">1</text>
+          <rect x="46" y="8" width="160" height="24" rx="12" fill="#0072CE"/>
+          <text x="126" y="24" font-size="8.8" fill="#fff" text-anchor="middle" font-weight="600">KOSMOS-2 &nbsp;— 상세 이미지 캡션 생성</text>
+          <line x1="126" y1="32" x2="126" y2="48" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#a8)"/>
+
+          <circle cx="24" cy="58" r="14" fill="#0072CE" stroke="#0072CE" stroke-width="2"/>
+          <text x="24" y="63" font-size="12.5" fill="#fff" text-anchor="middle" font-weight="700">2</text>
+          <rect x="46" y="46" width="230" height="24" rx="12" fill="#00B4D8"/>
+          <text x="161" y="62" font-size="8.8" fill="#04323B" text-anchor="middle" font-weight="600">Flan-T5 &nbsp;— 캡션을 읽고 최종 답 선택</text>
+          <defs><marker id="a8" markerWidth="7" markerHeight="7" refX="4.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#9AA6B8"/></marker></defs>
+        </svg>
+      </div>
+    </div>
+    <div class="col" style="flex:0.85;">
+      <div class="subhead">문제 설명 &amp; 제약사항</div>
+      <div class="figure-box small" style="line-height:1.7;">
+        일상 사진에 대해 선다형 질문이 주어지면 정답을 선택하는 모델을 개발
+        <ul class="bullets" style="margin-top:1.5mm;">
+          <li>2024년 전 공개된 모델만 사용 가능</li>
+          <li>모델·데이터 모두 오픈소스 라이선스만 사용 가능</li>
+          <li>총 파라미터 수 3B 미만</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:0.6mm; background:var(--line); margin:5mm 0;"></div>
+
+  <div class="subhead">모델 경량화 — 제약된 자원에서의 최적화</div>
+  <div class="cols2">
+    <div class="col">
+      <div class="figure-box small" style="line-height:1.7;">
+        QLoRA 기반 파라미터 효율 학습과 Flash Attention·torch.compile 기반 추론 최적화를 결합해, 메모리 사용량 약 75% 절감, 추론 속도 약 1.2배 향상을 동시에 달성. 난이도순 커리큘럼 러닝으로 훈련 안정성까지 확보.
+      </div>
+    </div>
+    <div class="col">
+      <div class="callout" style="margin-top:0;">
+        총 파라미터 2.74B(1.95B+0.78B), 메모리 약 75%↓, 추론 속도 약 1.2배↑ &nbsp;→&nbsp; 리더보드 0.75점, 전체 23위(상위 9%) 본선 진출
+      </div>
+      <div class="tagrow" style="margin-top:2.5mm;">
+        <span class="tag">Flash Attention</span><span class="tag">torch.compile</span><span class="tag">QLoRA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-num">6</div>
+</div>
+<!-- ============ PAGE 7 : PROJECT 05 - Hallucination ============ -->
+<div class="page">
+  <div class="topbar">
+    <span class="tag">SK하이닉스 AI해커톤 Portfolio</span>
+    <span class="doc-label">Core Project 05 — Hallucination Type 연구</span>
+  </div>
+
+  <div class="project-header">
+    <span class="project-kicker">PROJECT 05 · RESEARCH</span>
+    <div class="project-title">Hallucination Type 연구</div>
+    <div class="project-sub">QA 생성 텍스트의 환각(hallucination) 유형을 분류하고, 기존 텍스트 평가 척도(BLEU·METEOR·ROUGE-L)의 탐지 효용성을 검토</div>
+    <div class="venue-line">2024 한국컴퓨터종합학술대회(KCC) &nbsp;·&nbsp; Poster 2024.06.17 &nbsp;·&nbsp; "Exploring Hallucination Types in QA Generation and Limitation of Text Evaluation Metrics"</div>
+  </div>
+
+  <div class="cols2">
+    <div class="col" style="flex:1;">
+      <div class="subhead">환각 유형 분류 순서도</div>
+      <div class="figure-box" style="padding:4mm 3mm;">
+        <svg viewBox="-40 0 340 430" width="100%" height="420">
+          <defs><marker id="a7" markerWidth="7" markerHeight="7" refX="4.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#5B6472"/></marker></defs>
+
+          <ellipse cx="120" cy="16" rx="34" ry="14" fill="#0E9F6E"/>
+          <text x="120" y="20" font-size="8.4" fill="#fff" text-anchor="middle" font-weight="700">TEXT</text>
+          <line x1="120" y1="30" x2="120" y2="48" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
+
+          <polygon points="120,50 165,72 120,94 75,72" fill="#00B4D8"/>
+          <text x="120" y="76" font-size="7.6" fill="#04323B" text-anchor="middle" font-weight="700">문장인가?</text>
+          <line x1="165" y1="72" x2="205" y2="72" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
+          <text x="180" y="67" font-size="6.6" fill="#5B6472">False</text>
+          <rect x="207" y="59" width="86" height="26" rx="3" fill="#0072CE"/>
+          <text x="250" y="70" font-size="7.2" fill="#fff" text-anchor="middle" font-weight="700">유형1</text>
+          <text x="250" y="80" font-size="6.8" fill="#fff" text-anchor="middle">불완전 문장</text>
+
+          <line x1="120" y1="94" x2="120" y2="112" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
+          <polygon points="120,114 165,136 120,158 75,136" fill="#00B4D8"/>
+          <text x="120" y="140" font-size="7.6" fill="#04323B" text-anchor="middle" font-weight="700">연관있는가?</text>
+          <line x1="165" y1="136" x2="205" y2="136" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
+          <text x="180" y="131" font-size="6.6" fill="#5B6472">False</text>
+          <rect x="207" y="123" width="86" height="26" rx="3" fill="#0072CE"/>
+          <text x="250" y="134" font-size="7.2" fill="#fff" text-anchor="middle" font-weight="700">유형2</text>
+          <text x="250" y="144" font-size="6.8" fill="#fff" text-anchor="middle">동문서답</text>
+
+          <line x1="120" y1="158" x2="120" y2="176" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
+          <rect x="55" y="178" width="130" height="30" rx="4" fill="#EAF4FC" stroke="#D7E8F5" stroke-width="0.7"/>
+          <text x="120" y="192" font-size="7.4" fill="var(--navy)" text-anchor="middle" font-weight="600">어간 · 표제어 ·</text>
+          <text x="120" y="203" font-size="7.4" fill="var(--navy)" text-anchor="middle" font-weight="600">동의어 분석</text>
+
+          <line x1="120" y1="208" x2="120" y2="226" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
+          <polygon points="120,228 168,251 120,274 72,251" fill="#00B4D8"/>
+          <text x="120" y="248" font-size="7.2" fill="#04323B" text-anchor="middle" font-weight="700">키워드</text>
+          <text x="120" y="258" font-size="7.2" fill="#04323B" text-anchor="middle" font-weight="700">매칭?</text>
+
+          <line x1="76" y1="251" x2="52" y2="251" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
+          <rect x="-32" y="238" width="84" height="26" rx="3" fill="#0072CE"/>
+          <text x="10" y="249" font-size="7.2" fill="#fff" text-anchor="middle" font-weight="700">유형3</text>
+          <text x="10" y="259" font-size="6.6" fill="#fff" text-anchor="middle">사족·의미변동</text>
+
+          <line x1="164" y1="251" x2="188" y2="251" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
+          <rect x="190" y="238" width="90" height="26" rx="3" fill="#0072CE"/>
+          <text x="235" y="249" font-size="7.2" fill="#fff" text-anchor="middle" font-weight="700">유형4</text>
+          <text x="235" y="259" font-size="6.6" fill="#fff" text-anchor="middle">정보구현 부족</text>
+
+          <line x1="120" y1="274" x2="120" y2="292" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
+          <polygon points="120,294 165,316 120,338 75,316" fill="#00B4D8"/>
+          <text x="120" y="312" font-size="7" fill="#04323B" text-anchor="middle" font-weight="700">Cross</text>
+          <text x="120" y="322" font-size="7" fill="#04323B" text-anchor="middle" font-weight="700">없는가?</text>
+          <line x1="165" y1="316" x2="205" y2="316" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
+          <text x="180" y="311" font-size="6.6" fill="#5B6472">False</text>
+          <rect x="207" y="303" width="86" height="26" rx="3" fill="#0072CE"/>
+          <text x="250" y="314" font-size="7.2" fill="#fff" text-anchor="middle" font-weight="700">유형5</text>
+          <text x="250" y="324" font-size="6.8" fill="#fff" text-anchor="middle">인과 불일치</text>
+
+          <line x1="120" y1="338" x2="120" y2="358" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
+          <ellipse cx="120" cy="374" rx="34" ry="14" fill="#0E9F6E"/>
+          <text x="120" y="378" font-size="8" fill="#fff" text-anchor="middle" font-weight="700">무결점</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="col" style="flex:1;">
+      <div class="subhead">유형별 예시</div>
+      <table style="font-size:7.6pt;">
+        <tr><th>유형</th><th>정답</th><th>오답(환각)</th></tr>
+        <tr><td>Type1</td><td>The cat is in the house</td><td>The house the house the house</td></tr>
+        <tr><td>Type2</td><td>My favorite food is pizza</td><td>I am hungry</td></tr>
+        <tr><td>Type3</td><td>There are seven cats</td><td>There are two cats</td></tr>
+        <tr><td>Type4</td><td>Seoul is one of the biggest cities in the world</td><td>Seoul is the biggest city in the world</td></tr>
+        <tr><td>Type5</td><td>The hunter shot the deer</td><td>The deer shot the hunter</td></tr>
+      </table>
+
+      <div class="subhead" style="margin-top:5mm;">핵심 결과 — 척도별 환각 탐지 실패율 ↓</div>
+      <div class="figure-box">
+        <svg viewBox="0 0 300 190" width="100%" height="180">
+          <line x1="30" y1="10" x2="30" y2="150" stroke="#9AA6B8" stroke-width="1"/>
+          <line x1="30" y1="150" x2="290" y2="150" stroke="#9AA6B8" stroke-width="1"/>
+          <line x1="30" y1="80" x2="290" y2="80" stroke="#D7E8F5" stroke-width="0.8" stroke-dasharray="3,2"/>
+          <text x="24" y="83" font-size="6.4" fill="#5B6472" text-anchor="end">0.5</text>
+          <text x="24" y="14" font-size="6.4" fill="#5B6472" text-anchor="end">1.0</text>
+          <text x="24" y="153" font-size="6.4" fill="#5B6472" text-anchor="end">0</text>
+
+          <g>
+            <rect x="42" y="49.6" width="10" height="100.4" fill="#7FC7E3"/>
+            <rect x="53" y="142.2" width="10" height="7.8" fill="#00B4D8"/>
+            <rect x="64" y="141.4" width="10" height="8.6" fill="#0072CE"/>
+            <text x="58" y="162" font-size="6.6" fill="#5B6472" text-anchor="middle">Type3-short</text>
+          </g>
+          <g>
+            <rect x="102" y="108.6" width="10" height="41.4" fill="#7FC7E3"/>
+            <rect x="113" y="50.6" width="10" height="99.4" fill="#00B4D8"/>
+            <rect x="124" y="47.8" width="10" height="102.2" fill="#0072CE"/>
+            <text x="118" y="162" font-size="6.6" fill="#5B6472" text-anchor="middle">Type3-long</text>
+          </g>
+          <g>
+            <rect x="162" y="94" width="10" height="56" fill="#7FC7E3"/>
+            <rect x="173" y="67.4" width="10" height="82.6" fill="#00B4D8"/>
+            <rect x="184" y="56.2" width="10" height="93.8" fill="#0072CE"/>
+            <text x="178" y="162" font-size="6.6" fill="#5B6472" text-anchor="middle">Type4</text>
+          </g>
+          <g>
+            <rect x="222" y="106.6" width="10" height="43.4" fill="#7FC7E3"/>
+            <rect x="233" y="39.4" width="10" height="110.6" fill="#00B4D8"/>
+            <rect x="244" y="53.4" width="10" height="96.6" fill="#0072CE"/>
+            <text x="238" y="162" font-size="6.6" fill="#5B6472" text-anchor="middle">Type5</text>
+          </g>
+
+          <rect x="30" y="172" width="8" height="8" fill="#7FC7E3"/><text x="41" y="179" font-size="6.6" fill="#5B6472">BLEU-1</text>
+          <rect x="90" y="172" width="8" height="8" fill="#00B4D8"/><text x="101" y="179" font-size="6.6" fill="#5B6472">METEOR</text>
+          <rect x="152" y="172" width="8" height="8" fill="#0072CE"/><text x="163" y="179" font-size="6.6" fill="#5B6472">ROUGE-L</text>
+        </svg>
+        <div class="figure-cap">METEOR·ROUGE-L은 짧은 단답형 환각만 탐지 가능, BLEU는 모든 유형에서 탐지력 부족</div>
+      </div>
+      <div class="callout" style="margin-top:3mm;">
+        텍스트 유사도 지표만으로는 환각을 잡아낼 수 없다는 것을 직접 실험으로 증명
+      </div>
+    </div>
+  </div>
+
+  <div class="page-num">7</div>
+</div>
+<!-- ============ PAGE 8 : PROJECT 06 - FINANCE JARVIS ============ -->
+<div class="page">
+  <div class="topbar">
+    <span class="tag">SK하이닉스 AI해커톤 Portfolio</span>
+    <span class="doc-label">Core Project 06 — Finance Jarvis</span>
+  </div>
+
+  <div class="project-header">
+    <span class="project-kicker">PROJECT 06 · PERSONAL PROJECT</span>
+    <div class="project-title" style="font-size:17pt;">Finance Jarvis</div>
+    <div class="project-sub">Claude Code와 협업해 설계부터 실제 계좌 검증까지 진행한 KIS(한국투자증권) API 기반 자동매매 엔진</div>
+    <div class="venue-line">2026.09.19 – 09.22 (4일) &nbsp;·&nbsp; 개인 사이드 프로젝트 &nbsp;·&nbsp; KIS OpenAPI 기반</div>
+  </div>
+
+  <div class="cols2">
+    <div class="col" style="flex:1;">
+      <div class="subhead">배경 &amp; 설계 방향</div>
+      <div class="figure-box small" style="line-height:1.75;">
+        기존에 만들어 둔 개인 종목 스캐너(기술적 시그널 + 뉴스 감성분석)를, 실제 주문이 나가는 자동매매 엔진으로 확장한 프로젝트입니다.
+        <br/><br/>
+        실거래 전환이 전제된 시스템이라 기능을 넓히기 전에 "장애에 견고한 설계"를 먼저 세웠습니다. 특히 매매 판단을 <b style="color:var(--navy);">숫자로 계산되는 판단</b>과 <b style="color:var(--ai);">LLM이 맥락을 읽고 내리는 판단</b>으로 처음부터 분리해, 후자는 사람 승인 없이는 매매에 반영되지 않도록 설계했습니다.
+      </div>
+    </div>
+
+    <div class="col" style="flex:1.05;">
+      <div class="subhead">Claude Code 협업 방식</div>
+      <div class="figure-box small" style="line-height:1.85; height:80%;">
+        <ul class="bullets">
+          <li>Explore 에이전트로 API 문서·예제 코드를 먼저 조사</li>
+          <li>Plan 에이전트에게 크래시 복구, 중복주문 방지, DB 스키마 설계를 교차검토받은 뒤 구현</li>
+          <li>최소 안전 코어부터 구현하고, 리스크 낮은 기능부터 단계적으로 확장</li>
+          <li>실제 모의투자 계좌로 매 단계 라이브 검증, 발견된 버그는 즉시 원인을 추적해 수정</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="subhead" style="margin-top:4mm;">판단 아키텍처 — 계산 기반 판단과 Gemini 기반 semantic 판단의 분리</div>
+  <div class="figure-box">
+    <svg viewBox="0 0 720 250" width="100%" height="225">
+      <defs><marker id="afj3" markerWidth="7" markerHeight="7" refX="4.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#9AA6B8"/></marker></defs>
+
+      <rect x="15" y="8" width="180" height="28" rx="5" fill="#EAF4FC" stroke="#D7E8F5" stroke-width="0.8"/>
+      <text x="105" y="26" font-size="8.4" fill="var(--navy)" text-anchor="middle" font-weight="600">시세 · 기술적 지표 데이터</text>
+      <rect x="525" y="8" width="180" height="28" rx="5" fill="#EAF4FC" stroke="#D7E8F5" stroke-width="0.8"/>
+      <text x="615" y="26" font-size="8.4" fill="var(--navy)" text-anchor="middle" font-weight="600">뉴스 · 종목 데이터</text>
+
+      <line x1="105" y1="36" x2="105" y2="48" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#afj3)"/>
+      <line x1="615" y1="36" x2="615" y2="48" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#afj3)"/>
+
+      <rect x="15" y="50" width="180" height="40" rx="5" fill="#0072CE"/>
+      <text x="105" y="66" font-size="8.6" fill="#fff" text-anchor="middle" font-weight="700">기술적 지표 계산 (MACD, RSI 등)</text>
+      <text x="105" y="80" font-size="7.6" fill="#DCEEFB" text-anchor="middle">결정론적 계산</text>
+
+      <rect x="525" y="50" width="180" height="40" rx="5" fill="var(--ai)"/>
+      <text x="615" y="66" font-size="8.6" fill="#fff" text-anchor="middle" font-weight="700">Gemini 기반 판단</text>
+      <text x="615" y="80" font-size="7.6" fill="#ECE6FF" text-anchor="middle">뉴스 감성분석 · 종목 발굴</text>
+
+      <line x1="105" y1="90" x2="105" y2="102" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#afj3)"/>
+      <line x1="615" y1="90" x2="615" y2="102" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#afj3)"/>
+
+      <rect x="15" y="104" width="180" height="42" rx="5" fill="#EAF4FC" stroke="#0072CE" stroke-width="0.9"/>
+      <text x="105" y="121" font-size="8.4" fill="var(--navy)" text-anchor="middle" font-weight="600">리밸런싱 · 시그널 판단</text>
+      <text x="105" y="135" font-size="7.6" fill="#5B6472" text-anchor="middle">임계값 규칙 기반</text>
+
+      <rect x="525" y="104" width="180" height="42" rx="5" fill="var(--ai-pale)" stroke="var(--ai)" stroke-width="0.9"/>
+      <text x="615" y="121" font-size="8.4" fill="var(--navy)" text-anchor="middle" font-weight="600">사람 승인 게이트</text>
+      <text x="615" y="135" font-size="7.6" fill="#5B6472" text-anchor="middle">승인 전까지 매매 미반영</text>
+
+      <line x1="195" y1="125" x2="342" y2="183" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#afj3)"/>
+      <line x1="525" y1="125" x2="378" y2="183" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#afj3)"/>
+
+      <circle cx="360" cy="192" r="14" fill="#fff" stroke="#0072CE" stroke-width="1.4"/>
+      <text x="360" y="197" font-size="11" fill="#0072CE" text-anchor="middle">⊕</text>
+      <text x="360" y="216" font-size="7" fill="#5B6472" text-anchor="middle">action 변수 1개</text>
+
+      <line x1="374" y1="192" x2="403" y2="192" stroke="#9AA6B8" stroke-width="1.2" marker-end="url(#afj3)"/>
+
+      <rect x="405" y="174" width="150" height="36" rx="5" fill="#0072CE"/>
+      <text x="480" y="197" font-size="8.6" fill="#fff" text-anchor="middle" font-weight="700">주문 실행 (경로 1개)</text>
+
+      <rect x="15" y="204" width="280" height="40" rx="5" fill="#00B4D8"/>
+      <text x="155" y="220" font-size="8.4" fill="#04323B" text-anchor="middle" font-weight="700">손절 · 강제청산</text>
+      <text x="155" y="234" font-size="7.4" fill="#04323B" text-anchor="middle">손익률 계산 기반, 다른 제약 무시하고 최우선 실행</text>
+
+      <path d="M295,224 C 350,224 370,214 405,200" fill="none" stroke="#00B4D8" stroke-width="1.6" marker-end="url(#afj3)"/>
+    </svg>
+    <div class="figure-cap" style="display:flex; justify-content:center; gap:5mm; align-items:center;">
+      <span style="display:inline-flex; align-items:center; gap:1.2mm;"><span style="width:2.4mm;height:2.4mm;background:#0072CE;border-radius:50%;display:inline-block;"></span>결정론적 계산</span>
+      <span style="display:inline-flex; align-items:center; gap:1.2mm;"><span style="width:2.4mm;height:2.4mm;background:var(--ai);border-radius:50%;display:inline-block;"></span>Gemini 기반 semantic 판단 (승인 게이트 통과 필요)</span>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:3.5mm;">
+    검증은 유닛테스트로 끝내지 않고, 단계마다 실제 모의투자 계좌로 시세 조회·주문·체결을 직접 호출해 확인했습니다. 이 과정에서 계산 레이어가 쓰던 기술적 지표 라이브러리 하나가 수식 오류로 값을 수백 배까지 부풀려 계산하고 있다는 것을 발견해, 수동 계산과 대조하여 원인을 찾아 고쳤습니다.
+  </div>
+
+  <div class="cols2" style="margin-top:3mm;">
+    <div class="col" style="flex:1.3;">
+      <div class="callout amber" style="margin-top:0;">
+        나흘 만에 20개가 넘는 모듈, 커밋 8개로 자동매매 엔진을 완성해 실제 정규장 시간에 모의투자 계좌로 라이브 검증까지 마쳤습니다.
+      </div>
+    </div>
+    <div class="col" style="flex:1;">
+      <div class="tiny muted" style="line-height:1.6;">
+        모의투자 계좌 기준 검증이며, 실거래 전환에는 별도 이중 확인이 필요하도록 설계했습니다. 해외주식은 시세·잔고 조회까지만 검증했고 실주문 체결 전체 사이클은 아직 미검증입니다.
+      </div>
+    </div>
+  </div>
+
+  <div class="tagrow" style="margin-top:3mm;">
+    <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">asyncio</span><span class="tag">WebSocket</span><span class="tag">KIS OpenAPI</span><span class="tag">Gemini API</span><span class="tag">Claude Code</span>
+  </div>
+
+  <div class="page-num">8</div>
+</div>
+
+</body>
+</html>
