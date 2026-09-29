@@ -20,7 +20,7 @@ tags:
 -   **해결책**: Teacher의 출력 분포를 모방하게 하여, 작은 모델이 스스로 학습할 때보다 더 높은 성능(Generalization)을 내게 만든다.
 
 ## 3. 핵심 아이디어: Dark Knowledge
-Teacher 모델은 정답(Hard Label)뿐만 아니라, 오답들 사이의 미묘한 관계(Soft Label)까지 알고 있다. 힌튼(Hinton) 교수는 이를 **"Dark Knowledge"**라 명명했다.
+Teacher 모델은 정답(Hard Label)뿐만 아니라, 오답들 사이의 미묘한 관계(Soft Label)까지 알고 있다. 힌튼(Hinton) 교수는 이를 **"Dark Knowledge"** 라 명명했다.
 
 | 클래스 | Hard Label (정답) | Soft Label (Teacher) | 의미 |
 | :--- | :--- | :--- | :--- |

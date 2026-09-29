@@ -74,7 +74,8 @@ $$
 -   이 메커니즘 덕분에 불필요한 정보(Stopword 등)는 걸러내고 중요한 정보만 장기 기억(Long-term Memory)에 남길 수 있다.
 
 > [!warning] Trade-off
-> 파라미터가 시시각각 변하므로, 더 이상 **Convolution(합성곱) 형태로 병렬화할 수 없다**. 이를 해결하기 위해 **Parallel Scan** 알고리즘을 사용한다.## 4. Mamba Block Architecture
+> 파라미터가 시시각각 변하므로, 더 이상 **Convolution(합성곱) 형태로 병렬화할 수 없다**. 이를 해결하기 위해 **Parallel Scan** 알고리즘을 사용한다.
+## 4. Mamba Block Architecture
 Transformer의 Self-Attention Layer를 대체하는 **Mamba Layer**의 내부 구조다. H3 모델과 Gated MLP 구조를 결합했다.
 
 ```mermaid
