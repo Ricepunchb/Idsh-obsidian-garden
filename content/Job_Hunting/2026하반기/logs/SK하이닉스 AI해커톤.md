@@ -35,8 +35,5 @@ AI와 교감하고, 스스로 사고하고, 문제를 해결하는 이곳에서 
 - "AI 활용 경험" 문항은 연구/모델링 역량보다 **상용 AI 도구(Claude Code, GPT, Gemini 등)를 실제로 다뤄 현장 문제를 해결하고 결과로 증명한 경험**을 묻는 취지에 가깝다.
 - ZERO-BASE·REAL BUSINESS·SHOW & PROVE 세 가치 모두 "완결된 논문 성과"보다 "짧은 기간 안에 실제로 작동하는 산출물을 만들었는가"에 방점.
 
-# 서류 전형
-* **제출한 이력서/포트폴리오 버전:**
-* **중점적으로 어필한 내용:** AI 활용 경험 문항 — [[내 포트폴리오 아이템 정리#⑩ Finance Jarvis — Claude Code 협업 기반 KIS API 자동매매 엔진 (2026.09.19~09.22, 4일, 개인 사이드 프로젝트)|Finance Jarvis]](Claude Code 협업 기반 KIS API 자동매매 엔진) 메인 + Claude Code, alphaXiv MCP 연동 인용검증 경험 보조
 ---
 # 후기
