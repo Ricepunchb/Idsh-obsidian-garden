@@ -70,14 +70,14 @@ graph TD
 3.  **Experts Processing**: 선택된 전문가들만 연산을 수행한다. (선택받지 못한 전문가는 연산량 0)
 4.  **Weighted Sum**: 전문가들의 출력을 Router가 계산한 가중치(확률)에 따라 합쳐 최종 출력을 만든다.
 ## 5. 핵심 수식 
-MoE의 핵심은 **미분 가능한 라우팅(Routing)**과 **로드 밸런싱(Load Balancing)**이다. 
+MoE의 핵심은 **미분 가능한 라우팅(Routing)** 과 **로드 밸런싱(Load Balancing)** 이다. 
 ### 5.1. Gating & Routing 어떤 전문가를 고를지 결정하는 과정이다. 
 $$ \begin{align} g(x) &= \text{Softmax}(\text{TopK}(x \cdot W_g, k)) \\ y &= \sum_{i \in \text{selected}} g_i(x) \cdot E_i(x) \end{align} $$ 
 - $W_g$: Router가 학습하는 가중치 행렬 
 - $E_i(x)$: $i$번째 전문가(FFN)의 출력값
 - Top-K에 들지 못한 전문가의 $g_i(x)$는 0이 되어 연산에서 제외된다. 
 ### 5.2. Load Balancing Loss (학습 안정화) 
-특정 전문가에게만 일이 몰리는 **'쏠림 현상(Collapse)'**을 막기 위해 보조 손실함수(Auxiliary Loss)를 추가한다. 
+특정 전문가에게만 일이 몰리는 **'쏠림 현상(Collapse)'** 을 막기 위해 보조 손실함수(Auxiliary Loss)를 추가한다. 
 $$ \mathcal{L}_{\text{aux}} = \alpha \cdot N \sum_{i=1}^N f_i \cdot P_i $$
 - $f_i$: 해당 배치(Batch)에서 전문가 $i$가 실제로 선택된 비율 (Fraction) 
 - $P_i$: Router가 전문가 $i$에게 할당한 평균 확률값 (Probability)
