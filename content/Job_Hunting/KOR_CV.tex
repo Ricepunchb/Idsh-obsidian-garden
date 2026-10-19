@@ -141,7 +141,7 @@
 %---------- SUMMARY & RESEARCH INTERESTS ----------
 \section{핵심 요약 및 연구 관심 분야 (Summary \& Research Interests)}
 \small{
-수학적 엄밀성을 바탕으로 기존 토큰화의 구조적 한계를 극복하고 모델 파라미터를 무작정 늘리는 대신 표현 구조와 추론 메커니즘을 근본적으로 재설계하는 AI 연구자입니다. 대수정수론 기반의 결정론적 수치 임베딩을 설계해 탑티어 학회 워크숍에 발표하였으며, 외부 검증기 피드백 루프를 통한 자율 에이전트의 논리적 환각 억제, 단일 GPU 온디바이스 VLM 경량화(메모리 75\% 절감) 및 실전 자율 트레이딩 시스템을 구축했습니다.
+수학적 엄밀성을 바탕으로 기존 토큰화의 구조적 한계를 극복하고 모델 파라미터를 무작정 늘리는 대신 표현 구조와 추론 메커니즘을 근본적으로 재설계하는 AI 연구자입니다. 대수정수론 기반의 결정론적 수치 임베딩을 설계해 탑티어 학회 워크숍에 발표하였으며, 외부 검증기 피드백 루프를 통한 자율 에이전트의 논리적 환각 억제, 단일 GPU 온디바이스 VLM 경량화 및 실전 자율 트레이딩 시스템을 구축했습니다.
 \vspace{3pt}
 
 \textbf{연구 관심 분야 (Research Interests)}:
@@ -168,10 +168,10 @@
       {Adele Ring 기반 결정론적 수치 임베딩 및 LLM 사전학습 연구}{2025.07 -- 현재}
       {고려대학교 수리인공지능연구실 (대표 연구, 1저자 / 공동 1저자)}{PyTorch}
       \resumeSubHeadingList
-          \resumeItem{LLM의 BPE 토큰 분할로 인한 수치 연산 오류("수치적 환각")를 해결하기 위해 대수정수론 기반의 새로운 표현 구조를 기획}
-          \resumeItem{아델 환(Adele Ring)을 활용해 추가 파라미터 학습 없는 결정론적 임베딩(AOE)을 설계하고, Schur's Lemma를 통해 소수 채널 간 Block-Diagonal 독립성을 수학적으로 증명}
-          \resumeItem{대수 조합론(ACD) 6개 분류 태스크 13개 세팅에서 평균 정확도를 66\%에서 92\%로 개선(Weaving Patterns 100\%)하여 NeurIPS 2025(1저자) 및 ICML 2026(공동 1저자) 워크숍 채택}
-          \resumeItem{nanoGPT 및 Llama의 토크나이저와 임베딩 레이어를 직접 수정해 숫자를 독립 NUM 토큰으로 분리하고, Custom Loss와 Muon 옵티마이저 기반으로 수치 표현 학습을 적용한 LLM을 처음부터 사전학습 진행 중}
+          \resumeItem{LLM의 BPE 토큰 분할로 인한 수치 연산 오류 및 수치적 환각을 해결하기 위해 대수정수론 기반의 새로운 표현 구조를 기획}
+          \resumeItem{Adele Ring 구조를 활용해 추가 파라미터 학습 없는 결정론적 임베딩(AOE)을 설계하고, Schur's Lemma를 통해 소수 채널 간 Block-Diagonal 독립성을 수학적으로 증명}
+          \resumeItem{대수 조합론(ACD) 6개 분류 태스크 13개 세팅에서 평균 정확도를 66\%에서 92\%로 개선(특정 난제 100\% 달성)하여 NeurIPS 2025 워크숍(1저자) 및 ICML 2026 워크숍(공동 1저자) 채택}
+          \resumeItem{nanoGPT 및 Llama의 토크나이저와 임베딩 레이어를 직접 수정해 숫자를 단일 독립 토큰으로 분리하고, Custom Loss와 Muon 옵티마이저 기반으로 수치 표현 학습을 적용한 LLM을 사전학습 및 사후학습 진행 중}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
@@ -179,7 +179,7 @@
       {개인 프로젝트}{Antigravity, Gemini, OpenAPI}
       \resumeSubHeadingList
           \resumeItem{코어 트레이딩 엔진, Gemini 포트폴리오 에이전트, 백테스터, 매매 복기 대시보드를 아우르는 비동기 이벤트 기반 시스템(FastAPI, asyncio) 약 1.5만 라인 구축 및 단위 및 통합 테스트 132개 100\% 통과}
-          \resumeItem{30분 주기 파이프라인에서 일봉과 30분봉 추세 레짐(SMA 20/60), 퀀트 지표(RSI/MACD tanh 연속 정규화), LLM 뉴스 감성을 합성해 매매 강도를 자율 산출하는 다중 시그널 의사결정 파이프라인 설계}
+          \resumeItem{30분 주기 파이프라인에서 일봉과 30분봉 추세 레짐(SMA 20/60), 퀀트 지표(RSI, MACD, etc), LLM 뉴스 감성을 합성해 매매 강도를 자율 산출하는 다중 시그널 의사결정 파이프라인 설계}
           \resumeItem{Gemini는 종목 발굴과 비중 조정을 제안하고 실행 엔진은 코드 레벨 가드레일(\texttt{AIRebalanceGuard}: 회전율 20\% 한도)과 주문 멱등성 FSM(모호성 시 \texttt{UNKNOWN} 안전 정지)으로 실행을 통제하는 이원화 구조 구현}
           \resumeItem{실전 거래비용(세금 0.18\%, 수수료 0.015\%, 슬리피지 0.05\%)을 정밀 반영한 6개월 백테스트에서 손절 쿨다운과 50\% 분할 익절 최적화로 손절 71.4\% 감소(35회 $\rightarrow$ 10회) 및 누적 수익률 +33.46\% (샤프 지수 2.03) 달성}
       \resumeSubHeadingListEnd
@@ -190,7 +190,7 @@
       \resumeSubHeadingList
           \resumeItem{연속형 물성은 Gaussian Process로, Pass/Fail 이진 타깃은 AutoML 분류기로 분리 예측하는 Two-Track 최적화 모듈을 단독 설계 및 구현}
           \resumeItem{기존 Rejection Sampling의 속도 병목을 해결하기 위해 복합 제약공간 내 균일 샘플을 즉시 생성하는 디리클레 재스케일링(DRS) 알고리즘 도입}
-          \resumeItem{외부 베이스라인 대비 유효 분산 배합을 1.3 \~ 2.2배 더 많이 회수하고 Docker 기반 모듈형 배포 파이프라인을 구축해 코오롱인더스트리 전사 도입 완료 및 특허 1건 출원 완료}
+          \resumeItem{외부 베이스라인 대비 유효 분산 배합을 1.3 - 2.2배 더 많이 회수하고 Docker 기반 모듈형 배포 파이프라인을 구축해 코오롱인더스트리 전사 도입 완료 및 특허 1건 출원 완료}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
@@ -198,8 +198,8 @@
       {삼성전자, 삼성리서치 (본선 진출, 상위 9\% / 23위 달성)}{PyTorch, HuggingFace, QLoRA}
       \resumeSubHeadingList
           \resumeItem{3B 파라미터 미만 단일 GPU 제약 환경에서 일상 이미지를 이해하고 다지선다 고성능 추론을 수행하는 Two-Stage 온디바이스 파이프라인(KOSMOS-2 및 Flan-T5, 총 2.74B) 설계}
-          \resumeItem{QLoRA 양자화와 Flash Attention v2로 I/O 병목을 해결하고 torch.compile 커널 퓨전을 적용해 메모리 이동을 최소화하는 하드웨어 인식 최적화 수행}
-          \resumeItem{베이스라인 대비 메모리 사용량 약 75\% 절감과 추론 속도 1.2배 향상을 달성하여 1차 리더보드 0.75점으로 전체 23위(상위 9\%) 본선 진출}
+          \resumeItem{QLoRA 양자화와 Flash Attention v2로 I/O 병목을 해결하고 torch.compile 커널 퓨전을 적용해 메모리 이동을 최소화하는 Hardware-aware 최적화 수행}
+          \resumeItem{베이스라인 대비 메모리 사용량 약 75\% 절감과 추론 속도 1.2배 향상을 달성하여 정확도 0.77로 전체 23위(상위 9\%) 본선 진출}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
