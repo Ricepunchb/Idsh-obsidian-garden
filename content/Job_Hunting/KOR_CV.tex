@@ -134,23 +134,43 @@
   \textbf{\Huge 배 수 현 \large (Suhyun Bae)} \\ \vspace{4pt}
   \small 010-3357-4231 $|$ 
   \href{mailto:baeshstar@gmail.com}{baeshstar@gmail.com} $|$ 
-  \href{https://linkedin.com/in/suhyun-bae-869043286}{linkedin.com/in/suhyun-bae-869043286} $|$ 
-  \href{https://github.com/Ricepunchb}{github.com/Ricepunchb}
+  \href{https://scholar.google.com/citations?user=WX1-6eUAAAAJ&hl=ko}{Google Scholar} $|$ 
+  \href{https://github.com/Ricepunchb}{github.com/Ricepunchb} $|$ 
+  \href{https://linkedin.com/in/suhyun-bae-869043286}{LinkedIn}
 \end{center}
 
 %---------- SUMMARY & RESEARCH INTERESTS ----------
 \section{핵심 요약 및 연구 관심 분야 (Summary \& Research Interests)}
 \small{
-수학적 엄밀성을 바탕으로 기존 토큰화의 구조적 한계를 극복하고 모델 파라미터를 무작정 늘리는 대신 표현 구조와 추론 메커니즘을 근본적으로 재설계하는 AI 연구자입니다. 대수정수론 기반의 결정론적 수치 임베딩을 설계해 탑티어 학회 워크숍에 발표하였으며, 외부 검증기 피드백 루프를 통한 자율 에이전트의 논리적 환각 억제, 단일 GPU 온디바이스 VLM 경량화 및 실전 자율 트레이딩 시스템을 구축했습니다.
+수학적 제1원리를 바탕으로 파라미터 증량에 의존하지 않고, 문제 본질에 부합하는 표현 구조와 효율적 아키텍처를 설계하는 AI 연구자입니다. 대수정수론 기반의 결정론적 임베딩으로 소형 모델의 추론 한계를 극복해 탑티어 학회(NeurIPS, ICML) 워크숍에 발표하였으며, 단일 GPU 제약 하에서 멀티모달 VLM의 메모리를 75\% 절감하고 추론을 가속했습니다. 나아가 외부 검증기 피드백 루프와 상태 제어를 결합한 자율 에이전트 파이프라인을 구축하며, 실전 제약 속에서 신뢰성 있게 동작하는 상호작용 지능을 탐구하고 있습니다.
 \vspace{3pt}
 
 \textbf{연구 관심 분야 (Research Interests)}:
 \begin{itemize}[leftmargin=0.2in, itemsep=-2pt, topsep=1pt]
+  \item \textbf{Representation Learning}
   \item \textbf{Efficient Deep Learning}
-  \item \textbf{Reliable \& Robust AI}
-  \item \textbf{World Model}
+  \item \textbf{Autonomous Agents}
 \end{itemize}
 }
+
+%---------- EDUCATION ----------
+\section{학력 사항 (Education)}
+\resumeSubHeadingList
+  \resumeSubheading
+      {고려대학교 일반대학원}{2024.03 -- 2026.02}
+      {이학석사, 수학과 (Mathematical Data Science)}{GPA: 4.19 / 4.5}
+      \resumeSubHeadingList
+          \resumeItem{\textbf{지도교수}: 이동헌 $|$ \textbf{Master Capstone Project}: "Numbers Already Carry Their Own Embeddings"}
+          \resumeItem{\textbf{주요 이수과목}: 딥러닝과 수학, 강화학습과 수학, 인공지능과 수학, 응용수학}
+      \resumeSubHeadingListEnd
+
+  \resumeSubheading
+      {고려대학교 이과대학}{2018.03 -- 2024.02}
+      {이학사, 수학과}{GPA: 3.5 / 4.5}
+      \resumeSubHeadingList
+          \resumeItem{\textbf{주요 이수과목}: 선형대수학, 인공지능의 수학적 기법, 응용정수론, 미적분학, 해석학, 대수학, 위상수학}
+      \resumeSubHeadingListEnd
+\resumeSubHeadingListEnd
 
 %---------- TECHNICAL SKILLS ----------
 \section{기술 역량 (Technical Skills)}
@@ -161,45 +181,45 @@
 \resumeSubHeadingListEnd
 
 %---------- CORE PROJECTS & RESEARCH ----------
-\section{핵심 연구 및 프로젝트 (Research \& Projects)}
+\section{연구 경력 및 프로젝트 (Research Experience \& Projects)}
 \resumeSubHeadingList
 
   \resumeSubheading
-      {Adele Ring 기반 결정론적 수치 임베딩 및 LLM 사전학습 연구}{2025.07 -- 현재}
+      {Adele Ring 기반 결정론적 수치 임베딩 및 LLM 적용방안 연구}{2025.07 -- 현재}
       {고려대학교 수리인공지능연구실 (대표 연구, 1저자 / 공동 1저자)}{PyTorch}
       \resumeSubHeadingList
           \resumeItem{LLM의 BPE 토큰 분할로 인한 수치 연산 오류 및 수치적 환각을 해결하기 위해 대수정수론 기반의 새로운 표현 구조를 기획}
-          \resumeItem{Adele Ring 구조를 활용해 추가 파라미터 학습 없는 결정론적 임베딩(AOE)을 설계하고, Schur's Lemma를 통해 소수 채널 간 Block-Diagonal 독립성을 수학적으로 증명}
-          \resumeItem{대수 조합론(ACD) 6개 분류 태스크 13개 세팅에서 평균 정확도를 66\%에서 92\%로 개선(특정 난제 100\% 달성)하여 NeurIPS 2025 워크숍(1저자) 및 ICML 2026 워크숍(공동 1저자) 채택}
-          \resumeItem{nanoGPT 및 Llama의 토크나이저와 임베딩 레이어를 직접 수정해 숫자를 단일 독립 토큰으로 분리하고, Custom Loss와 Muon 옵티마이저 기반으로 수치 표현 학습을 적용한 LLM을 사전학습 및 사후학습 진행 중}
+          \resumeItem{\textbf{Adele Ring} 구조를 활용해 추가 파라미터 학습 없는 \textbf{결정론적 임베딩(AOE)}을 설계하고, \textbf{Schur's Lemma}를 통해 소수 채널 간 \textbf{Block-Diagonal 독립성}을 수학적으로 증명}
+          \resumeItem{대수 조합론(ACD) 6개 분류 태스크 13개 세팅에서 \textbf{평균 정확도를 66\%에서 92\%로 개선}(특정 난제 \textbf{100\% 달성})하여 \textbf{NeurIPS 2025 워크숍(1저자)} 및 \textbf{ICML 2026 워크숍(공동 1저자)} 채택}
+          \resumeItem{nanoGPT 및 Llama의 토크나이저와 임베딩 레이어를 직접 수정해 숫자를 단일 독립 토큰(\texttt{<NUM>})으로 분리하고, \textbf{Custom Loss}와 \textbf{Muon 옵티마이저} 기반으로 수치 표현 학습을 적용한 LLM 사전학습 및 사후학습 진행 중}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
       {Finance Jarvis: 멀티 에이전트 자율 트레이딩 시스템}{2026.09 -- 2026.10}
       {개인 프로젝트}{Antigravity, Gemini, OpenAPI}
       \resumeSubHeadingList
-          \resumeItem{코어 트레이딩 엔진, Gemini 포트폴리오 에이전트, 백테스터, 매매 복기 대시보드를 아우르는 비동기 이벤트 기반 시스템(FastAPI, asyncio) 약 1.5만 라인 구축 및 단위 및 통합 테스트 132개 100\% 통과}
-          \resumeItem{30분 주기 파이프라인에서 일봉과 30분봉 추세 레짐(SMA 20/60), 퀀트 지표(RSI, MACD, etc), LLM 뉴스 감성을 합성해 매매 강도를 자율 산출하는 다중 시그널 의사결정 파이프라인 설계}
-          \resumeItem{Gemini는 종목 발굴과 비중 조정을 제안하고 실행 엔진은 코드 레벨 가드레일(\texttt{AIRebalanceGuard}: 회전율 20\% 한도)과 주문 멱등성 FSM(모호성 시 \texttt{UNKNOWN} 안전 정지)으로 실행을 통제하는 이원화 구조 구현}
-          \resumeItem{실전 거래비용(세금 0.18\%, 수수료 0.015\%, 슬리피지 0.05\%)을 정밀 반영한 6개월 백테스트에서 손절 쿨다운과 50\% 분할 익절 최적화로 손절 71.4\% 감소(35회 $\rightarrow$ 10회) 및 누적 수익률 +33.46\% (샤프 지수 2.03) 달성}
+          \resumeItem{코어 트레이딩 엔진, Gemini 포트폴리오 에이전트, 백테스터, 매매 복기 대시보드를 아우르는 비동기 이벤트 기반 시스템(FastAPI, asyncio) \textbf{약 1.5만 라인 구축} 및 \textbf{단위·통합 테스트 132개 100\% 통과}}
+          \resumeItem{30분 주기 파이프라인에서 일봉과 30분봉 추세 레짐(SMA 20/60), 퀀트 지표(RSI, MACD 등), LLM 뉴스 감성을 합성해 매매 강도를 자율 산출하는 \textbf{다중 시그널 의사결정 파이프라인} 설계}
+          \resumeItem{Gemini는 종목 발굴과 비중 조정을 제안하고, 실행 엔진은 코드 레벨 가드레일(\texttt{AIRebalanceGuard}: 회전율 20\% 한도)과 \textbf{주문 멱등성 FSM}(모호성 시 \texttt{UNKNOWN} 안전 정지)으로 실행을 통제하는 이원화 구조 구현}
+          \resumeItem{실전 거래비용(세금 0.18\%, 수수료 0.015\%, 슬리피지 0.05\%)을 정밀 반영한 6개월 백테스트에서 손절 쿨다운과 50\% 분할 익절 최적화로 \textbf{손절 71.4\% 감소(35회 $\rightarrow$ 10회)} 및 \textbf{누적 수익률 +33.46\% (샤프 지수 2.03)} 달성}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
       {KOLON-BO: 복합 제약 신소재 실험 최적설계 AI}{2025.03 -- 2025.11}
       {코오롱인더스트리 산학협력 (공동 1저자, 특허 출원 및 전사 도입)}{BoTorch, Docker}
       \resumeSubHeadingList
-          \resumeItem{연속형 물성은 Gaussian Process로, Pass/Fail 이진 타깃은 AutoML 분류기로 분리 예측하는 Two-Track 최적화 모듈을 단독 설계 및 구현}
-          \resumeItem{기존 Rejection Sampling의 속도 병목을 해결하기 위해 복합 제약공간 내 균일 샘플을 즉시 생성하는 디리클레 재스케일링(DRS) 알고리즘 도입}
-          \resumeItem{외부 베이스라인 대비 유효 분산 배합을 1.3 - 2.2배 더 많이 회수하고 Docker 기반 모듈형 배포 파이프라인을 구축해 코오롱인더스트리 전사 도입 완료 및 특허 1건 출원 완료}
+          \resumeItem{연속형 물성은 Gaussian Process로, Pass/Fail 이진 타깃은 AutoML 분류기로 분리 예측하는 \textbf{Two-Track 최적화 모듈을 단독 설계 및 구현}}
+          \resumeItem{기존 Rejection Sampling의 속도 병목을 해결하기 위해 복합 제약공간 내 균일 샘플을 즉시 생성하는 \textbf{디리클레 재스케일링(DRS) 알고리즘} 도입}
+          \resumeItem{외부 베이스라인 대비 \textbf{유효 분산 배합을 1.3--2.2배 더 많이 확보}하고 Docker 기반 모듈형 배포 파이프라인을 구축해 \textbf{코오롱인더스트리 전사 도입 완료} 및 \textbf{특허 1건 출원 완료}}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
       {온디바이스 VLM 경량화 및 추론 최적화 (2025 삼성 AI Challenge)}{2025.06 -- 2025.08}
       {삼성전자, 삼성리서치 (본선 진출, 상위 9\% / 23위 달성)}{PyTorch, HuggingFace, QLoRA}
       \resumeSubHeadingList
-          \resumeItem{3B 파라미터 미만 단일 GPU 제약 환경에서 일상 이미지를 이해하고 다지선다 고성능 추론을 수행하는 Two-Stage 온디바이스 파이프라인(KOSMOS-2 및 Flan-T5, 총 2.74B) 설계}
-          \resumeItem{QLoRA 양자화와 Flash Attention v2로 I/O 병목을 해결하고 torch.compile 커널 퓨전을 적용해 메모리 이동을 최소화하는 Hardware-aware 최적화 수행}
-          \resumeItem{베이스라인 대비 메모리 사용량 약 75\% 절감과 추론 속도 1.2배 향상을 달성하여 정확도 0.77로 전체 23위(상위 9\%) 본선 진출}
+          \resumeItem{3B 파라미터 미만 단일 GPU 제약 환경에서 일상 이미지를 이해하고 다지선다 고성능 추론을 수행하는 \textbf{Two-Stage 온디바이스 파이프라인}(KOSMOS-2 및 Flan-T5, 총 2.74B) 설계}
+          \resumeItem{\textbf{QLoRA 양자화}와 \textbf{Flash Attention v2}로 I/O 병목을 해결하고 \texttt{torch.compile} 커널 퓨전을 적용해 메모리 이동을 최소화하는 Hardware-aware 최적화 수행}
+          \resumeItem{베이스라인 대비 \textbf{메모리 사용량 약 75\% 절감}과 \textbf{추론 속도 1.2배 향상}을 달성하여 정확도 0.77로 \textbf{전체 23위(상위 9\%) 본선 진출}}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
@@ -207,8 +227,8 @@
       {고려대학교 수리인공지능연구실 (전공 프로젝트 및 Preprint 논문 주도)}{Python, Lean4}
       \resumeSubHeadingList
           \resumeItem{자연어 수학 문제를 정리증명 언어로 변환할 때 발생하는 오류 누적과 LLM의 논리적 환각을 제어하는 프레임워크 연구}
-          \resumeItem{기성 고수준 프레임워크 없이 외부 Lean4 컴파일러 에러 로그(\texttt{stderr})를 피드백으로 주입해 최대 3회 스스로 코드를 수정하는 자율 상태머신을 Python으로 직접 구현}
-          \resumeItem{순수수학 벤치마크 ProofNet 제로샷 정확도를 4.58\%에서 8.63\%로 2배 향상하고 MiniF2F 대수 분야 62문항을 해결하며 유효 코드 생성 시 추론 시간 57\% 단축을 규명}
+          \resumeItem{기성 고수준 프레임워크 없이 외부 \textbf{Lean4 컴파일러 에러 로그(\texttt{stderr})를 피드백으로 주입}해 최대 3회 스스로 코드를 수정하는 \textbf{자율 상태머신}을 Python으로 직접 구현}
+          \resumeItem{순수수학 벤치마크 ProofNet 제로샷 \textbf{정확도를 4.58\%에서 8.63\%로 2배 향상}하고 MiniF2F 대수 분야 62문항을 해결하며 유효 코드 생성 시 \textbf{추론 시간 57\% 단축}을 규명}
       \resumeSubHeadingListEnd
 
 \resumeSubHeadingListEnd
@@ -231,6 +251,22 @@
   \resumePublicationItem
       {Exploring Hallucination Types in Question-Answering Generation and Limitation of Text Metrics}{2024.06}
       {\textbf{배수현}, 이동헌}{\textit{한국정보과학회 학술발표논문집 (KCC 2024)}, pp. 450--452 (\textbf{Published / 1저자})}
+\resumeSubHeadingListEnd
+
+%---------- CONFERENCE PRESENTATIONS ----------
+\section{학회 및 컨퍼런스 발표 (Conference Presentations)}
+\resumeSubHeadingList
+  \resumePublicationItem
+      {Prime Fourier Embeddings: A Principled Basis for Modular Arithmetic}{2026.07}
+      {Poster Presentation, ICML 2026 Workshop on AI for Mathematics (AI4MATH)}{서울 (Seoul, Korea)}
+
+  \resumePublicationItem
+      {Numbers Already Carry Their Own Embeddings}{2025.12}
+      {Poster Presentation, NeurIPS 2025 Workshop on Mathematical Reasoning and AI (MATH-AI)}{미국 샌디에고 (San Diego, USA)}
+
+  \resumePublicationItem
+      {Exploring Hallucination Types in Question-Answering Generation and Limitation of Text Metrics}{2024.06}
+      {Poster Presentation, 2024 한국컴퓨터종합학술대회 (KCC 2024)}{제주 (Jeju, Korea)}
 \resumeSubHeadingListEnd
 
 %---------- PATENTS ----------
@@ -256,14 +292,14 @@
       {2025 SCPC: AI Challenge 본선 진출 (상위 9\%, 23위)}{2025.08}
       {삼성전자, 삼성리서치}{온디바이스 VLM 개발}
       \resumeSubHeadingList
-          \resumeItem{일상 이미지 이해 및 배경지식 기반 3B 미만 온디바이스 VLM 추론 가속 최적화 모델 개발}
+          \resumeItem{일상 이미지 이해 및 배경지식 기반 \textbf{3B 미만 온디바이스 VLM 추론 가속 최적화 모델} 개발}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
       {2023 AI Grand Challenge 최종 7위 단체 수상}{2023.11}
       {과학기술정보통신부, KETI}{정책 결정 지원 질의응답 AI}
       \resumeSubHeadingList
-          \resumeItem{다중 정답 QA 파인튜닝용 데이터셋 3,000건 자동 생성 파이프라인 구축 및 Continual Learning 적용}
+          \resumeItem{다중 정답 QA 파인튜닝용 \textbf{데이터셋 3,000건 자동 생성 파이프라인 구축} 및 Continual Learning 적용}
       \resumeSubHeadingListEnd
 \resumeSubHeadingListEnd
 
@@ -275,46 +311,68 @@
       {고려대학교 산학협력단 지속가능자원-환경연구센터}{2026.04 -- 현재}
       {연구원 (계약직, 수리인공지능연구실 상근)}{서울 성북구}
       \resumeSubHeadingList
-          \resumeItem{대수적 구조 및 조화해석학 기법을 융합하여 기성 LLM(Llama, nanoGPT 등)에 결합 가능한 수치 임베딩 모듈 연구 주도}
-          \resumeItem{토크나이저 수정 및 대수적 구조 보존 임베딩을 통한 Number Representation Learning 및 사전학습 실험 수행}
+          \resumeItem{대수적 구조 및 조화해석학 기법을 융합하여 기성 LLM(Llama, nanoGPT 등)에 결합 가능한 \textbf{수치 임베딩 모듈 연구 주도}}
+          \resumeItem{토크나이저 수정 및 대수적 구조 보존 임베딩을 통한 \textbf{Number Representation Learning 및 사전학습 실험} 수행}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
       {SK매직 (현 SK인텔릭스)}{2024.07 -- 2025.02}
       {Data Scientist, 매니저 (인턴)}{서울 종로구}
       \resumeSubHeadingList
-          \resumeItem{자율주행 공기청정기 TF 초기 멤버로서 보조 공기질 센서의 최적 위치 배치 알고리즘 개발 주도}
-          \resumeItem{미국 EPA 기준 응용 실내 공기질 위해도 지수 설계 및 제한된 센서 데이터 기반 IDW 공간 보간 모델 구축}
-          \resumeItem{재사용 가능한 Python 라이브러리로 패키징하여 프로덕션 앱 개발팀에 성공적으로 기술 인계}
+          \resumeItem{자율주행 공기청정기 TF 초기 멤버로서 \textbf{보조 공기질 센서의 최적 위치 배치 알고리즘 개발 주도}}
+          \resumeItem{미국 EPA 기준 응용 실내 공기질 위해도 지수 설계 및 제한된 센서 데이터 기반 \textbf{IDW 공간 보간 모델 구축}}
+          \resumeItem{재사용 가능한 \textbf{Python 라이브러리로 패키징}하여 프로덕션 앱 개발팀에 성공적으로 기술 인계}
       \resumeSubHeadingListEnd
 
 \resumeSubHeadingListEnd
 
-%---------- EDUCATION ----------
-\section{학력 사항 (Education)}
+%---------- TEACHING EXPERIENCE ----------
+\section{강의 및 교육경험 (Teaching Experience)}
 \resumeSubHeadingList
   \resumeSubheading
-      {고려대학교 일반대학원}{2024.03 -- 2026.02}
-      {이학석사, 수학과 (Mathematical Data Science)}{GPA: 4.19 / 4.5}
+      {고려대학교 일반대학원 수학과}{2025.09 -- 2025.12}
+      {연구조교 (Graduate Research Assistant)}{서울 성북구}
       \resumeSubHeadingList
-          \resumeItem{\textbf{지도교수}: 이동헌 $|$ \textbf{Master Capstone Project}: "Numbers Already Carry Their Own Embeddings"}
-          \resumeItem{\textbf{주요 이수과목}: 딥러닝과 수학, 강화학습과 수학, 인공지능과 수학, 응용수학}
+          \resumeItem{대수적 구조 기반 수치 임베딩 연구 실험 보조 및 연구실 세미나 운영}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
-      {고려대학교 이과대학}{2018.03 -- 2024.02}
-      {이학사, 수학과}{GPA: 3.5 / 4.5}
+      {고려대학교 SW중심대학사업단}{2025.03 -- 2025.06}
+      {대표조교 (Head Teaching Assistant) $|$ "SW프로그래밍의 기초" (전교 필수교양)}{서울 성북구}
       \resumeSubHeadingList
-          \resumeItem{\textbf{주요 이수과목}: 선형대수학, 인공지능의 수학적 기법, 응용정수론, 미적분학, 해석학, 대수학, 위상수학}
+          \resumeItem{커리큘럼 및 과제 채점 기준표(Rubric) 수립, 질의응답 오피스아워 운영 및 조교진 총괄}
+      \resumeSubHeadingListEnd
+
+  \resumeSubheading
+      {고려대학교 SW중심대학사업단}{2024.03 -- 2024.06}
+      {조교 (Teaching Assistant) $|$ "SW프로그래밍의 기초" (전교 필수교양)}{서울 성북구}
+      \resumeSubHeadingList
+          \resumeItem{Python 코드 결과물 채점 및 수강생 질의응답 오피스아워 운영}
       \resumeSubHeadingListEnd
 \resumeSubHeadingListEnd
 
-%---------- ACTIVITIES & LANGUAGES ----------
-\section{기타 활동 및 어학 (Activities \& Languages)}
+%---------- LANGUAGES ----------
+\section{언어 능력 (Languages)}
 \resumeSubHeadingList
-  \resumeItem{\textbf{교육 및 해커톤}: LG Aimers 8기 수료 (2026.01 -- 2026.02) $|$ LLM Compression(Pruning, Quantization) 과정 이수 및 EXAONE4-1.2B 모델 경량화 해커톤 참가}
-  \resumeItem{\textbf{어학 (Languages)}: English (OPIc: IH, Intermediate High), Korean (Native)}
+  \resumeItem{\textbf{한국어 (Korean)}: Native}
+  \resumeItem{\textbf{영어 (English)}: Proficient $|$ OPIc IH (취득일: 2025.10.15)}
 \resumeSubHeadingListEnd
+
+%---------- ACTIVITIES ----------
+\section{기타 교육 및 활동 (Activities)}
+\resumeSubHeadingList
+  \resumeItem{\textbf{LG Aimers 8기 수료} (2026.01 -- 2026.02) $|$ LLM Compression(Pruning, Quantization) 과정 이수 및 EXAONE4-1.2B 모델 경량화 해커톤 참가}
+\resumeSubHeadingListEnd
+
+%---------- REFERENCES ----------
+\section{추천인 (References)}
+\vspace{3pt}
+\noindent
+\begin{tabularx}{\textwidth}{@{}X X@{}}
+  \textbf{이동헌 (Donghun Lee)} & \textbf{이재혁 (Jaehyeok Lee)} \\
+  지도교수, 수학과 부교수 & 박사과정 (연구실 방장) \\
+  고려대학교 이과대학 수학과 & 고려대학교 수학과 수리인공지능연구실 \\
+  Email: \href{mailto:holy@korea.ac.kr}{holy@korea.ac.kr} & Email: \href{mailto:jaehyeokbear@korea.ac.kr}{jaehyeokbear@korea.ac.kr} \\
+\end{tabularx}
 
 \end{document}
-
