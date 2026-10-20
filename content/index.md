@@ -21,18 +21,18 @@ publish: True
 제 연구는 ==Adele Ring, 조화해석학 같은 대수적 구조==를 이용해 언어모델의 **수치 임베딩**과 **신뢰성(hallucination)** 을 개선하는 것을 목표로 합니다. 데이터에서 구조를 "학습"하기 전에, 수학이 이미 알려주는 구조를 먼저 활용할 수 있다고 믿습니다.
 
 > [!interests] Research Interests
-> - **Algebraic Representation Learning** — 정수론·조화해석학 기반의 원리적인(principled) 임베딩 설계
-> - **Hallucination Mitigation & Detection** — LLM 환각의 유형 분류와 탐지 지표의 한계 분석
-> - **Trustworthy & Reliable AI** — Machine Unlearning, 내부 표현 수준의 신뢰성 검증
+> - **Representation Learning**
+> - **Efficient Deep Learning**
+> - **Autonomous Agents**
 
 ## News
 
 > [!news]+ Recent Updates
-> - `2026.06` 🎉 **Prime Fourier Embeddings** — *ICML 2026 Workshop AI4MATH* 발표
-> - `2026.04` 💼 고려대학교 산학협력단 지속가능자원-환경연구센터 연구원으로 합류
-> - `2026.02` 🎓 고려대학교 수학과 석사 졸업
-> - `2025.10` 📝 **Numbers Already Carry Their Own Embeddings** — *NeurIPS 2025 Workshop MATH-AI*
-> - `2025.07` 📝 **OPC: One-Point-Contraction Unlearning** — *ICCV 2025 Workshop U&ME*
+> - `2026.07` **Prime Fourier Embeddings** — *ICML 2026 Workshop AI4MATH* 발표
+> - `2026.04` 고려대학교 산학협력단 지속가능자원-환경연구센터 연구원으로 합류
+> - `2026.02` 고려대학교 수학과 석사 졸업
+> - `2025.12` **Numbers Already Carry Their Own Embeddings** — *NeurIPS 2025 Workshop MATH-AI*
+> - `2025.10` **OPC: One-Point-Contraction Unlearning** — *ICCV 2025 Workshop U&ME*
 
 ## Publications
 
@@ -44,7 +44,7 @@ publish: True
 >
 > 조화해석학의 **Pontryagin 쌍대성**에 기반해 정수를 소수-인덱스 (cos, sin) 쌍으로 인코딩하는 임베딩을 제안하고, equivariant한 선형사상이 소수별 **block-diagonal 구조**를 가져야 함을 증명.
 >
-> [📄 arXiv](https://arxiv.org/abs/2606.23044) · `2026.06`
+> [arXiv](https://arxiv.org/abs/2606.23044) · `2026.07`
 >
 > > [!cite]- BibTeX
 > > ```bibtex
@@ -65,7 +65,7 @@ publish: True
 >
 > 대수정수론의 **Adele Ring**을 학습 없이(training-free) 결정론적 수치 임베딩으로 사용해, 숫자의 크기·패턴을 보존하는 임베딩 공간을 제안.
 >
-> [📄 arXiv](https://arxiv.org/abs/2606.14108) · `2025.10`
+> [arXiv](https://arxiv.org/abs/2606.14108) · `2025.12`
 >
 > > [!cite]- BibTeX
 > > ```bibtex
@@ -85,7 +85,7 @@ publish: True
 >
 > Machine Unlearning이 출력값만 바꾸고 내부 표현에는 정보가 잔존하는 **"표면적 망각(superficial forgetting)"** 현상을 지적하고, 은닉층 특징 복원을 통해 실제 망각 여부를 검증하는 평가 기법을 제안.
 >
-> [📄 arXiv](https://arxiv.org/abs/2507.07754) · `2025.07`
+> [arXiv](https://arxiv.org/abs/2507.07754) · `2025.10`
 >
 > > [!cite]- BibTeX
 > > ```bibtex
@@ -105,7 +105,7 @@ publish: True
 >
 > LLM이 QA 생성 시 유발하는 텍스트 환각을 **5가지 유형**으로 분류하고, BLEU/METEOR/ROUGE-L 등 기존 텍스트 유사도 지표가 유형별로 탐지력이 다름을 실험으로 규명.
 >
-> [📄 DBpia](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11861875) · `2024.06` · pp. 450–452
+> [DBpia](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11861875) · `2024.06` · pp. 450–452
 >
 > > [!cite]- BibTeX
 > > ```bibtex
