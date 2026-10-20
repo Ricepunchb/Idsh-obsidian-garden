@@ -32,6 +32,9 @@ const getOpts = ({ target }: Event): { url: URL; scroll?: boolean } | undefined 
   if ("routerIgnore" in a.dataset) return
   const { href } = a
   if (!isLocalUrl(href)) return
+  // standalone HTML documents (e.g. Portfolio.htm) carry their own <head> scripts/styles
+  // (KaTeX etc.), which are lost when only <body> is morphed — use a full page load instead
+  if (/\.html?$/i.test(new URL(href).pathname)) return
   return { url: new URL(href), scroll: "routerNoscroll" in a.dataset ? false : undefined }
 }
 
