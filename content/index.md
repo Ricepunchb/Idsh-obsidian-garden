@@ -1,6 +1,6 @@
 ---
 title: Suhyun Bae · 배수현
-description: AI Research Engineer — Algebraic Representation Learning, Hallucination, Trustworthy AI
+description: AI Research Engineer
 publish: True
 
 # tags:
@@ -10,9 +10,9 @@ publish: True
 > [!profile] AI Research Engineer
 > **Mathematical AI Lab**, Korea University · Seoul, Korea
 >
-> *수학의 구조로, 더 믿을 수 있는 언어모델을 만듭니다.*
+> *Math for AI. Make efficient and robust AI with mathematics.*
 >
-> [✉️ Email](mailto:baeshstar@gmail.com) · [🐙 GitHub](https://github.com/Ricepunchb) · [💼 LinkedIn](https://www.linkedin.com/in/suhyun-bae-869043286) · [📄 CV](Job_Hunting/Portfolio.htm)
+> [Email](mailto:baeshstar@gmail.com) · [GitHub](https://github.com/Ricepunchb) · [LinkedIn](https://www.linkedin.com/in/suhyun-bae-869043286) · [CV](Job_Hunting/Portfolio.htm)
 
 ## About
 
@@ -135,10 +135,10 @@ publish: True
 > [!contact] Get in touch
 > 연구 협업, 채용, 혹은 수학과 AI에 관한 어떤 이야기든 환영합니다.
 >
-> - ✉️ **Email** — [baeshstar@gmail.com](mailto:baeshstar@gmail.com)
-> - 🐙 **GitHub** — [@Ricepunchb](https://github.com/Ricepunchb)
-> - 💼 **LinkedIn** — [suhyun-bae](https://www.linkedin.com/in/suhyun-bae-869043286)
-> - 📄 **Resume** — [CV](Job_Hunting/Portfolio.htm)
+> - **Email** — [baeshstar@gmail.com](mailto:baeshstar@gmail.com)
+> - **GitHub** — [@Ricepunchb](https://github.com/Ricepunchb)
+> - **LinkedIn** — [suhyun-bae](https://www.linkedin.com/in/suhyun-bae-869043286)
+> - **Resume** — [CV](Job_Hunting/Portfolio.htm)
 
 ---
 <center><small>Powered by <a href="https://quartz.jzhao.xyz/">Quartz 4</a> · © 2025–2026 RicePunchb</small></center>
