@@ -13,7 +13,7 @@ tags:
 # DINO & DINOv2 (Self-Distillation with No Labels)
 
 > [!abstract] 핵심 파이프라인 & 3줄 요약
-> **Single Image $x$ $\xrightarrow{\text{Multi-Crop Augmentation}}$ Global Views ($x^g$) & Local Views ($x^l$) $\xrightarrow{\text{EMA Teacher } g_{\theta_t} \text{ & Student } g_{\theta_s}}$ Self-Distillation Cross-Entropy + iBOT Patch Loss**
+> **Single Image $x$ $\xrightarrow{\text{Multi-Crop Augmentation}}$ Global Views ($x^g$) & Local Views ($x^l$) $\xrightarrow{ \text{EMA Teacher } g_{\theta_t} \text{ \& Student } g_{\theta_s}}$ Self-Distillation Cross-Entropy + iBOT Patch Loss**
 > - **한 줄 정의**: 텍스트 캡션이나 사람 손으로 단 라벨을 **단 하나도 쓰지 않고(100% 자기지도학습, Self-Supervised Learning)**, 오직 이미지 자체를 여러 각도로 자른 조각들끼리 **스승(Teacher)-제자(Student) 자기증류(Self-Distillation)** 를 수행해 시각적 본질을 깨우친 Meta AI의 비전 파운데이션 모델이다.
 > - **경이로운 창발성(Emergence)**: 누구도 객체의 경계선(Segmentation)이나 3D 깊이(Depth)를 가르쳐주지 않았음에도, 학습이 끝난 [[ViT]]의 어텐션 맵을 찍어보면 **배경과 물체의 윤곽선이 픽셀 단위로 완벽하게 분리**되고 물체의 부위(귀, 코, 손잡이)까지 스스로 정렬된다.
 > - **[[VLA]]에서의 결정적 역할**: [[CLIP]]/[[SigLIP]]이 "저건 머그컵이다(의미 파악)"를 담당한다면, **DINOv2는 "머그컵 손잡이가 지금 카메라에서 몇 cm 거리에 어떤 곡률로 꺾여 있는가(3D 공간/기하학 파악)"** 를 담당하여 OpenVLA 등 로봇 모델의 필수 눈으로 쓰인다.
