@@ -248,9 +248,57 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
   white-space:nowrap;
   flex-shrink:0;
 }
+
+/* ===== Screen viewer mode (브라우저 열람용). 인쇄/PDF 출력에는 영향 없음 ===== */
+#toolbar{ display:none; }
+@media screen{
+  html,body{ width:auto; min-height:100%; background:#3a3f47; }
+  #toolbar{
+    display:flex; align-items:center; gap:6px;
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    height:44px; padding:0 16px;
+    background:rgba(31,56,100,.96); color:#fff;
+    font-size:13px; box-shadow:0 2px 8px rgba(0,0,0,.35);
+  }
+  #toolbar .title{ font-weight:700; margin-right:auto; letter-spacing:.02em; }
+  #toolbar .zoom-label{ opacity:.8; min-width:48px; text-align:right; margin-right:8px; }
+  #toolbar button{
+    font:inherit; color:#fff; cursor:pointer;
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3);
+    border-radius:6px; padding:5px 12px;
+  }
+  #toolbar button:hover{ background:rgba(255,255,255,.25); }
+  #toolbar button.active{ background:#fff; color:var(--navy); font-weight:700; }
+  #viewer{
+    display:flex; flex-direction:column; align-items:center;
+    gap:10mm; padding:44px 0 0 0;
+  }
+  #viewer::before,#viewer::after{ content:""; display:block; height:6mm; flex-shrink:0; }
+  #viewer .page{
+    flex-shrink:0; background:#fff;
+    box-shadow:0 4px 24px rgba(0,0,0,.45);
+  }
+}
+@media print{
+  #toolbar{ display:none !important; }
+  html,body{ width:210mm; background:#fff; }
+  #viewer{ display:block; zoom:1 !important; padding:0; }
+  #viewer::before,#viewer::after{ display:none; }
+}
 </style>
 </head>
 <body>
+
+<div id="toolbar">
+  <span class="title">Suhyun Bae — Technical Portfolio</span>
+  <span class="zoom-label" id="zoomLabel"></span>
+  <button type="button" data-mode="width" class="active">너비 맞춤</button>
+  <button type="button" data-mode="page">한 페이지 맞춤</button>
+  <button type="button" data-mode="100">100%</button>
+  <button type="button" onclick="window.print()">PDF 저장 / 인쇄</button>
+</div>
+
+<div id="viewer">
 
 <!-- ============ PAGE 1 : COVER & TECHNICAL ARCHITECTURE INDEX (CV SUPPLEMENT) ============ -->
 <div class="page">
@@ -1463,5 +1511,39 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
   <div class="page-num">9</div>
 </div>
 
+</div><!-- /#viewer -->
+
+<script>
+(function(){
+  var viewer = document.getElementById('viewer');
+  var label = document.getElementById('zoomLabel');
+  var buttons = document.querySelectorAll('#toolbar button[data-mode]');
+  var PAGE_W = 210 / 25.4 * 96;   // 210mm in CSS px (~794)
+  var PAGE_H = 297 / 25.4 * 96;   // 297mm in CSS px (~1123)
+  var mode = 'width';
+
+  function apply(){
+    var vw = document.documentElement.clientWidth;
+    var vh = window.innerHeight - 44 - 24;   // toolbar + padding
+    var s = 1;
+    if (mode === 'width') s = (vw - 48) / PAGE_W;
+    else if (mode === 'page') s = Math.min((vw - 48) / PAGE_W, vh / PAGE_H);
+    s = Math.max(0.4, Math.min(s, 2.6));
+    viewer.style.zoom = s;
+    label.textContent = Math.round(s * 100) + '%';
+  }
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){
+      mode = b.getAttribute('data-mode');
+      buttons.forEach(function(x){ x.classList.toggle('active', x === b); });
+      apply();
+    });
+  });
+  window.addEventListener('resize', apply);
+  apply();
+})();
+</script>
+
 </body>
+
 </html>
