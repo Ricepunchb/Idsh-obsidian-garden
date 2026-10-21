@@ -70,3 +70,6 @@ NTK 이론은 **"신경망의 너비를 무한대로 늘리면, 그 신경망은
 
 > [!tip] NTK-Aware Scaling과의 관계
 > "고주파수보다 저주파수를 먼저 학습한다"는 말은, 커널 관점에서 **"완만한(Small $\gamma$) 성분부터 피팅되고, 뾰족한(Large $\gamma$) 성분은 나중에 피팅된다"**는 뜻과 통한다.
+
+---
+연관 노트: [[Gaussian Distribution]], [[Gaussian Process]], [[Gaussian Mixture Model]], [[Gaussian Splatting]], [[Kernel Regression]], [[NTK]]

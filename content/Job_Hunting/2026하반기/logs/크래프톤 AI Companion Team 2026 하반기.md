@@ -2,9 +2,9 @@
 publish: false
 title: 크래프톤 AI Companion Team 2026 하반기
 회사명: 크래프톤
-지원직무: "[AI Research Div.] AI Companion Team (VLA Game Agent / AI Companion)"
-상태: 서류준비
-서류마감: 상시채용
+지원직무: "[AI Research Div.] AI Companion Team (VLA Game Agent)"
+상태: 서류제출
+서류마감: 상시채용. 2026.10.20 제출
 서류발표:
 ---
 > **연결된 제출 서류**:
@@ -101,7 +101,7 @@ title: 크래프톤 AI Companion Team 2026 하반기
 
 ---
 
-# 3. 지원자(배수현)와의 1:1 매칭 팩트 시트
+# 3. 1:1 매칭 팩트 시트
 
 | 팀 요구사항 (공고 및 인터뷰) | 지원자 보유 실적 및 증빙 (CV & 포트폴리오) |
 |:---|:---|

@@ -42,7 +42,7 @@ graph LR
 ```
 
 ### 구성 요소
-1.  **Vision Encoder**: 이미지를 처리하여 특징(Feature)을 추출한다. (예: [[ViT]], CLIP-ViT, SigLIP)
+1.  **Vision Encoder**: 이미지를 처리하여 특징(Feature)을 추출한다. (예: [[ViT]], [[CLIP]]-ViT, [[SigLIP]], [[DINO|DINOv2]])
 2.  **Connector (Adapter)**: 이미지 특징 벡터의 차원을 LLM의 텍스트 임베딩 차원과 맞추고, 언어적 공간으로 변환한다.
 3.  **LLM Backbone**: 변환된 이미지 토큰을 텍스트 프롬프트와 함께 입력받아 답변을 생성한다. (예: Vicuna, Llama-3, Qwen)
 
