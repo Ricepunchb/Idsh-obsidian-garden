@@ -106,9 +106,9 @@ $$\begin{aligned}
 
 ---
 
-## 5. 핵심 응용 1: 베이지안 최적화 (Bayesian Optimization)
+## 5. 핵심 응용 1: 베이지안 최적화 ([[Bayesian Optimization]])
 
-함수 $f(x)$를 한 번 계산하는 데 엄청난 시간과 비용이 드는 **블랙박스 함수 최적화**(예: LLM 학습률 튜닝, 로봇 보행 제어기 게인 튜닝, 신약 분자 합성)에서는 경사하강법($\nabla f$)을 쓸 수 없다. 이때 GP를 대리 모델(Surrogate Model)로 쓰는 **베이지안 최적화**가 표준으로 쓰인다.
+함수 $f(x)$를 한 번 계산하는 데 엄청난 시간과 비용이 드는 **블랙박스 함수 최적화**(예: LLM 학습률 튜닝, 로봇 보행 제어기 게인 튜닝, 신약 분자 합성)에서는 경사하강법($\nabla f$)을 쓸 수 없다. 이때 GP를 대리 모델(Surrogate Model)로 쓰는 **[[Bayesian Optimization|베이지안 최적화(Bayesian Optimization)]]** 가 표준으로 쓰인다.
 
 ```mermaid
 %%{init: {'theme':'default'}}%%
@@ -156,5 +156,5 @@ GP가 이렇게 완벽한데 왜 수백만 장의 이미지나 대규모 데이�
 > **Gaussian Process = "무한 차원의 함수 공간 위에 가우시안 분포를 씌워, 커널 행렬의 조건부 공식 한 줄로 '가장 그럴듯한 예측 곡선($\mu_*$)'과 '그 예측의 신뢰 구간($\Sigma_*$)'을 동시에 뽑아내는 베이지안 머신러닝의 정수"**
 
 ---
-연관 노트: [[Gaussian Distribution]], [[Gaussian Kernel]], [[Kernel Regression]], [[NTK]], [[Uncertainty_Estimation]]
+연관 노트: [[Gaussian Distribution]], [[Gaussian Kernel]], [[Bayesian Optimization]], [[Kernel Regression]], [[NTK]], [[Uncertainty_Estimation]]
 

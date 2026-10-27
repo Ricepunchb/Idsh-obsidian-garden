@@ -40,7 +40,6 @@ graph TD
     style Trainer fill:#E1F5FE,stroke:#0288D1
 ```
 ## 4. 탐색 전략 (Search Strategy)
-
 ### 4.1. 강화학습 (Reinforcement Learning)
 초기 NAS(Zoph & Le, 2017) 방식이다.
 -   **Controller (RNN)**: 아키텍처(하이퍼파라미터)를 생성하는 에이전트.
@@ -51,7 +50,11 @@ graph TD
 -   **방식**: 여러 모델(개체)을 만들고, 성능 좋은 놈끼리 교배(Crossover)하거나 돌연변이(Mutation)를 일으켜 다음 세대를 만든다.
 -   **장점**: 미분 불가능한 목적함수도 최적화 가능.
 
-### 4.3. Differentiable NAS (DARTS)
+### 4.3. 베이지안 최적화 ([[Bayesian Optimization]])
+-   **방식**: 과거 탐색한 구조와 성능 데이터를 바탕으로 [[Gaussian Process]]나 TPE 등의 대리 모델을 학습시키고, **획득 함수(Expected Improvement 등)** 를 통해 성능 향상 기대치가 가장 높은 다음 아키텍처를 추천받아 검증한다 (예: BOHB, Auto-sklearn).
+-   **장점**: 적은 평가 횟수로도 전역 최적 구조를 빠르게 탐색 가능.
+
+### 4.4. Differentiable NAS (DARTS)
 수학과 출신이 가장 좋아할 만한 방식이다. 이산적인(Discrete) 선택 문제를 **연속적인(Continuous) 최적화 문제**로 바꿨다.
 -   **아이디어**: 레이어 $i$와 $j$ 사이에 가능한 연산(Conv3x3, MaxPool 등)을 모두 놓고, **가중치 합(Weighted Sum)** 으로 연결한다.
 -   **수식**:
