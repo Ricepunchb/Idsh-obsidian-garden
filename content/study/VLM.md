@@ -171,4 +171,4 @@ $$ P(Y|X_v, X_{\text{instruct}}) = \prod_{i=1}^{L} P(y_i | X_v, X_{\text{instruc
 > **"VLM은 잘 훈련된 눈(CLIP)과 뇌(LLM)를 준비하고, 그 사이를 통역기(Connector)로 연결해 '이미지 토큰'을 '단어'처럼 읽게 만든 모델이다."**
 
 ---
-연관 노트: [[ViT]], [[VLA]], [[World Model]]
+연관 노트: [[ViT]], [[Token Merging]], [[VLA]], [[World Model]]

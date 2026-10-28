@@ -91,3 +91,6 @@ Transformer Encoder 구조를 그대로 사용한다.
 
 ## 6. 한 줄 요약 
 > **"이미지를 16x16 조각으로 잘라서 단어처럼 취급했더니, CNN보다 더 크게(Scalable) 똑똑해지더라."**
+
+---
+연관 노트: [[VLM]], [[CLIP]], [[SigLIP]], [[DINO]], [[Token Merging]]
