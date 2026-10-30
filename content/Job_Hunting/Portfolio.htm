@@ -312,7 +312,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
     </svg>
     <div style="position:absolute; left:16mm; top:9mm; color:#fff;">
       <div style="font-size:8.2pt; letter-spacing:.16em; opacity:.9; font-weight:600;">TECHNICAL PORTFOLIO &nbsp;</div>
-      <div style="font-size:25pt; font-weight:700; margin-top:2.5mm; letter-spacing:.02em;">배 수 현&nbsp;&nbsp;<span style="font-size:12.5pt; font-weight:400; opacity:.92;">Suhyun&nbsp;Bae &nbsp;|&nbsp; AI Research &amp; Engineering</span></div>
+      <div style="font-size:25pt; font-weight:700; margin-top:2.5mm; letter-spacing:.02em;">배 수 현&nbsp;&nbsp;<span style="font-size:12.5pt; font-weight:400; opacity:.92;">Suhyun&nbsp;Bae &nbsp;|&nbsp; Mathematical Foundations &amp; Reliable Autonomous Agents</span></div>
       <div style="font-size:8.4pt; margin-top:3.5mm; opacity:.95; display:flex; gap:5mm; align-items:center;">
         <span>baeshstar@gmail.com</span>
         <span>010&#8209;3357&#8209;4231</span>
@@ -328,9 +328,9 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
   <div class="cols2" style="gap:4mm; margin-bottom:3.8mm;">
     <div class="pillar-card">
       <div style="font-size:7.4pt; font-weight:700; color:var(--blue); letter-spacing:.03em;">1. REPRESENTATION LEARNING</div>
-      <div style="font-size:9.8pt; font-weight:700; color:var(--navy); margin:1mm 0 1.5mm 0;">수리적 표현 구조 설계</div>
+      <div style="font-size:9.8pt; font-weight:700; color:var(--navy); margin:1mm 0 1.5mm 0;">표현 학습</div>
       <div class="tiny muted" style="line-height:1.48;">
-        파라미터 증량 없이 아델 환(Adele Ring)과 푸리에(Fourier) 조화해석학의 불변 성질을 임베딩과 토크나이저 구조에 이식하여 소형 모델의 추론 한계를 극복합니다.
+        모델 크기를 키우는 대신 숫자의 대수적 규칙(Adele Ring, 푸리에 주기성)을 임베딩과 토크나이저에 직접 심어 작은 모델에서도 정확한 수치 추론이 가능하도록 만듭니다.
       </div>
       <div class="tagrow" style="margin-top:2mm;">
         <span class="tag">AOE (NeurIPS '25 W)</span>
@@ -341,9 +341,9 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
 
     <div class="pillar-card">
       <div style="font-size:7.4pt; font-weight:700; color:var(--blue); letter-spacing:.03em;">2. EFFICIENT DEEP LEARNING</div>
-      <div style="font-size:9.8pt; font-weight:700; color:var(--navy); margin:1mm 0 1.5mm 0;">제약 자원 최적화 및 온디바이스</div>
+      <div style="font-size:9.8pt; font-weight:700; color:var(--navy); margin:1mm 0 1.5mm 0;">효율적 딥러닝</div>
       <div class="tiny muted" style="line-height:1.48;">
-        3B 미만 온디바이스 VLM 경량화(Flash Attention v2, QLoRA)와 복합 제약 베이지안 최적화를 통해 제한된 자원 환경에서 실증 솔루션을 구현합니다.
+        단일 GPU 환경에서 양자화(QLoRA)와 메모리 입출력 최적화로 온디바이스 VLM 메모리를 75% 줄이고 베이지안 최적화로 산업 현장의 실험 횟수를 단축합니다.
       </div>
       <div class="tagrow" style="margin-top:2mm;">
         <span class="tag">2025 SCPC (Top 9%)</span>
@@ -354,12 +354,12 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
 
     <div class="pillar-card">
       <div style="font-size:7.4pt; font-weight:700; color:var(--blue); letter-spacing:.03em;">3. AUTONOMOUS AGENTS</div>
-      <div style="font-size:9.8pt; font-weight:700; color:var(--navy); margin:1mm 0 1.5mm 0;">자율 에이전트 및 신뢰성 통제</div>
+      <div style="font-size:9.8pt; font-weight:700; color:var(--navy); margin:1mm 0 1.5mm 0;">자율 에이전트</div>
       <div class="tiny muted" style="line-height:1.48;">
-        Lean4 컴파일러 피드백 루프, 결정론적 가드레일, FSM 상태머신을 통해 에이전트의 환각과 API 실패 모드를 제어합니다.
+        외부 검증기(Lean4) 피드백 루프와 상태머신(FSM), 코드 가드레일을 결합해 에이전트의 논리적 환각과 실전 운영 중 발생하는 오작동을 시스템 구조로 제어합니다.
       </div>
       <div class="tagrow" style="margin-top:2mm;">
-        <span class="tag">Finance Jarvis</span>
+        <span class="tag">Finance Jarvis (25.5K 줄)</span>
         <span class="tag">PFVL (Lean4 Agent)</span>
         <span class="tag">OPC 및 특허 2건</span>
       </div>
@@ -376,7 +376,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <span class="index-page">Page 2</span>
       </div>
       <div class="tiny muted" style="margin-top:0.5mm;">
-        <b>NeurIPS 2025 Workshop MATH-AI (1저자)</b> &nbsp;|&nbsp; 유리수를 실수와 <i>p</i>진수로 분해하는 결정론적 텐서 임베딩 및 2D 위치 인코딩 설계, ACD 6개 대수 조합론 태스크에서 학습 기반 임베딩 대비 <b>정확도 66% → 92% 달성</b>
+        <b>NeurIPS 2025 Workshop MATH-AI (1저자)</b> &nbsp;|&nbsp; 유리수를 실수 크기와 소수(<i>p</i>)별 자릿수 패턴으로 동시 변환하는 고정 임베딩 설계, 대수 조합론 6개 수학 과제에서 기본 임베딩 대비 <b>정확도 66% → 92% 달성</b>
       </div>
     </div>
   </div>
@@ -389,7 +389,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <span class="index-page">Page 3</span>
       </div>
       <div class="tiny muted" style="margin-top:0.5mm;">
-        <b>ICML 2026 Workshop AI4MATH (공동 1저자)</b> &nbsp;|&nbsp; 단위원(S¹) 회전 기반 소수 채널 인코딩, <b>Schur's Lemma 기반 Block-Diagonal 독립성 정리 증명</b>, 중국인의 나머지 정리(CRT) 채널 가림(Ablation) 실험을 통한 채널 선택성 실증
+        <b>ICML 2026 Workshop AI4MATH (공동 1저자)</b> &nbsp;|&nbsp; 정수를 소수별 단위원 회전(cos, sin)으로 인코딩하고 <b>Schur's Lemma로 채널 간 연산 독립성을 수학적으로 증명</b>, 채널 소거 실험으로 모델의 소수 인수 선택성 입증
       </div>
     </div>
   </div>
@@ -402,7 +402,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <span class="index-page">Page 4</span>
       </div>
       <div class="tiny muted" style="margin-top:0.5mm;">
-        <b>고려대 수리인공지능연구실 (진행중)</b> &nbsp;|&nbsp; nanoGPT·Llama 토크나이저 수정(&lt;NUM&gt; 단일 토큰 분리), Training-free AOE 인코더 라우팅, <b>Custom Loss + Muon 옵티마이저 사전학습 파이프라인</b> 및 Dual-Space Number Decode Head 설계
+        <b>고려대 수리인공지능연구실 (진행중)</b> &nbsp;|&nbsp; nanoGPT·Llama 토크나이저를 개조해 숫자를 단일 &lt;NUM&gt; 토큰으로 분리하고 AOE 수치 인코더와 <b>수치 전용 복원 헤드·Muon 옵티마이저를 결합해 밑바닥부터 사전학습</b>
       </div>
     </div>
   </div>
@@ -411,11 +411,11 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
     <span class="badge-circle">04</span>
     <div style="flex:1;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <div style="font-size:9pt; font-weight:700; color:var(--navy);">Finance Jarvis: 멀티 에이전트 자율 트레이딩 시스템</div>
+        <div style="font-size:9pt; font-weight:700; color:var(--navy);">Finance Jarvis: 비동기 멀티 계좌 자율 트레이딩 및 포트폴리오 에이전트</div>
         <span class="index-page">Page 5</span>
       </div>
       <div class="tiny muted" style="margin-top:0.5mm;">
-        <b>개인 프로젝트 (132개 단위 테스트 통과)</b> &nbsp;|&nbsp; 다중 퀀트 시그널 결합 엔진, SQLite UNIQUE 제약 기반 주문 멱등성 FSM, <code>AIRebalanceGuard</code> 가드레일 설계 및 복기 대시보드 기반 최적화(<b>수익률 -10.45% → +33.46%, 샤프 2.03</b>)
+        <b>개인 프로젝트 (25,500줄 · 186개 테스트 통과 · 3개 계좌 상시 운영)</b> &nbsp;|&nbsp; 퀀트 지표와 뉴스 감성을 결합한 자동매매 엔진 구축, 중복 주문을 막는 상태머신(FSM)과 코드 가드레일 설계, 스냅샷 복기로 전략을 개선해 <b>6개월 수익률 -10.45% → +33.46%(샤프 2.03) 달성</b>
       </div>
     </div>
   </div>
@@ -428,7 +428,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <span class="index-page">Page 6</span>
       </div>
       <div class="tiny muted" style="margin-top:0.5mm;">
-        <b>SCPC 본선 진출 (상위 9%/23위) &amp; 코오롱 전사 도입</b> &nbsp;|&nbsp; ① KOSMOS-2+Flan-T5(2.74B) Two-Stage VLM 경량화(<b>메모리 75% 절감, 추론 가속</b>), ② GP+AutoML Two-Track 모델링 및 DRS 심플렉스 샘플링(<b>유효 배합 탐색 2배 향상</b>)
+        <b>SCPC 본선 진출 (상위 9%/23위) &amp; 코오롱 전사 도입</b> &nbsp;|&nbsp; ① 시각 묘사와 언어 추론을 나눈 2.74B 온디바이스 VLM 최적화(<b>메모리 75% 절감, 추론 1.2배 가속</b>), ② 연속·이진 물성 분리 모델링과 DRS 균일 샘플링으로 <b>신소재 유효 배합 도출량 2배 향상</b>
       </div>
     </div>
   </div>
@@ -441,7 +441,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <span class="index-page">Page 7</span>
       </div>
       <div class="tiny muted" style="margin-top:0.5mm;">
-        <b>Pre-print 논문 주도</b> &nbsp;|&nbsp; 3단계 CoT 분해·Lean4 코드 합성·컴파일러 <code>stderr</code> 피드백 기반 최대 3회 자가 수정 상태머신, ProofNet 정확도 <b>2배 향상(4.58% → 8.63%)</b>, MiniF2F 대수 62문항 해결 및 <b>유효 증명 코드 생성 시 추론 시간 57% 단축</b> 규명
+        <b>Pre-print 논문 주도</b> &nbsp;|&nbsp; 수학 풀이를 단계별로 쪼개 Lean4 코드로 바꾸고 컴파일러 에러 로그로 최대 3회 스스로 고치는 에이전트 구현, ProofNet 정확도 <b>2배 향상(4.58% → 8.63%)</b> 및 <b>유효 코드 생성 시 추론 시간 57% 단축</b> 규명
       </div>
     </div>
   </div>
@@ -454,7 +454,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <span class="index-page">Page 8</span>
       </div>
       <div class="tiny muted" style="margin-top:0.5mm;">
-        <b>KCC 2024 게재 (1저자)</b> &nbsp;|&nbsp; 어간·표제어·동의어 및 교차(Cross) 관계 분석 기반 QA 생성 텍스트 5대 환각 유형 분류 순서도 설계, 기존 텍스트 유사도 척도(BLEU-1·METEOR·ROUGE-L)의 유형별 탐지 실패율 실증
+        <b>KCC 2024 게재 (1저자)</b> &nbsp;|&nbsp; 질의응답 모델이 생성한 오답을 문장 구조와 어순 역전 여부에 따라 5가지 환각 유형으로 분류하고, 기존 평가지표(BLEU·METEOR·ROUGE)가 인과 역전 등을 놓치는 한계를 실험으로 입증
       </div>
     </div>
   </div>
@@ -467,7 +467,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <span class="index-page">Page 9</span>
       </div>
       <div class="tiny muted" style="margin-top:0.5mm;">
-        <b>ICCV 2025 Workshop U&amp;ME · 특허 2건</b> &nbsp;|&nbsp; 최소제곱 선형 사상(FM-Recovery)을 통해 기존 14개 언러닝 기법의 가역적 선형 왜곡 규명, 망각 특징을 원점(<b>0</b>)으로 수축시켜 최대 엔트로피 하한(Schur-concavity)과 그래디언트 붕괴를 동시에 달성하는 <b>OPC</b> 정식화
+        <b>ICCV 2025 Workshop U&amp;ME · 특허 2건</b> &nbsp;|&nbsp; 기존 14개 언러닝 기법이 은닉층에 정보를 남긴 채 출력만 바꾸는 한계를 선형 역매핑(FM-Recovery)으로 밝혀내고, 삭제 대상 특징을 원점(<b>0</b>)으로 모아 복원 공격을 원천 차단하는 <b>OPC</b> 기법 제안
       </div>
     </div>
   </div>
@@ -485,10 +485,10 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
   <div class="project-header">
     <span class="project-kicker">PROJECT 01 · ALGEBRAIC REPRESENTATION (1저자)</span>
     <div class="project-title">Adelic Operation-preserved Embeddings <span style="font-size:13pt; color:var(--gray-sub); font-weight:400;">(AOE)</span></div>
-    <div class="project-sub">대수정수론의 Adele Ring 구조로 유리수를 결정론적 텐서로 매핑하여, 학습 파라미터 추가 없이 소형 모델의 수치·대수 추론 성능을 극대화</div>
+    <div class="project-sub">유리수를 실수 크기와 소수별 <i>p</i>진수 자릿수 패턴으로 동시에 표현해 추가 학습 파라미터 없이 소형 모델의 수학 추론 성능을 높인 임베딩</div>
     <div class="venue-line">NeurIPS 2025 Workshop MATH-AI (San Diego, USA) &nbsp;·&nbsp; Poster 2025.12.06 &nbsp;·&nbsp; “Numbers Already Carry Their Own Embeddings”</div>
     <div style="margin-top:1.8mm; font-size:8pt; color:var(--gray-sub); line-height:1.48;">
-      <b style="color:var(--navy);">Problem &amp; Hypothesis</b> — BPE 토크나이저는 숫자 <code>3.14</code>를 임의의 서브워드로 쪼개어 자릿수와 연산 구조를 파괴(“수치적 환각”). 숫자를 학습 가능한 임의 벡터(<code>nn.Embedding</code>)에 맡기는 대신, 덧셈·곱셈 준동형성(Homomorphism)을 보존하는 대수적 공간으로 직접 사상하면 파라미터 없이도 정밀한 추론이 가능할 것이라 가설 설정
+      <b style="color:var(--navy);">Problem &amp; Hypothesis</b> — 기존 BPE 토크나이저는 숫자 <code>3.14</code>를 임의의 글자 조각으로 쪼개어 자릿수와 연산 규칙을 깨뜨립니다(“수치적 환각”). 숫자를 백지상태의 학습 벡터(<code>nn.Embedding</code>)에 맡기는 대신, 덧셈·곱셈 구조(준동형성)가 그대로 유지되는 아델 환(Adele Ring) 공간으로 직접 변환해 넣어주면 별도 학습 파라미터 없이도 정확한 추론이 가능할 것이라 보았습니다.
     </div>
   </div>
 
@@ -496,7 +496,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
     <div class="col" style="flex:0.95;">
       <div class="subhead">Adele Ring 수리적 정의 및 연산 보존 성질</div>
       <div class="figure-box" style="font-size:8.1pt; line-height:1.65;">
-        유리수 $q \in \mathbb{Q}$를 실수 ($\mathbb{R}$)와 모든 소수 $p$에 대한 $p$진 완비체($\mathbb{Q}_p$)의 제한 직접곱(Restricted Direct Product)인 Adele Ring $\mathbb{A}_{\mathbb{Q}}$로 표현:
+        유리수 $q \in \mathbb{Q}$를 실수 크기($\mathbb{R}$)와 모든 소수 $p$에 대한 $p$진수($\mathbb{Q}_p$, 나머지·자릿수 정보)를 묶은 Adele Ring $\mathbb{A}_{\mathbb{Q}}$로 표현합니다:
         <div style="text-align:center; margin:1.6mm 0; font-size:9.4pt; color:var(--navy); font-weight:600;">
           $$\mathbb{A}_{\mathbb{Q}} := \mathbb{R} \times {\prod_{p \in \mathbb{P}}}' (\mathbb{Q}_p, \mathbb{Z}_p)$$
         </div>
@@ -580,7 +580,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
           <text x="8" y="230" font-size="7.6" fill="#333">PE_total(k) = PE_seq(k) ⊕ PE_row(i) ⊕ PE_col(j)</text>
           <text x="8" y="242" font-size="6.6" fill="#5B6472">시퀀스 내 순서(k), 소수 기저 인덱스(i), p진 자릿수 지수(j)를 동시에 보존</text>
         </svg>
-        <div class="figure-cap">유리수 q를 실수 및 소수별 <i>p</i>진 전개 행렬 A(q)로 변환 후, 2차원 위치 인코딩을 결합해 Transformer에 주입</div>
+        <div class="figure-cap">유리수 q를 실수 및 소수별 <i>p</i>진 전개 행렬 A(q)로 바꾼 뒤 2차원 위치 인코딩을 더해 Transformer에 입력</div>
       </div>
     </div>
   </div>
@@ -623,13 +623,13 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
           <text x="110" y="198" font-size="7.8" fill="var(--navy)" text-anchor="middle" font-weight="700">[CLS] + Linear Classifier (CE Loss)</text>
           <defs><marker id="a2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#9AA6B8"/></marker></defs>
         </svg>
-        <div class="figure-cap">학습 가능한 <code>nn.Embedding</code>을 제거하고 Training-free AOE로 교체</div>
+        <div class="figure-cap">학습 가능한 <code>nn.Embedding</code>을 빼고 고정된 AOE 전처리로 대체</div>
       </div>
     </div>
 
     <div class="col" style="flex:1.18;">
       <div class="subhead">실험 결과: Algebraic Combinatorics Dataset (ACD) 분류 정확도 (%)</div>
-      <div class="tiny muted" style="margin-bottom:1.2mm;">총 6개 대수 조합론 과제(13개 세팅)에서 학습 기반 임베딩(Baseline) 대비 전 구간 유의미한 성능 향상 기록</div>
+      <div class="tiny muted" style="margin-bottom:1.2mm;">수열과 행렬의 규칙성을 찾는 6개 대수 조합론 과제(13개 세팅)에서 기본 임베딩 대비 전 구간 큰 폭의 성능 향상 달성</div>
       <table>
         <tr><th>Task (Algebraic Combinatorics)</th><th>Setting (n)</th><th>Baseline (nn.Embedding)</th><th>AOE (Training-Free)</th></tr>
         <tr><td>Lattice paths</td><td>n = 12</td><td>66.50%</td><td><b>78.44%</b> (+11.94%p)</td></tr>
@@ -639,7 +639,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <tr style="background:#DCE6F5;"><td><b>전체 6개 과제 (13개 세팅) 평균</b></td><td><b>All</b></td><td><b>66.9%</b></td><td><b>91.1% (+24.2%p)</b></td></tr>
       </table>
       <div style="margin-top:2.2mm; background:var(--blue-pale); border-left:2.5pt solid var(--blue); padding:2mm 3.2mm; font-size:8pt; color:var(--navy); font-weight:600; line-height:1.45;">
-        <b>연구 시사점</b>: 학습 파라미터에 의존하는 대신, 유리수의 대수적 환 구조를 보존하는 결정론적 전처리(Training-free)만으로 정확도를 66.9%에서 91.1%로 대폭 개선함을 입증
+        <b>핵심 결과</b>: 별도 학습 파라미터를 쓰지 않고 숫자의 대수적 구조를 보존해 넣어주는 것만으로 평균 정확도를 66.9%에서 91.1%로 끌어올렸습니다.
       </div>
     </div>
   </div>
@@ -657,7 +657,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
   <div class="project-header">
     <span class="project-kicker">PROJECT 02 · HARMONIC ANALYSIS &amp; THEORY (공동 1저자)</span>
     <div class="project-title">Prime Fourier Embeddings <span style="font-size:13pt; color:var(--gray-sub); font-weight:400;">(PFE)</span></div>
-    <div class="project-sub">Pontryagin 쌍대성과 Adelic 조화해석학에 기반해 정수를 소수별 단위원 회전으로 인코딩하고, Schur's Lemma로 채널 간 직교 분해를 증명</div>
+    <div class="project-sub">정수를 소수별 단위원 위의 회전(cos, sin)으로 바꾸고 Schur's Lemma로 서로 다른 소수 채널이 간섭 없이 독립 연산됨을 수학적으로 증명</div>
     <div class="venue-line">ICML 2026 Workshop AI4MATH (Seoul, Korea) &nbsp;·&nbsp; Poster 2026.07.11 &nbsp;·&nbsp; “Prime Fourier Embeddings: A Principled Basis for Modular Arithmetic”</div>
   </div>
 
@@ -665,18 +665,18 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
     <div class="col" style="flex:0.98;">
       <div class="subhead">수리적 정식화 &amp; Block-Diagonal 분해 정리</div>
       <div class="figure-box" style="font-size:8pt; line-height:1.65;">
-        정수 $a \in \mathbb{Z}$를 각 소수 $p$와 자릿수 깊이 $d$에 대한 Pontryagin 쌍대군 캐릭터(단위원 $S^1$ 위의 연속 회전)로 인코딩:
+        정수 $a \in \mathbb{Z}$를 각 소수 $p$와 자릿수 깊이 $d$에 대해 단위원($S^1$) 위의 회전 좌표로 변환합니다:
         <div style="text-align:center; margin:1.6mm 0; font-size:8.8pt; color:var(--navy); font-weight:600;">
           $$\text{PFE}_{p,d}(a) = \left[\cos\!\left(\frac{2\pi a}{p^{d+1}}\right),\; \sin\!\left(\frac{2\pi a}{p^{d+1}}\right)\right] \in \mathbb{R}^2$$
         </div>
         <div style="background:var(--blue-pale); border:0.5pt solid var(--line); border-radius:1.5mm; padding:2mm 2.5mm; margin:1.5mm 0;">
           <b style="color:var(--navy);">Theorem (Block-Diagonal Decomposition via Schur's Lemma)</b><br/>
-          유한 아벨군 $\mathbb{Z}/N\mathbb{Z}$ ($N = \prod p_i^{d_i}$)의 덧셈 이동 작용 $\rho(b)$에 대해 동변(Equivariant)인 모든 선형 연산자 $T$는 기약 표현(Irreducible Representation)들이 서로 비동형(Non-isomorphic)이므로 <b>Schur's Lemma</b>에 의해 소수-깊이 채널별 독립 블록으로 완전 분해됨:
+          나머지 연산($\mathbb{Z}/N\mathbb{Z}$)에서 숫자를 더하는 이동 작용 $\rho(b)$에 일관되게 동작하는 모든 선형 레이어 $T$는, 서로 다른 소수 채널의 주기성이 겹치지 않으므로 <b>Schur's Lemma</b>에 의해 소수-깊이 채널별 독립 블록으로 완전 분리됩니다:
           <div style="text-align:center; margin-top:1mm; font-weight:700; color:var(--blue); font-size:8.6pt;">
             $$T \circ \rho(b) = \rho(b) \circ T \implies T = \bigoplus_{p,\, d} T_{p, d}$$
           </div>
         </div>
-        <span class="tiny muted">• $0 \sim p-1$ 이산값을 쓰던 AOE의 불연속성을 해소하고, 덧셈을 $2\times 2$ 직교 회전 행렬 곱으로 선형화</span>
+        <span class="tiny muted">• $0 \sim p-1$ 이산 숫자를 쓰던 AOE의 불연속성을 해결하고 덧셈 연산을 부드러운 $2\times 2$ 직교 회전 행렬 곱으로 선형화</span>
       </div>
     </div>
 
@@ -717,7 +717,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
           <text x="334" y="148" font-size="6.8" fill="#5B6472" text-anchor="middle">Off-diagonal</text>
           <text x="334" y="159" font-size="7.4" fill="#B0281F" text-anchor="middle" font-weight="700">간섭 = 0</text>
         </svg>
-        <div class="figure-cap">서로 다른 소수 채널 간 불필요한 교차 간섭(Cross-talk)이 원천 차단되는 블록 대각 구조</div>
+        <div class="figure-cap">서로 다른 소수 채널 사이에 불필요한 연산 간섭이 생기지 않는 블록 대각 구조</div>
       </div>
     </div>
   </div>
@@ -746,7 +746,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
           <text x="232" y="59" font-size="7.6" fill="var(--navy)" text-anchor="middle" font-weight="700">Classifier</text>
           <defs><marker id="a4" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#9AA6B8"/></marker></defs>
         </svg>
-        <div class="figure-cap">합성수 <i>N</i>에 대한 <code>(a + b) mod N</code> 학습 후 특정 소수 채널을 마스킹(Ablation)하여 중국인의 나머지 정리(CRT) 부합 여부 검증</div>
+        <div class="figure-cap">합성수 <i>N</i>에 대해 <code>(a + b) mod N</code>을 학습시킨 뒤 특정 소수 채널을 지워(Ablation) 모델이 약수 채널만 골라 쓰는지 확인</div>
       </div>
       <div class="tagrow" style="margin-top:2.5mm;">
         <span class="tag">Pontryagin Duality</span><span class="tag">Schur's Lemma</span><span class="tag">CRT Selectivity</span>
@@ -754,9 +754,9 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
     </div>
 
     <div class="col" style="flex:1.15;">
-      <div class="subhead">소수 채널 Ablation에 따른 정확도 변화 (%p)</div>
+      <div class="subhead">소수 채널 소거(Ablation)에 따른 정확도 변화 (%p)</div>
       <table>
-        <tr><th>입력 숫자 범위 (Range)</th><th>Task-Relevant 소수 채널 마스킹</th><th>Task-Irrelevant 소수 채널 마스킹</th></tr>
+        <tr><th>입력 숫자 범위 (Range)</th><th>문제의 약수 소수 채널 제거 시</th><th>무관한 소수 채널 제거 시</th></tr>
         <tr><td>[0, 100)</td><td><b>−75.1%p</b></td><td>−1.8%p</td></tr>
         <tr><td>[0, 500)</td><td><b>−87.7%p</b></td><td>−1.0%p</td></tr>
         <tr><td>[0, 1000)</td><td><b>−88.0%p</b></td><td>−0.7%p</td></tr>
@@ -764,7 +764,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <tr><td>[0, 4000)</td><td><b>−88.3%p</b></td><td>−0.6%p</td></tr>
       </table>
       <div style="margin-top:2.2mm; background:var(--blue-pale); border-left:2.5pt solid var(--blue); padding:2mm 3.2mm; font-size:8pt; color:var(--navy); font-weight:600;">
-        <b>연구 시사점</b>: 모델이 단순 암기 대신 중국인의 나머지 정리(CRT)에 부합하는 소수 인수 채널만을 선택적으로 조합해 모듈러 연산을 수행함을 정량 실증
+        <b>핵심 결과</b>: 모델이 정답을 단순 암기하지 않고 중국인의 나머지 정리(CRT) 원리대로 문제 해결에 꼭 필요한 소수 채널만 골라 연산한다는 사실을 확인했습니다.
       </div>
     </div>
   </div>
@@ -782,7 +782,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
   <div class="project-header">
     <span class="project-kicker" style="background:#F4B942; color:#5B3A00;">PROJECT 03 · LLM PRE-TRAINING ARCHITECTURE</span>
     <div class="project-title" style="font-size:17pt;">&lt;NUM&gt; Token 기반 LLM 수치 임베딩 및 사전학습 연구</div>
-    <div class="project-sub">nanoGPT·Llama의 토크나이저와 임베딩 레이어를 직접 수정해 숫자를 단일 &lt;NUM&gt; 토큰으로 분리하고, AOE 인코더·Custom Loss·Muon 옵티마이저를 결합해 사전학습하는 연구</div>
+    <div class="project-sub">nanoGPT와 Llama의 토크나이저·임베딩 레이어를 직접 개조해 숫자를 단일 &lt;NUM&gt; 토큰으로 분리하고 AOE 인코더와 수치 전용 손실 함수를 결합해 사전학습하는 연구</div>
     <div class="venue-line">고려대학교 산학협력단 수리인공지능연구실 &nbsp;·&nbsp; 2026.04 – 현재</div>
   </div>
 
@@ -790,14 +790,14 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
     <div class="col" style="flex:0.95;">
       <div class="subhead">배경 및 기존 &lt;NUM&gt; 아키텍처와의 차별점</div>
       <div class="figure-box small" style="line-height:1.68;">
-        기존 LLM의 BPE 토크나이저는 숫자를 임의의 서브워드로 분절하여 자릿수 정보와 연산 구조를 파괴함. 최근 연구는 숫자를 단일 <b>&lt;NUM&gt;</b> 토큰으로 치환하는 방식을 제안했으나, 대수적 환(Ring) 구조를 온전히 보존하지 못함.
+        기존 LLM의 BPE 토크나이저는 숫자를 글자 조각으로 쪼개어 자릿수 정보와 계산 규칙을 잃어버립니다. 최근 숫자를 단일 <b>&lt;NUM&gt;</b> 토큰으로 묶는 연구들이 나왔으나 덧셈과 곱셈 규칙을 동시에 살리지는 못했습니다.
         <div style="margin-top:2mm; padding-top:2mm; border-top:0.4pt dashed var(--line);">
-          <b style="color:var(--navy);">&lt;NUM&gt; 수치 인코딩 패러다임 비교</b>
+          <b style="color:var(--navy);">&lt;NUM&gt; 수치 인코딩 방식 비교</b>
           <table style="margin-top:1.2mm; font-size:7.6pt;">
-            <tr><th>방법론</th><th>수치 인코딩 구조</th><th>대수적 연산 보존 범위</th></tr>
+            <tr><th>방법론</th><th>수치 인코딩 구조</th><th>보존되는 연산 범위</th></tr>
             <tr><td>FoNE</td><td>10진 자릿수별 Fourier 주기 특징</td><td>연속 주기성 (덧셈 위주)</td></tr>
             <tr><td>BitTokens</td><td>이진수(2-adic) 비트열 매핑</td><td>2진 비트 연산에 한정</td></tr>
-            <tr><td><b>AOE / PFE</b></td><td><b>실수 + 다중 <i>p</i>진수 결합</b></td><td><b>덧셈·곱셈·합동 구조 동시 보존</b></td></tr>
+            <tr><td><b>AOE / PFE</b></td><td><b>실수 크기 + 다중 <i>p</i>진수 결합</b></td><td><b>덧셈·곱셈·나머지 규칙 동시 보존</b></td></tr>
           </table>
         </div>
       </div>
@@ -807,9 +807,9 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
       <div class="subhead">핵심 엔지니어링 및 학습 설계</div>
       <div class="figure-box small" style="line-height:1.68;">
         <ul class="bullets">
-          <li><b>토크나이저 &amp; 임베딩 레이어 직접 편집</b>: 정규식 전처리로 텍스트 내 모든 수치 리터럴을 단일 <code>&lt;NUM&gt;</code> 토큰과 별도 수치 배열로 분리, <code>&lt;NUM&gt;</code> 위치에서만 AOE/PFE 벡터를 주입하는 Plug-and-Play 라우팅 구현</li>
-          <li><b>Custom Numerical Loss &amp; Muon 옵티마이저</b>: 일반 텍스트 토큰의 Cross-Entropy Loss와 수치 복원 헤드의 다중 스케일 수치 오차(실수 크기 + <i>p</i>진 자릿수 손실)를 결합하고, 행렬 직교화 기반 <b>Muon 옵티마이저</b>를 적용해 사전학습 수렴 안정성 확보</li>
-          <li><b>Dual-Space 수치 디코딩</b>: 마지막 Hidden State에서 중국인의 나머지 정리(CRT) 역산 또는 낮은 자릿수부터 <i>p</i>-adic Autoregressive하게 수치를 복원하는 디코드 헤드 실험</li>
+          <li><b>토크나이저 &amp; 임베딩 레이어 개조</b>: 정규식으로 문장 속 숫자를 찾아 단일 <code>&lt;NUM&gt;</code> 토큰과 별도 수치 배열로 분리하고 <code>&lt;NUM&gt;</code> 위치에만 AOE/PFE 수치 벡터를 끼워 넣는 라우팅 구조를 구현했습니다.</li>
+          <li><b>수치 전용 손실 함수 &amp; Muon 옵티마이저</b>: 일반 단어의 Cross-Entropy 손실에 수치 복원 오차(실수 크기 + <i>p</i>진 자릿수 오차)를 결합하고 행렬 직교화 기반의 <b>Muon 옵티마이저</b>를 적용해 사전학습 수렴을 안정화했습니다.</li>
+          <li><b>Dual-Space 수치 디코딩</b>: 마지막 은닉 상태에서 중국인의 나머지 정리(CRT)로 역산하거나 낮은 자릿수부터 순차적으로 숫자를 복원하는 전용 출력 헤드를 실험하고 있습니다.</li>
         </ul>
       </div>
     </div>
@@ -881,11 +881,11 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
       <text x="710" y="172" font-size="6.5" fill="#5B3A00" text-anchor="middle" font-weight="700">CRT 역산 / p-adic AR</text>
       <text x="710" y="182" font-size="6.2" fill="#5B3A00" text-anchor="middle">Custom Numerical Loss</text>
     </svg>
-    <div class="figure-cap">기존 트랜스포머 백본을 유지하면서 &lt;NUM&gt; 라우팅과 수치 전용 Decode Head·Custom Loss를 결합한 사전학습 파이프라인</div>
+    <div class="figure-cap">기존 트랜스포머 백본을 유지하면서 &lt;NUM&gt; 라우팅과 수치 전용 복원 헤드·손실 함수를 결합한 사전학습 파이프라인</div>
   </div>
 
   <div style="margin-top:3.5mm; background:#FBF6E9; border-left:2.5pt solid #F4B942; padding:2.4mm 3.5mm; font-size:8.2pt; color:#5B3A00; line-height:1.55;">
-    <b>기대 효과 및 연구 의의</b><br>① <b>파라미터 효율성</b>: 거대 임베딩 테이블 증량 없이 Training-free 수리 구조로 수치 표현력 확보<br>② <b>토큰 효율성</b>: 긴 자릿수 숫자를 단일 <code>&lt;NUM&gt;</code> 토큰으로 압축해 Context Window 절약<br>③ <b>수치 환각 억제</b>: 사전학습 단계부터 실수 크기와 <i>p</i>진 연산 규칙을 내재화
+    <b>기대 효과 및 연구 의의</b><br>① <b>파라미터 절약</b>: 거대한 임베딩 테이블을 늘리지 않고도 고정된 수리 구조로 정밀한 수치 표현력 확보<br>② <b>문맥 길이 절약</b>: 긴 자릿수 숫자를 토큰 하나로 압축해 Context Window 소모 절감<br>③ <b>수치 환각 억제</b>: 사전학습 단계부터 실수 크기와 <i>p</i>진 연산 규칙을 모델 내부에 직접 학습
   </div>
   <div class="tagrow" style="margin-top:2.5mm;">
     <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">nanoGPT</span><span class="tag">Llama</span><span class="tag">Muon Optimizer</span><span class="tag">Custom Loss</span>
@@ -903,9 +903,9 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
 
   <div class="project-header" style="margin-bottom:2.6mm;">
     <span class="project-kicker">PROJECT 04 · AUTONOMOUS AGENT &amp; FAIL-SAFE SYSTEM</span>
-    <div class="project-title" style="font-size:17.5pt;">Finance Jarvis <span style="font-size:12pt; color:var(--gray-sub); font-weight:400;">— 멀티 에이전트 자율 트레이딩 시스템</span></div>
-    <div class="project-sub">결정론적 가드레일(<code>AIRebalanceGuard</code>)과 주문 멱등성 상태머신(FSM)으로 LLM의 판단과 실전 API 실패 모드를 통제하는 자율 매매 시스템</div>
-    <div class="venue-line">개인 프로젝트 (2026.09 – 2026.10)</div>
+    <div class="project-title" style="font-size:17.5pt;">Finance Jarvis <span style="font-size:12pt; color:var(--gray-sub); font-weight:400;">— 비동기 멀티 계좌 자율 트레이딩 및 포트폴리오 에이전트</span></div>
+    <div class="project-sub">결정론적 코드 가드레일(<code>AIRebalanceGuard</code>)과 주문 상태머신(FSM)으로 LLM의 투자 제안과 실전 API 실패 모드를 안전하게 통제하는 자율 매매 시스템</div>
+    <div class="venue-line">개인 엔지니어링 프로젝트 (2026.09 – 2026.10 &nbsp;·&nbsp; Python 약 25,500줄 구축 &nbsp;·&nbsp; 186개 테스트 통과 &nbsp;·&nbsp; 실전·ISA·모의 3개 계좌 상시 운영)</div>
   </div>
 
   <div class="subhead" style="margin-top:1mm;">시스템 아키텍처 — 다중 시그널 의사결정 · 주문 멱등성 FSM · 이원화 리밸런싱 가드레일</div>
@@ -977,7 +977,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
       <text x="670" y="142" font-size="6.4" fill="#5B6472" text-anchor="middle">판단 시점 context_json 스냅샷 차트 복기</text>
       <text x="670" y="152" font-size="6.4" fill="#5B6472" text-anchor="middle">조용한 실패(Silent Bug) 및 손절 패턴 진단</text>
     </svg>
-    <div class="figure-cap">LLM의 역할(종목·비중 제안)과 결정론적 실행 엔진(한도 검증·멱등성 보장·손절 우선권)을 철저히 분리한 이원화 아키텍처</div>
+    <div class="figure-cap">LLM의 역할(종목·비중 제안)과 결정론적 실행 엔진(한도 검증·중복 주문 방지·손절 우선권)을 철저히 분리한 구조</div>
   </div>
 
   <div class="cols2">
@@ -985,9 +985,9 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
       <div class="subhead" style="margin-top:0;">실전 트러블슈팅 및 엔지니어링 디테일</div>
       <div class="figure-box small" style="line-height:1.58;">
         <ul class="bullets">
-          <li><b>시그널 양자화(Quantization) 해소</b>: 초기 이분법 투표에서 점수가 <code>{0, ±1/3, ±2/3, ±1}</code>로 포화되던 문제를 RSI 선형보간, MACD <code>tanh</code>, BB <code>%B</code> 연속 정규화로 해결</li>
-          <li><b>손절 최우선 통과 게이트</b>: WebSocket 장애나 일일 손실 한도 도달 시에도 신규 매수만 차단하고 <b>손절(-7%) 및 ATR 트레일링 익절은 우회 통과</b>하도록 분리</li>
-          <li><b>조용한 실패(Silent Bug) 역추적</b>: 복기 대시보드(<code>context_json</code>)를 통해 <br>① 고정 순서 차감으로 뒤쪽 종목이 30분봉을 못 받던 <code>BackfillBudget</code> 버그<br>② 서드파티 <code>pandas_ta</code>의 CCI 수식 괄호 누락 버그를 발견 및 수정</li>
+          <li><b>시그널 뭉개짐 해소</b>: 초기 이분법 투표에서 매매 점수가 몇 개 값(<code>{0, ±1/3, ±2/3, ±1}</code>)으로만 쏠리던 문제를 RSI 선형보간, MACD <code>tanh</code>, BB <code>%B</code> 연속 정규화로 고쳐 미세한 강도 차이를 살렸습니다.</li>
+          <li><b>손절 최우선 통과 게이트</b>: 웹소켓이 끊기거나 일일 손실 한도에 걸려도 신규 매수만 막고 <b>계좌 보호를 위한 손절(-7%)과 트레일링 익절 주문은 최우선으로 통과</b>시켰습니다.</li>
+          <li><b>침묵하는 버그 역추적</b>: 판단 당시 지표를 그대로 남기는 복기 대시보드(<code>context_json</code>)로 <br>① 앞 종목이 호출 예산을 다 써버려 뒤 종목이 30분봉을 못 받던 기아 버그<br>② 외부 <code>pandas_ta</code>의 CCI 수식 괄호 누락 버그를 찾아내 고쳤습니다.</li>
         </ul>
       </div>
     </div>
@@ -1003,7 +1003,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <tr><td><b>샤프 지수 / 소티노 지수</b></td><td>-0.42 (손실)</td><td><b>2.03 / 2.39</b></td><td><b>1.96 / 2.21</b></td></tr>
       </table>
       <div style="margin-top:2mm; background:var(--blue-pale); border-left:2.5pt solid var(--blue); padding:2mm 3mm; font-size:7.8pt; color:var(--navy); font-weight:600; line-height:1.42;">
-        <b>최적화 전략</b>: 복기 차트에서 하락장 연쇄 손절 패턴을 진단하고, <b>SMA(20/60) 추세 레짐 필터 · 5일 재진입 쿨다운 · 50% 분할 익절(Scale-Out)</b> 가드레일을 코드로 강제하여 수익률을 +33.46%로 흑자 전환
+        <b>핵심 결과</b>: 복기 차트에서 하락장 연쇄 손절 패턴을 확인한 뒤 <b>SMA(20/60) 추세 필터 · 5일 재진입 금지 · 50% 분할 익절</b> 규칙을 코드로 강제해 수익률을 +33.46%로 흑자 전환했습니다.
       </div>
     </div>
   </div>
@@ -1021,7 +1021,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
   <div class="project-header" style="margin-bottom:1.8mm;">
     <span class="project-kicker">PROJECT 05 · ON-DEVICE MULTIMODAL OPTIMIZATION</span>
     <div class="project-title" style="font-size:15pt;">2025 SCPC AI 챌린지 — 3B 미만 온디바이스 VLM 경량화 및 추론 가속</div>
-    <div class="project-sub">단일 GPU·3B 미만 제약에서 일상 이미지 이해 및 5지선다 추론을 수행하는 Two-Stage 온디바이스 파이프라인 설계 &nbsp;·&nbsp; 삼성전자·삼성리서치</div>
+    <div class="project-sub">단일 GPU와 3B 미만 파라미터 제약 속에서 일상 이미지를 읽고 5지선다 추론을 수행하는 2단계 온디바이스 파이프라인 설계 &nbsp;·&nbsp; 삼성전자·삼성리서치</div>
     <div class="venue-line">본선 진출 (전체 246명 중 23위, 상위 9%) &nbsp;·&nbsp; 메모리 사용량 약 75% 절감 및 추론 속도 약 1.2배 향상</div>
   </div>
 
@@ -1044,8 +1044,8 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         </svg>
       </div>
       <div style="margin-top:1.8mm; background:var(--blue-pale); border-left:2.5pt solid var(--blue); padding:1.8mm 2.8mm; font-size:7.7pt; color:var(--navy); line-height:1.45;">
-        • <b>QLoRA (4-bit NF4 양자화)</b>: 베이스 가중치 동결 및 저랭크 어댑터 학습으로 VRAM 병목 해소<br/>
-        • <b>Flash Attention v2 &amp; <code>torch.compile</code></b>: GPU HBM–SRAM 간 I/O 병목 완화 및 커널 퓨전으로 레이어 간 데이터 이동 최소화 → <b>메모리 75% 절감, 추론 속도 1.2배 가속</b>
+        • <b>QLoRA (4-bit NF4 양자화)</b>: 기본 가중치를 얼리고 저랭크 어댑터만 학습해 VRAM 부족 해결<br/>
+        • <b>Flash Attention v2 &amp; <code>torch.compile</code></b>: GPU 메모리 입출력 병목을 줄이고 연산 커널을 합쳐 레이어 간 데이터 이동 최소화 → <b>메모리 75% 절감, 추론 속도 1.2배 가속</b>
       </div>
     </div>
     <div class="col" style="flex:0.88;">
@@ -1053,8 +1053,8 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
       <div class="figure-box small" style="line-height:1.58;">
         <ul class="bullets">
           <li><b>엄격한 대회 제약</b>: 총 파라미터 <b>3B 미만</b>, 단일 RTX 3090 GPU, 2024년 이전 오픈소스 모델만 허용</li>
-          <li><b>왜 Two-Stage인가?</b> 단일 소형 End-to-End VLM은 시각 토큰 정렬과 복합 논리 추론을 동시에 수행할 때 정보 손실이 심해, <b>시각 묘사(KOSMOS-2)와 언어 추론(Flan-T5)을 분리</b>해 총 2.74B로 구성</li>
-          <li><b>Curriculum Learning</b>: 질문 난이도 순으로 데이터를 정렬해 단계적으로 파인튜닝함으로써 양자화 모델의 초기 학습 불안정성 극복 (정확도 0.77 달성)</li>
+          <li><b>2단계 분리 설계</b>: 작은 단일 VLM으로 이미지 이해와 복잡한 추론을 동시에 처리하면 정보 손실이 커서 <b>시각 묘사(KOSMOS-2)와 언어 추론(Flan-T5)으로 역할을 나누어</b> 총 2.74B로 구성했습니다.</li>
+          <li><b>난이도순 학습(Curriculum Learning)</b>: 쉬운 문제부터 어려운 문제 순으로 데이터를 정렬해 단계적으로 학습시켜 양자화 모델의 초기 학습 불안정성을 잡고 정확도 0.77을 달성했습니다.</li>
         </ul>
       </div>
     </div>
@@ -1065,13 +1065,13 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
   <div class="project-header" style="margin-bottom:1.8mm;">
     <span class="project-kicker">PROJECT 06 · CONSTRAINED BAYESIAN OPTIMIZATION</span>
     <div class="project-title" style="font-size:15pt;">KOLON-BO — 복합 제약 신소재 실험 최적설계 AI</div>
-    <div class="project-sub">연속·이진 혼합 물성 예측과 복합 배합 제약을 동시에 만족하는 다목적 베이지안 최적화 엔진 &nbsp;·&nbsp; 코오롱인더스트리 산학협력</div>
+    <div class="project-sub">연속형 물성과 합격·불합격 이진 판정을 동시에 예측하고 까다로운 배합 제약을 만족하는 다목적 베이지안 최적화 엔진 &nbsp;·&nbsp; 코오롱인더스트리 산학협력</div>
     <div class="venue-line">코오롱인더스트리 전사 도입 완료 (Docker 모듈 배포) &nbsp;·&nbsp; 특허 출원 완료 (10-2025-0195253, “변수 조합 탐색 시스템 및 방법”)</div>
   </div>
 
   <div class="cols2">
     <div class="col" style="flex:1.15;">
-      <div class="subhead" style="margin-top:1.2mm;">Two-Track 서로게이트 &amp; DRS 제약 만족 최적화 파이프라인</div>
+      <div class="subhead" style="margin-top:1.2mm;">Two-Track 예측 모델 &amp; DRS 제약 만족 최적화 파이프라인</div>
       <div class="figure-box">
         <svg viewBox="0 0 400 118" width="100%" height="110">
           <rect x="4" y="42" width="80" height="30" rx="4" fill="#DCE6F5" stroke="#B9C9E6" stroke-width="0.8"/>
@@ -1103,16 +1103,16 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
           <text x="378" y="66" font-size="6.4" fill="#5B6472" text-anchor="middle">현업 배포</text>
           <defs><marker id="a9" markerWidth="7" markerHeight="7" refX="4.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#9AA6B8"/></marker></defs>
         </svg>
-        <div class="figure-cap">연속 물성(GP)과 이진 물성(AutoML)을 결합하고, DRS 알고리즘으로 복합 제약 공간 내 유효 후보를 즉시 생성</div>
+        <div class="figure-cap">연속 물성(GP)과 이진 판정(AutoML)을 함께 예측하고 DRS 알고리즘으로 복합 제약 조건을 만족하는 후보를 즉시 생성</div>
       </div>
     </div>
     <div class="col" style="flex:0.85;">
       <div class="subhead" style="margin-top:1.2mm;">핵심 기술 기여 및 정량 성과</div>
       <div class="figure-box small" style="line-height:1.56;">
         <ul class="bullets">
-          <li><b>Two-Track 서로게이트 모델링</b>: GP로 연속 물성을 예측하고, CatBoost·RandomForest 기반 AutoML 확률 분류 모듈을 결합해 현업의 이진(Pass/Fail) 스펙 판정을 동시 모델링</li>
-          <li><b>DRS(Dirichlet-Rescale) 도입</b>: 합 등식·그룹 부등식·계량 단위(5% 스텝) 제약에서 기존 Rejection Sampling의 심각한 속도 병목을 DRS 균일 샘플링으로 완전 대체</li>
-          <li><b>유효 분산 배합 탐색 효율 향상</b>: 단일 점 쏠림(Proposal Concentration)을 방지하는 양방향 구간 최적화를 설계하여, 3,570회 벤치마크에서 외부 베이스라인 대비 <b>유효 분산 배합 탐색 효율을 1.3~2.2배 향상</b></li>
+          <li><b>연속·이진 분리 모델링</b>: 연속 물성 수치는 GP로 예측하고 현업의 합격·불합격(Pass/Fail) 판정은 CatBoost·RandomForest 기반 AutoML 분류 모듈로 예측해 획득함수에 결합했습니다.</li>
+          <li><b>DRS 균일 샘플링 도입</b>: 원료 총합 100%, 그룹별 상·하한, 5% 단위 계량 제약이 얽힌 공간에서 기존 무작위 기각 샘플링이 겪던 속도 병목을 DRS(Dirichlet-Rescale) 알고리즘으로 해결했습니다.</li>
+          <li><b>유효 배합 도출량 2배 향상</b>: 추천 후보가 한곳에 몰리는 현상을 막는 구간 최적화를 설계해 3,570회 벤치마크에서 기존 대비 <b>유효 분산 배합 도출량을 1.3~2.2배 늘렸습니다.</b></li>
         </ul>
       </div>
     </div>
@@ -1131,7 +1131,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
   <div class="project-header">
     <span class="project-kicker">PROJECT 07 · VERIFIER-GUIDED AGENTIC LOOP (연구 주도)</span>
     <div class="project-title">PFVL <span style="font-size:13pt; color:var(--gray-sub); font-weight:400;">(Process-First, Verify-Later)</span></div>
-    <div class="project-sub">자연어 수학 풀이를 단계별로 분해해 형식 증명 언어(Lean4)로 변환하고, 컴파일러 에러 로그(<code>stderr</code>) 기반 자가 수정 루프로 논리적 환각을 억제</div>
+    <div class="project-sub">자연어 수학 풀이를 단계별로 쪼개 형식 증명 언어(Lean4) 코드로 바꾸고 컴파일러 에러 메시지(<code>stderr</code>)를 피드백 삼아 스스로 고치는 추론 에이전트</div>
     <div class="venue-line">고려대학교 수리인공지능세미나 &nbsp;·&nbsp; Pre-print 완성 (2025.06) &nbsp;·&nbsp; “Code to Reason in Math is Still Hard for Well-known LLMs”</div>
   </div>
 
@@ -1154,7 +1154,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
           <text x="28" y="101" font-size="12" fill="#2E5AAC" text-anchor="middle" font-weight="700">2</text>
           <rect x="54" y="78" width="356" height="36" rx="5" fill="#DCE6F5"/>
           <text x="232" y="93" font-size="8.3" fill="var(--navy)" text-anchor="middle" font-weight="700">Phase 2: Step-by-Step 점진적 Lean4(v4.20.0) 코드 변환 및 중간 결합</text>
-          <text x="232" y="106" font-size="7.3" fill="#5B6472" text-anchor="middle">이전 스텝의 컨텍스트를 유지하며 구문 오류의 스노우볼링(Snowballing) 억제</text>
+          <text x="232" y="106" font-size="7.3" fill="#5B6472" text-anchor="middle">앞 단계 문맥을 유지하며 구문 오류가 뒤로 눈덩이처럼 불어나는 현상 억제</text>
 
           <line x1="28" y1="112" x2="28" y2="146" stroke="#2E5AAC" stroke-width="1.6" marker-end="url(#a5)"/>
 
@@ -1170,7 +1170,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
           <text x="28" y="237" font-size="12" fill="#fff" text-anchor="middle" font-weight="700">4</text>
           <rect x="54" y="214" width="356" height="38" rx="5" fill="#2E5AAC"/>
           <text x="232" y="229" font-size="8.3" fill="#fff" text-anchor="middle" font-weight="700">Phase 3: 컴파일러 에러 피드백 기반 Self-Correction (최대 3회 반복)</text>
-          <text x="232" y="242" font-size="7.3" fill="#EAF0FA" text-anchor="middle">외부 형식 검증기를 절대적 Ground-Truth 가드레일로 삼아 환각 없는 증명 코드 완성</text>
+          <text x="232" y="242" font-size="7.3" fill="#EAF0FA" text-anchor="middle">외부 형식 검증기를 엄밀한 가드레일로 삼아 환각 없는 증명 코드 완성</text>
 
           <!-- feedback loop arrow from 4 back to 3 -->
           <path d="M 412 232 C 436 232, 436 164, 412 164" fill="none" stroke="#F4B942" stroke-width="1.8" marker-end="url(#a6)"/>
@@ -1178,7 +1178,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
           <text x="428" y="198" font-size="6.8" fill="#8a6d1f" text-anchor="middle" transform="rotate(90 428 198)" font-weight="700">stderr feedback</text>
 
           <rect x="54" y="262" width="356" height="22" rx="4" fill="#FBF6E9" stroke="#F4B942" stroke-width="0.7"/>
-          <text x="232" y="276" font-size="7.6" fill="#5B3A00" text-anchor="middle" font-weight="700">핵심 발견: 유효(Valid) Lean4 코드 생성 시 추론 시간이 오류 코드 대비 평균 57% 단축됨을 규명</text>
+          <text x="232" y="276" font-size="7.6" fill="#5B3A00" text-anchor="middle" font-weight="700">핵심 발견: 유효한 Lean4 증명 코드 생성 시 오류 코드 대비 추론 시간이 평균 57% 짧음을 규명</text>
         </svg>
       </div>
     </div>
@@ -1187,8 +1187,8 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
       <div class="subhead">설계 특징 및 프레임워크 독립 구현</div>
       <div class="figure-box small" style="line-height:1.6;">
         <ul class="bullets">
-          <li><b>로우레벨 상태머신 직접 구현</b>: LangChain/LangGraph 등 무거운 프레임워크에 의존하지 않고, 컴파일러 프로세스 타임아웃·임시 파일 격리·에러 파싱 루프를 <b>순수 Python으로 직접 구현</b></li>
-          <li><b>다중 상용 SOTA LLM 실증</b>: Claude Opus 4, OpenAI o4-mini, Gemini 2.0 Flash, Perplexity Sonar를 대상으로 학부 순수수학(<b>ProofNet</b>, 371문항) 및 올림피아드 경시(<b>MiniF2F</b>, 488문항) 벤치마크 검증</li>
+          <li><b>순수 Python 상태머신 구현</b>: LangChain 등 무거운 외부 프레임워크에 기대지 않고 컴파일러 프로세스 타임아웃·임시 파일 격리·에러 파싱 루프를 <b>순수 Python으로 직접 구현</b>했습니다.</li>
+          <li><b>다중 상용 LLM 벤치마크 검증</b>: Claude Opus 4, OpenAI o4-mini, Gemini 2.0 Flash, Perplexity Sonar를 대상으로 학부 순수수학(<b>ProofNet</b>, 371문항) 및 수학 경시(<b>MiniF2F</b>, 488문항) 벤치마크에서 효과를 검증했습니다.</li>
         </ul>
       </div>
 
@@ -1201,7 +1201,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
       </table>
 
       <div style="margin-top:2.4mm; background:var(--blue-pale); border-left:2.5pt solid var(--blue); padding:2mm 3mm; font-size:7.8pt; color:var(--navy); line-height:1.45;">
-        <b>연구 시사점</b>: 외부 형식 검증기(Lean4)를 결정론적 가드레일로 결합해 ProofNet 정확도를 <b>2배 향상(4.58% → 8.63%)</b>하고, 유효 증명 생성 시 오류 코드 대비 <b>추론 시간이 57% 단축</b>됨을 규명
+        <b>핵심 결과</b>: 외부 검증기(Lean4)를 가드레일로 결합해 ProofNet 증명 정확도를 <b>2배 향상(4.58% → 8.63%)</b>시켰고 올바른 증명 생성 시 오류 코드 대비 <b>추론 시간이 57% 단축</b>됨을 밝혔습니다.
       </div>
 
       <div class="tagrow" style="margin-top:2.2mm;">
@@ -1223,7 +1223,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
   <div class="project-header">
     <span class="project-kicker">PROJECT 08 · HALLUCINATION TAXONOMY &amp; METRICS (1저자)</span>
     <div class="project-title">Hallucination Type 연구</div>
-    <div class="project-sub">QA 생성 텍스트의 환각(Hallucination) 유형을 5단계 결정 트리로 분류하고, 기존 텍스트 평가 척도(BLEU·METEOR·ROUGE-L)의 탐지 한계를 실증</div>
+    <div class="project-sub">질의응답 모델이 만들어내는 거짓 답변(환각)을 5단계 의사결정 트리로 분류하고 기존 텍스트 평가지표(BLEU·METEOR·ROUGE-L)가 놓치는 사각지대를 입증</div>
     <div class="venue-line">2024 한국컴퓨터종합학술대회(KCC, 제주) &nbsp;·&nbsp; Poster 2024.06.26 (pp.450–452) &nbsp;·&nbsp; “Exploring Hallucination Types in QA Generation and Limitation of Text Evaluation Metrics”</div>
   </div>
 
@@ -1273,7 +1273,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
           <line x1="164" y1="251" x2="188" y2="251" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
           <rect x="190" y="238" width="90" height="26" rx="3" fill="#2E5AAC"/>
           <text x="235" y="249" font-size="7.2" fill="#fff" text-anchor="middle" font-weight="700">유형4</text>
-          <text x="235" y="259" font-size="6.6" fill="#fff" text-anchor="middle">정보구현 부족</text>
+          <text x="235" y="259" font-size="6.6" fill="#fff" text-anchor="middle">조건·수식 누락</text>
 
           <line x1="120" y1="274" x2="120" y2="292" stroke="#5B6472" stroke-width="1.1" marker-end="url(#a7)"/>
           <polygon points="120,294 165,316 120,338 75,316" fill="#F4B942"/>
@@ -1289,7 +1289,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
           <ellipse cx="120" cy="374" rx="34" ry="14" fill="#3FA65A"/>
           <text x="120" y="378" font-size="8" fill="#fff" text-anchor="middle" font-weight="700">무결점</text>
         </svg>
-        <div class="figure-cap">구문 완전성 → 문맥 연관성 → 어간·표제어·동의어 키워드 매칭 → 주어·목적어 교차(Cross) 여부로 세분화</div>
+        <div class="figure-cap">문장 완결성 → 질문 연관성 → 핵심 단어(어간·동의어) 포함 여부 → 주어·목적어 뒤바뀜 순으로 환각 유형을 판별</div>
       </div>
     </div>
 
@@ -1297,11 +1297,11 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
       <div class="subhead">유형별 정의 및 실제 환각 예시</div>
       <table style="font-size:7.6pt;">
         <tr><th>유형</th><th>정답 (Ground Truth)</th><th>오답 (Hallucination 예시)</th></tr>
-        <tr><td><b>Type 1</b><br/><span class="tiny muted">불완전 문장</span></td><td>The cat is in the house</td><td>The house the house the house <span class="tiny muted">(토큰 반복·구문 붕괴)</span></td></tr>
+        <tr><td><b>Type 1</b><br/><span class="tiny muted">불완전 문장</span></td><td>The cat is in the house</td><td>The house the house the house <span class="tiny muted">(단어 반복·문장 붕괴)</span></td></tr>
         <tr><td><b>Type 2</b><br/><span class="tiny muted">동문서답</span></td><td>My favorite food is pizza</td><td>I am hungry <span class="tiny muted">(질문 의도 이탈)</span></td></tr>
-        <tr><td><b>Type 3</b><br/><span class="tiny muted">사족·의미변동</span></td><td>There are seven cats</td><td>There are two cats <span class="tiny muted">(핵심 수치·개체 왜곡)</span></td></tr>
-        <tr><td><b>Type 4</b><br/><span class="tiny muted">정보구현 부족</span></td><td>Seoul is one of the biggest cities in the world</td><td>Seoul is the biggest city in the world <span class="tiny muted">(한정어 누락·과장)</span></td></tr>
-        <tr><td><b>Type 5</b><br/><span class="tiny muted">인과 불일치</span></td><td>The hunter shot the deer</td><td>The deer shot the hunter <span class="tiny muted">(주객·인과 역전)</span></td></tr>
+        <tr><td><b>Type 3</b><br/><span class="tiny muted">사족·의미변동</span></td><td>There are seven cats</td><td>There are two cats <span class="tiny muted">(핵심 숫자·대상 왜곡)</span></td></tr>
+        <tr><td><b>Type 4</b><br/><span class="tiny muted">조건·수식 누락</span></td><td>Seoul is one of the biggest cities in the world</td><td>Seoul is the biggest city in the world <span class="tiny muted">(한정어 누락·과장)</span></td></tr>
+        <tr><td><b>Type 5</b><br/><span class="tiny muted">인과 불일치</span></td><td>The hunter shot the deer</td><td>The deer shot the hunter <span class="tiny muted">(주어·목적어 역전)</span></td></tr>
       </table>
 
       <div class="subhead" style="margin-top:4mm;">기존 텍스트 유사도 척도별 환각 탐지 실패율 (낮을수록 우수)</div>
@@ -1344,11 +1344,11 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
           <rect x="90" y="168" width="8" height="8" fill="#F4B942"/><text x="101" y="175" font-size="6.6" fill="#5B6472">METEOR</text>
           <rect x="152" y="168" width="8" height="8" fill="#B0281F"/><text x="163" y="175" font-size="6.6" fill="#5B6472">ROUGE-L</text>
         </svg>
-        <div class="figure-cap">표면 어휘 척도는 단답형 수치 왜곡(Type 3-short) 외에 장문 왜곡, 부분 누락(Type 4), 인과 역전(Type 5)에서 최대 99%의 탐지 실패율 노출</div>
+        <div class="figure-cap">단어 겹침만 보는 기존 지표는 짧은 수치 오류 외에 긴 문장 왜곡, 조건 누락(유형 4), 인과 역전(유형 5)에서 최대 99%까지 탐지에 실패함</div>
       </div>
 
       <div style="margin-top:2.8mm; background:var(--blue-pale); border-left:2.5pt solid var(--blue); padding:2.2mm 3.2mm; font-size:7.9pt; color:var(--navy); line-height:1.45;">
-        <b>연구 시사점</b>: 어휘 중첩에 기반한 전통 척도는 단어 구성이 동일하고 어순만 바뀐 <b>인과 역전(Type 5)</b>이나 수식어가 누락된 <b>정보 왜곡(Type 4)</b>을 감지하지 못함을 실증
+        <b>핵심 결과</b>: 단어 겹침만 계산하는 기존 평가지표는 쓰인 단어가 같고 어순만 뒤바뀐 <b>인과 역전(Type 5)</b>이나 수식어가 빠진 <b>과장 문장(Type 4)</b>을 잡아내지 못한다는 한계를 실험으로 밝혔습니다.
       </div>
       <div class="tagrow" style="margin-top:2.2mm;">
         <span class="tag">Hallucination Taxonomy</span><span class="tag">Evaluation Metric Analysis</span><span class="tag">NLP</span>
@@ -1369,7 +1369,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
   <div class="project-header" style="margin-bottom:2.6mm;">
     <span class="project-kicker">PROJECT 09 · MATHEMATICAL MACHINE UNLEARNING (3저자 · 특허 공동 발명)</span>
     <div class="project-title">One-Point Contraction <span style="font-size:13pt; color:var(--gray-sub); font-weight:400;">(OPC) &amp; FM-Recovery</span></div>
-    <div class="project-sub">은닉 특징을 원점으로 수축시켜 표현 공간의 선형 분리성을 소거하는 비가역적 심층 언러닝 및 선형 역매핑 진단 프레임워크</div>
+    <div class="project-sub">삭제할 데이터의 은닉층 특징을 원점(0)으로 모아 내부 정보 유출을 막는 머신 언러닝 기법(OPC) 및 잔존 정보 복원 진단 도구(FM-Recovery)</div>
     <div class="venue-line">ICCV 2025 Workshop U&amp;ME &nbsp;·&nbsp; 대한민국 특허 2건 출원 (10-2025-0092136, 10-2026-0074883)</div>
   </div>
 
@@ -1405,7 +1405,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
 
       <!-- Panel (b): FM-Recovery Pipeline -->
       <rect x="242" y="4" width="514" height="84" rx="4" fill="#fff" stroke="#B9C9E6" stroke-width="0.8"/>
-      <text x="499" y="16" font-size="7.5" fill="var(--navy)" text-anchor="middle" font-weight="700">(b) FM-Recovery: 최소제곱 선형 역매핑을 통한 잔여 정보 진단</text>
+      <text x="499" y="16" font-size="7.5" fill="var(--navy)" text-anchor="middle" font-weight="700">(b) FM-Recovery: 최소제곱 선형 역매핑 기반 잔여 정보 진단</text>
 
       <!-- Unlearned Encoder -->
       <rect x="254" y="24" width="115" height="34" rx="3" fill="#4472C4"/>
@@ -1429,7 +1429,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
       <rect x="580" y="43" width="166" height="21" rx="3" fill="#DCE6F5" stroke="#2E5AAC" stroke-width="0.8"/>
       <text x="663" y="57" font-size="6.6" fill="var(--navy)" text-anchor="middle" font-weight="700">DDPM Decoder: 원본 이미지 픽셀 복원</text>
 
-      <text x="499" y="80" font-size="6.2" fill="#5B6472" text-anchor="middle">망각셋(Df) 없이 독립 검증셋만으로 선형 복원하여, 기존 기법의 가역적 선형 왜곡 한계를 입증</text>
+      <text x="499" y="80" font-size="6.2" fill="#5B6472" text-anchor="middle">삭제 데이터(Df) 없이 별도 검증 데이터만으로 선형 역추적하여 기존 기법들이 은닉층에 정보를 남겨두는 한계를 입증</text>
     </svg>
   </div>
 
@@ -1445,7 +1445,7 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <div style="text-align:center; margin:1mm 0; font-size:8.4pt; color:var(--navy);">
           $$W^* = \arg\min_W \sum_{x \in \mathcal{D}_{\text{val}}} \left\| f_0(x) - W f_{\text{un}}(x) \right\|_2^2$$
         </div>
-        독립 검증셋 $\mathcal{D}_{\text{val}}$을 통해 닫힌 해(Closed-form)로 계산. 기존 14개 기법이 특징 공간의 선형 분리성을 보존한 채 표면적 왜곡만 가했음을 규명.
+        별도 검증셋 $\mathcal{D}_{\text{val}}$로 단 4초 만에 계산됩니다. 기존 14개 언러닝 기법이 겉보기 출력만 바꿨을 뿐 은닉층에는 원래 정보를 거의 그대로 남겨두었음을 밝혀냈습니다.
       </div>
 
       <!-- OPC 목적함수 수식 박스 -->
@@ -1454,15 +1454,15 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
         <div style="text-align:center; margin:1mm 0; font-size:8.4pt; color:var(--blue);">
           $$\mathcal{L}_{\text{OPC}} = \lambda_r \mathcal{L}_{\text{CE}}(\mathcal{D}_r) + \lambda_f \mathbb{E}_{x \sim \mathcal{D}_f} \left[ \|\mathbf{m}_\theta(x)\|_2 \right]$$
         </div>
-        망각 데이터 $\mathcal{D}_f$의 로짓·특징을 단일 고정점 원점($\mathbf{0}$)으로 직접 수축시켜 클러스터 볼륨과 선형 분리성을 원천 소멸시킴.
+        삭제할 데이터 $\mathcal{D}_f$의 특징 벡터를 원점($\mathbf{0}$) 한 곳으로 강하게 끌어당겨 데이터 간 구분 경계와 부피를 아예 없애버립니다.
       </div>
 
       <!-- 수리적 보장 박스 -->
       <div class="figure-box" style="padding:2mm 2.6mm; font-size:7.4pt; line-height:1.45;">
         <b style="color:var(--navy);">3. 이론적 보장</b>
         <ul class="bullets" style="margin-top:1mm;">
-          <li><b>엔트로피 최대화 (Theorem B.1)</b>: Schur-오목성에 의해 $\|\mathbf{m}(x)\|_2 \to 0$ 수축 시 예측 엔트로피가 최대 불확실성($\log C$)으로 수렴 보장</li>
-          <li><b>Gradient Collapse (재학습 방어)</b>: 잠재 특징 $z \to \mathbf{0}$ 수축으로 역전파 그래디언트 $\nabla_W \mathcal{L}_{\text{CE}} = (\hat{y}-y)z^\top \to \mathbf{0}$이 붕괴되어 재학습 및 그래디언트 역전 공격 차단</li>
+          <li><b>불확실성 최대화 (Theorem B.1)</b>: 특징 벡터가 $\mathbf{0}$으로 모일 때 Schur-오목성에 의해 모델의 예측 엔트로피가 최대치($\log C$, 완전 무작위 추측 상태)에 도달함을 보장합니다.</li>
+          <li><b>기울기 소멸 기반 재학습 방어</b>: 은닉 특징 $z \to \mathbf{0}$ 수축으로 역전파 기울기 $\nabla_W \mathcal{L}_{\text{CE}} = (\hat{y}-y)z^\top \to \mathbf{0}$이 함께 사라져 소량 데이터로 기억을 되살리려는 재학습 공격을 차단합니다.</li>
         </ul>
       </div>
     </div>
@@ -1494,11 +1494,11 @@ tr:nth-child(even) td{ background:var(--blue-pale); }
 
       <!-- 추가 정량 성과 및 모델 확장 -->
       <div class="figure-box" style="padding:2mm 2.6mm; font-size:7.4pt; line-height:1.45; margin-bottom:2mm;">
-        <b style="color:var(--navy);">실험적 시사점 및 확장성</b>
+        <b style="color:var(--navy);">핵심 결과 및 확장성</b>
         <ul class="bullets" style="margin-top:1mm;">
-          <li><b>가역적 망각의 한계 규명</b>: 기존 언러닝 기법은 겉보기 망각(0%)을 달성하더라도 FM-Recovery 선형 역매핑 시 90% 이상 본래 정확도로 복원됨을 확인. 반면 OPC는 선형 역매핑 시에도 45.0%, 재학습 공격 시에도 36.4%(3개 클래스 랜덤 확률 수준)로 저지하여 비가역적 망각 달성</li>
-          <li><b>Random 10% Entangled Unlearning</b>: 재학습(Retrain)조차 실패(90.8%)하는 데이터 얽힘 설정에서 유일하게 $\mathcal{D}_f$ 정확도 <b>8.27%</b> 달성 ($\mathcal{D}_r$ 99.99% 보존)</li>
-          <li><b>DDPM 생성 모델 확장</b>: 확산 모델의 타깃 클래스 완전 소거(<b>UA 99.98%</b>) 및 원본 이미지 생성 품질(FID 16.06) 유지 실증</li>
+          <li><b>표면적 망각의 한계 입증</b>: 기존 언러닝 기법들은 겉보기 망각률 0%를 기록해도 FM-Recovery로 역추적하면 90% 이상 원래 정답이 복원되었습니다. 반면 OPC는 역추적 시 45.0%, 재학습 공격 시 36.4%(무작위 찍기 수준)로 방어해 실질적인 정보 삭제를 달성했습니다.</li>
+          <li><b>까다로운 무작위 데이터 삭제</b>: 처음부터 다시 학습(Retrain)해도 90.8%나 정보가 남는 무작위 10% 삭제 실험에서 유일하게 삭제 대상 정확도를 <b>8.27%</b>까지 낮추고 유지 데이터 정확도(99.99%)는 그대로 지켰습니다.</li>
+          <li><b>이미지 생성 모델(DDPM) 확장</b>: 확산 모델에서도 특정 클래스 이미지를 <b>99.98%</b> 지우면서 나머지 이미지의 생성 품질(FID 16.06)을 온전히 유지했습니다.</li>
         </ul>
       </div>
 

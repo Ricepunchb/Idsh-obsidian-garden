@@ -92,3 +92,6 @@ LLM의 파라미터가 매우 많다는 점(Over-parameterized)을 이용한다.
 
 > [!abstract] 결론
 > Model Merging은 GPU 없이도 **"수학적 연산만으로 SOTA 모델을 조립"**할 수 있는 강력한 기법이다. (일명 'GPU-poor'를 위한 연금술)
+
+---
+연관 노트: [[Federated Learning]], [[LoRA]], [[Transfer Learning]], [[Training LLM]]

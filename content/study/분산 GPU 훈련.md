@@ -234,3 +234,6 @@ AllGather와 ReduceScatter는 서로의 backward에 정확히 대응한다.
 | 4. non-contracting dim이 같은 축으로 쪼개짐 | - | case 1의 변형, 출력도 자연히 샤딩된 채로 나옴 |
 
 Case 3이 바로 [[분산 GPU 훈련#4.2. Tensor Parallelism (TP)|Tensor Parallelism]]에서 row-parallel 이후 AllReduce가 필요한 이유이고, Case 2가 순수 column-parallel 변형에서 AllGather 통신이 발생하는 이유다.
+
+---
+연관 노트: [[Federated Learning]], [[GPUs]], [[Training LLM]], [[Optimizer]]
