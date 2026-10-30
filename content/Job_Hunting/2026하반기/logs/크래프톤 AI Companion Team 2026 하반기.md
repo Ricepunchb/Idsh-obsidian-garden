@@ -38,9 +38,9 @@ title: 크래프톤 AI Companion Team 2026 하반기
 
 ---
 
-# 2. 공식 채용공고 원문 (AI Companion Team 개별 공고 2건)
+# 2. AI Companion Team 공고
 
-## 공고 ① [주력 타깃] `[AI Research Div.] Research Engineer - Vision Language Action Game Agent (2년 이상 / 인턴)`
+[AI Research Div.] Research Engineer - Vision Language Action Game Agent (2년 이상 / 인턴)`
 - **채용 링크**: [KRAFTON 채용공고 (job=4648)](https://www.krafton.com/careers/recruit-detail/?var_page=1&job=4648&search_list_cnt=10&search_keyword=ai%20research%20div) (`Greenhouse ID: 8417764002`)
 - **근무지**: 역삼 센터필드 West 타워
 - **고용형태**: 인턴 (6개월) / 상시채용
@@ -84,23 +84,6 @@ title: 크래프톤 AI Companion Team 2026 하반기
 > - **필요 서류**: 입사지원서 (CV 형식/가이드라인), 자기소개서(또는 커버레터), 경력기술서, 성적증명서, **포트폴리오 (필수)**
 
 ---
-
-## 공고 ② `[AI Research Div.] AI Companion Team Internship (2년 이상 / 인턴)`
-- **채용 링크**: [KRAFTON 채용공고 (job=4489)](https://www.krafton.com/careers/recruit-detail/?var_page=2&job=4489&search_list_cnt=10&search_keyword=ai%20research%20div) (`Greenhouse ID: 8125444002`)
-- **근무지**: 역삼 센터필드
-- **고용형태**: 인턴 (3개월, 정규직 전환 비대상) / 상시채용
-
-### [공고 ①과의 차이점 요약]
-- **미션**:
-  - LLM, SLM, VLM, Human-AI Interaction 등 최신 AI 기술을 활용해 혁신적인 게임 플레이 경험 설계
-  - 게임 환경에서 발생하는 실시간 상호작용과 대규모 동시 접속 환경에 대응하기 위해 텍스트 및 비주얼 입력을 처리하는 다양한 언어/멀티모달 모델의 연산 효율 최적화
-  - 게임 디자이너, 엔지니어 등과 협업하여 실제 게임 프로젝트에 AI Companion 적용
-  - 사용자 데이터 및 게임 로그 분석을 통해 모델 개선을 위한 피드백 루프 구축 및 지속 개선
-- **필수요건**: AI/CS 관련 석·박사 과정 재학생, LLM/SLM/VLM 중 하나 이상 프로젝트 경험, PyTorch 활용 경험
-- **우대요건**: 저명 학회(NeurIPS, ICML, ICLR, CVPR, ICCV, ECCV, ACL, NAACL 등) 1저자 논문 게재·수상, vLLM/llama-cpp/SGLang 서빙 경험, LlamaIndex/LangGraph 활용 경험, 멀티모달 학습·추론 경험, 타 직군 커뮤니케이션 스킬
-
----
-
 # 3. 1:1 매칭 팩트 시트
 
 | 팀 요구사항 (공고 및 인터뷰) | 지원자 보유 실적 및 증빙 (CV & 포트폴리오) |
