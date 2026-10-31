@@ -3,8 +3,8 @@ publish: false
 title: LG AI 연구원 - Research Scientist - Industrial Optimization
 회사명: LG AI 연구원
 지원직무: Research Scientist - Industrial Optimization
-상태: 서류제출
-서류마감:
+상태: 상시채용. 서류제출
+서류마감: 2026-10-27
 서류발표:
 코테응시:
 코테발표:

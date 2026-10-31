@@ -14,5 +14,5 @@ TABLE
   
 FROM "Job_Hunting/2026하반기/logs" 
 SORT 서류마감 DESC
-WHERE 상태 != "불합격"
+
 ```
