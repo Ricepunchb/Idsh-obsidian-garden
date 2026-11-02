@@ -3,7 +3,7 @@ publish: true
 title: 한화에어로스페이스 2026 AI Research 석박 특채
 회사명: 한화에어로스페이스
 지원직무: Software Engineer, Machine Learning
-상태: 불합
+상태: 불합격
 서류마감: 2026-03-29
 서류발표: 2026-04-18
 코테응시:
@@ -14,6 +14,7 @@ title: 한화에어로스페이스 2026 AI Research 석박 특채
 1차면접발표:
 최종면접:
 최종발표:
+비고: 서류불합
 ---
 
 ## 서류 전형
