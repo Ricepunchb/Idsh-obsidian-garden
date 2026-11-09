@@ -3,14 +3,10 @@ publish: false
 title: LG AI 연구원 - Research Scientist - Industrial Optimization
 회사명: LG AI 연구원
 지원직무: Research Scientist - Industrial Optimization
-상태: 진행중
+상태: 불합격
 서류마감: 2026-10-27
-서류발표:
-코테응시:
-코테발표:
-최종면접:
-최종발표:
-비고: 서류제출
+서류발표: 2026-11-04
+비고: 서류불합
 ---
 # JD
 ## 팀 소개
@@ -54,3 +50,7 @@ Industrial Optimization Tech Cell에서는 산업 현장의 다양한 문제를 
 - 제조, SCM, 생산계획, 설계 자동화 등 실제 산업 문제를 해결한 경험
 - 연구 결과를 실제 운영 가능한 AI 시스템으로 설계·구현·운영한 경험
 - 국제 주요 AI/ML/OR 학회 및 저널 연구 실적
+
+---
+# 후기
+서류 탈락. 여긴 진짜 눈이 높나보다..
