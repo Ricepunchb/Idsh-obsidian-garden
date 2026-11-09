@@ -142,3 +142,8 @@ Selection Mechanism 때문에 Convolution을 못 쓰게 되자, Mamba는 **Scan(
 | **강점**     | "Copy & Paste" (검색, 참조) | "Reasoning", 긴 문맥 요약   |
 ## 7. 한 줄 요약 
 > **"입력에 따라 '기억할 것'과 '버릴 것'을 스스로 결정하는 미분방정식 모델을, GPU에서 병렬로 돌릴 수 있게 만든 아키텍처."**
+
+## 8. 연관 노트
+- [[Attention]]: 표준 Transformer Attention 구조
+- [[Long-sequence Handling]]: 긴 문맥 처리를 위한 FlashAttention 및 확장 기법
+- [[Linear Attention and DeltaNet]]: SSM과 Attention의 경계를 잇는 선형 어텐션, Delta Rule 기반 메모리 소거 및 하이브리드 아키텍처

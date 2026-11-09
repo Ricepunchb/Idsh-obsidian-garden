@@ -127,3 +127,9 @@ FlashAttention을 여러 GPU로 확장한 것이다.
 
 ## 7. 한 줄 요약
 > **"RoPE Scaling으로 좌표계를 늘리고, FlashAttention으로 메모리 병목을 뚫어서, 책 수십 권을 통째로 읽게 만드는 기술."**
+
+## 8. 연관 노트
+- [[Attention]]: 표준 Dot-Product Attention 및 Multi-Head Attention의 기본 수식
+- [[KV Cache Optimization]]: 긴 시퀀스 추론 시 KV 캐시 메모리 최적화 및 PagedAttention
+- [[Linear Attention and DeltaNet]]: 커널 트릭과 Delta Rule 기반 메모리 소거 메커니즘으로 $O(L)$ 복잡도를 달성하는 차세대 선형 어텐션
+- [[Mamba]]: 상태 공간 모델(SSM) 기반의 $O(L)$ 장기 문맥 처리 모델

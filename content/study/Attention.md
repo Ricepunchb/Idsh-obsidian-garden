@@ -136,3 +136,9 @@ Multi-Head Attention은 Query, Key, Value 각각 $N$개의 헤드를 독립적�
 > Attention = “어디를 봐야 할지 스스로 결정해서 중요한 정보만 모으는 메커니즘”
 > Self-Attention = “문장 속 단어끼리 서로를 직접 바라보게 한 것” → 이게 2017년 이후 모든 LLM의 기본 뼈대가 됨
 > GQA/MQA = “Query는 그대로 두고 Key/Value 헤드만 줄여서 KV 캐시를 아끼는 것”
+
+## 8. 연관 노트
+- [[Linear Attention and DeltaNet]]: Softmax를 제거하여 선형 복잡도 $O(L)$ 및 $O(1)$ 상태 갱신을 달성하는 선형 어텐션 및 DeltaNet
+- [[Long-sequence Handling]]: $O(L^2)$ 병목을 극복하기 위한 하드웨어 최적화(FlashAttention) 및 확장 기법
+- [[KV Cache Optimization]]: 추론 시 KV 캐시 메모리 병목 및 GQA/MQA/MLA 압축 기법
+- [[Mamba]]: Attention 없이 순차 모델링을 선형 복잡도로 수행하는 Selective SSM
