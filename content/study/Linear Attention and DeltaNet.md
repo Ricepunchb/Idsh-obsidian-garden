@@ -54,7 +54,7 @@ flowchart LR
 
 ## 1. 배경: 왜 Vanilla Softmax Attention은 한계에 부딪히는가?
 
-표준 트랜스포머의 스케일드 닷-프로덕트 어텐션([[Attention]])은 다음과 같다:
+표준 트랜스포머의 Scaled Dot-Product 어텐션([[Attention]])은 다음과 같다:
 
 $$\operatorname{Attention}(Q, K, V) = \operatorname{Softmax}\left(\frac{Q K^\top}{\sqrt{d}}\right) V$$
 
