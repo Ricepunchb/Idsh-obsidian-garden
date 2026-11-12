@@ -9,7 +9,6 @@ tags:
 ```dataview
 TABLE
   회사명 AS "회사", 
-  서류마감 AS "서류마감일",
   상태 AS "현재 상태",
   비고
   
