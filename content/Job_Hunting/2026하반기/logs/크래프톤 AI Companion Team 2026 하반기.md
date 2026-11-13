@@ -3,10 +3,10 @@ publish: false
 title: 크래프톤 AI Companion Team 2026 하반기
 회사명: 크래프톤
 지원직무: "[AI Research Div.] AI Companion Team (VLA Game Agent)"
-상태: 진행중
+상태: 🟡진행중
 서류마감: 상시채용. 2026.10.20 제출
 서류발표:
-비고: 서류제출
+비고: 서류제출-잠수중
 ---
 > **연결된 제출 서류**:
 > - **커버레터**: [[크래프톤 2026 하반기 커버레터]]

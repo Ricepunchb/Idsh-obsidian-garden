@@ -3,7 +3,7 @@ publish: false
 title: LG AI 연구원 - Research Scientist - Industrial Optimization
 회사명: LG AI 연구원
 지원직무: Research Scientist - Industrial Optimization
-상태: 불합격
+상태: 🔴불합
 서류마감: 2026-10-27
 서류발표: 2026-11-04
 비고: 서류불합

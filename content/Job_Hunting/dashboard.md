@@ -9,7 +9,7 @@ tags:
 ```dataview
 TABLE
   회사명 AS "회사", 
-  상태 AS "현재 상태",
+  상태,
   비고
   
 FROM "Job_Hunting/2026하반기/logs" 
